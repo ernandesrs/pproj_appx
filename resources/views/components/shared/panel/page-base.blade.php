@@ -1,5 +1,5 @@
 <div class="flex flex-col">
-    @if (!empty($title) || isset($actions))
+    @if (!$withoutTitle && (!empty($title) || isset($actions)))
         <div class="
             flex items-center
             w-full
