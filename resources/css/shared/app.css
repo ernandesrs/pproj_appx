@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @source "../../views";
 @custom-variant dark (&:where(.dark, .dark *));
+@import "./../../../node_modules/bootstrap-icons/font/bootstrap-icons.min.css";
 
 @theme {
     --color-primary: oklch(0.511 0.262 276.966);
