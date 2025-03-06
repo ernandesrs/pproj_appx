@@ -15,24 +15,23 @@
                     class="
                     text-zinc-600 dark:text-zinc-300
                     font-semibold lg:text-lg cursor-default">
-                    @if (!empty($icon))
-                        <x-shared.icon :icon="$icon" prepend />
-                    @endif
-                    <span>
-                        {{ $title }}
-                    </span>
-                </div>
-            @endif
-            @isset($actions)
-                <div class="ml-auto flex gap-x-1">
-                    {{ $actions }}
-                </div>
-            @endisset
-        </div>
-    @endif
-
-    <div class="px-5 {{ $showHeader() ? 'pb-4 py-2' : 'py-4' }}">
-        {{ $content ?? $slot }}
+                @empty($icon)
+                    <x-shared.heading tag="h2" :title="$title" />
+                @else
+                    <x-shared.heading tag="h2" :icon="$icon" :title="$title" />
+                @endempty
+            </div>
+        @endif
+        @isset($actions)
+            <div class="ml-auto flex gap-x-1">
+                {{ $actions }}
+            </div>
+        @endisset
     </div>
+@endif
+
+<div class="px-5 {{ $showHeader() ? 'pb-4 py-2' : 'py-4' }}">
+    {{ $content ?? $slot }}
+</div>
 
 </div>
