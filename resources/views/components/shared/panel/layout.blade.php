@@ -1,6 +1,31 @@
 <div
     x-data="{
-        visibleSidebar: false
+        visibleSidebar: false,
+
+        init() {
+            this.setTheme(this.getTheme() ?? 'light');
+        },
+
+        toggleTheme() {
+            this.setTheme(this.getTheme() == 'dark' ? 'light' : 'dark');
+        },
+
+        setTheme(theme) {
+            localStorage.setItem('theme', theme);
+
+            const base = document.querySelector('html');
+            if (theme == 'dark') {
+                base.classList.remove('light');
+                base.classList.add('dark');
+            } else {
+                base.classList.remove('dark');
+                base.classList.add('light');
+            }
+        },
+
+        getTheme() {
+            return localStorage.getItem('theme');
+        }
     }"
     class="
     flex relative
@@ -32,11 +57,18 @@
             border-b border-zinc-300 dark:border-zinc-900
             px-5">
             {{ $header ?? null }}
-            <button
-                class="lg:hidden ml-auto text-xl rounded-lg cursor-pointer"
-                x-on:click="visibleSidebar = !visibleSidebar">
-                <x-shared.icon icon="list" />
-            </button>
+            <div class="flex gap-2 ml-auto">
+                <button
+                    class="text-xl cursor-pointer"
+                    x-on:click="toggleTheme">
+                    <x-shared.icon icon="brightness-high-fill" />
+                </button>
+                <button
+                    class="lg:hidden ml-auto text-xl cursor-pointer"
+                    x-on:click="visibleSidebar = !visibleSidebar">
+                    <x-shared.icon icon="list" />
+                </button>
+            </div>
         </div>
 
         {{-- content/footer --}}
