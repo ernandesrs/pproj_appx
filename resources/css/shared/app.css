@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@source "../../views";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-primary: oklch(0.511 0.262 276.966);
+    --color-primary-dark: oklch(0.359 0.144 278.697);
+    --color-secondary: oklch(0.685 0.169 237.323);
+    --color-secondary-dark: oklch(0.443 0.11 240.79);
+}
