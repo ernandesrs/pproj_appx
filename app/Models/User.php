@@ -18,7 +18,10 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'username',
+        'gender',
         'email',
         'password',
     ];
@@ -39,6 +42,7 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
+        'gender' => \App\Enums\UserGendersEnum::class,
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
