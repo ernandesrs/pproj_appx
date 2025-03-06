@@ -33,9 +33,9 @@
             px-5">
             {{ $header ?? null }}
             <button
-                class="lg:hidden ml-auto bg-zinc-400 px-3 py-2 rounded-lg cursor-pointer"
+                class="lg:hidden ml-auto text-xl rounded-lg cursor-pointer"
                 x-on:click="visibleSidebar = !visibleSidebar">
-                MENU
+                <x-shared.icon icon="list" />
             </button>
         </div>
 
