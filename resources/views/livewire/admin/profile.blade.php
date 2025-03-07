@@ -74,6 +74,11 @@
                     ->map(fn($gender) => ['label' => $gender->label(), 'value' => $gender->value])
                     ->toArray()" />
 
+            <x-shared.form.field
+                class="col-span-12"
+                type="textarea"
+                name="textarea_field"
+                value="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum quas dolorum accusantium ad eum ratione nulla dignissimos mod." />
         </x-shared.form.form>
     </x-shared.card>
 

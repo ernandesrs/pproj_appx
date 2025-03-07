@@ -17,7 +17,7 @@
     ]);
 @endphp
 
-<div {{ $attributes->only(['class']) }}>
+<div {{ $attributes->only(['class'])->merge(['class' => '']) }}>
     @if (in_array($type, ['text', 'email', 'password', 'number', 'date', 'checkbox', 'radio']))
         <input
             {{ $attributes->merge([
@@ -39,6 +39,13 @@
                 <option value="{{ $option['value'] }}">{{ $option['label'] }}</option>
             @endforeach
         </select>
+    @elseif($type == 'textarea')
+        <textarea
+            {{ $attributes->except(['value', 'type'])->merge([
+                'class' => $baseClass . ' min-h-[80px] py-3',
+                'name' => $name,
+                'id' => $name,
+            ]) }}>{{ $attributes->get('value') }}</textarea>
     @endif
 
 </div>
