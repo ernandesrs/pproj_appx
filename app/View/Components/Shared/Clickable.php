@@ -28,7 +28,7 @@ class Clickable extends Component
      */
     public function getStyle(): string
     {
-        return in_array($this->style, ['primary', 'secondary']) ? $this->style : 'primary';
+        return in_array($this->style, ['primary', 'secondary', 'success', 'info', 'danger', 'warning', 'light']) ? $this->style : 'primary';
     }
 
     /**

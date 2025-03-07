@@ -8,4 +8,14 @@
     --color-primary-dark: oklch(0.359 0.144 278.697);
     --color-secondary: oklch(0.685 0.169 237.323);
     --color-secondary-dark: oklch(0.443 0.11 240.79);
+    --color-success: oklch(0.704 0.14 182.503);
+    --color-success-dark: oklch(0.437 0.078 188.216);
+    --color-info: oklch(0.609 0.126 221.723);
+    --color-info-dark: oklch(0.45 0.085 224.283);
+    --color-danger: oklch(0.712 0.194 13.428);
+    --color-danger-dark: oklch(0.455 0.188 13.697);
+    --color-warning: oklch(0.837 0.128 66.29);
+    --color-warning-dark: oklch(0.553 0.195 38.402);
+    --color-light: oklch(0.869 0.022 252.894);
+    --color-light-dark: oklch(0.372 0.044 257.287);
 }
