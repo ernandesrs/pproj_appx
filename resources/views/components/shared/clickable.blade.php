@@ -36,13 +36,14 @@
                     'flat' => 'text-warning border-transparent dark:text-warning-dark',
                 ],
                 'light' => [
-                    'filled' => 'bg-light border-light text-zinc-500 dark:bg-light-dark dark:border-light-dark dark:text-zinc-300',
+                    'filled' =>
+                        'bg-light border-light text-zinc-500 dark:bg-light-dark dark:border-light-dark dark:text-zinc-300',
                     'outlined' => 'border-light text-zinc-500 dark:border-light-dark dark:text-zinc-400',
                     'flat' => 'text-zinc-500 border-transparent dark:text-zinc-400',
                 ],
             ][$getStyle()][$getVariant()],
             'hover:scale-105 duration-300 cursor-pointer',
-            ($small ? 'text-sm px-4 h-[35px]' : 'px-8 h-[45px]') . ' rounded-full',
+            ($small ? 'text-sm px-4 h-[35px]' : 'px-8 h-[45px]') . ($square ? ' ' : ' rounded-full'),
         ]),
     ]) }}>
     <span class="pointer-events-none">

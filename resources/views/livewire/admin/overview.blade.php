@@ -207,6 +207,13 @@
                 style="light"
                 variant="flat"
                 text="Light" />
+
+            <x-shared.clickable
+                prepend-icon="arrow-up"
+                style="primary"
+                variant="filled"
+                text="Square"
+                square />
         </div>
     </x-shared.card>
 

@@ -18,7 +18,8 @@ class Clickable extends Component
         public ?string $prependIcon = null,
         public ?string $appendIcon = null,
         public bool $small = false,
-        public bool $asLink = false
+        public bool $asLink = false,
+        public bool $square = false
     ) {
     }
 
