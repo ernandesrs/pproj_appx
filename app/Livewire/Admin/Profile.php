@@ -8,9 +8,10 @@ class Profile extends Component
 {
     public function render()
     {
-        return view('livewire..admin.profile')
-            ->layout('components.layouts.admin', [
-                'title' => 'Admin - Perfil'
-            ]);
+        return view('livewire..admin.profile', [
+            'profile' => \App\Models\User::first()
+        ])->layout('components.layouts.admin', [
+                    'title' => 'Admin - Perfil'
+                ]);
     }
 }

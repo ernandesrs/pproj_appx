@@ -12,7 +12,7 @@
         'action' => $action,
     ]) }}
     enctype="multipart/form-data">
-    <div class="grid grid-cols-12 {{ $inline ? 'flex-1' : '' }}">
+    <div class="grid grid-cols-12 gap-5 {{ $inline ? 'flex-1' : '' }}">
         {{ $slot }}
     </div>
     <div class="flex justify-center">
