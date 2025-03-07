@@ -30,13 +30,13 @@
                 ]" />
 
             <x-shared.panel.sidebar.section
-                title="Outros"
+                title="Mais itens"
                 :menu-items="[
                     [
-                        'text' => 'Meu perfil',
-                        'icon' => 'person-circle',
-                        'href' => route('admin.profile'),
-                        'activeIn' => ['admin.profile'],
+                        'text' => 'Menu item #1',
+                        'icon' => 'arrow-up',
+                        'href' => '#',
+                        'activeIn' => [],
                     ],
                     [
                         'text' => 'Menu item #2',
@@ -63,6 +63,17 @@
                         'icon' => 'arrow-up',
                         'href' => '#',
                         'activeIn' => [],
+                    ],
+                ]" />
+
+            <x-shared.panel.sidebar.section
+                title="Outros"
+                :menu-items="[
+                    [
+                        'text' => 'Meu perfil',
+                        'icon' => 'person-circle',
+                        'href' => route('admin.profile'),
+                        'activeIn' => ['admin.profile'],
                     ],
                 ]" />
         </x-slot:sidebar>

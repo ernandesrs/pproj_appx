@@ -3,6 +3,7 @@
     text-zinc-100 font-semibold
     px-5 py-3 hover:pl-6 duration-200 rounded-full mb-1
     {{ $active ? 'pl-6' : '' }}"
+    wire:navigate
     href="{{ $href }}">
     <x-shared.icon :icon="$icon" prepend />
     <span>{{ $text }}</span>
