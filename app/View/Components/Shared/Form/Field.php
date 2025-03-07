@@ -16,6 +16,9 @@ class Field extends Component
         public string $type = 'text',
         public ?string $error = null,
 
+        public ?string $selectedValue = null,
+        public array $options = [],
+
         public bool $small = false,
         public bool $square = false,
     ) {

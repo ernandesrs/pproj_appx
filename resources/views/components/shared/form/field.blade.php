@@ -24,7 +24,21 @@
                 'class' => $baseClass,
                 'type' => $type,
                 'name' => $name,
+                'id' => $name,
             ]) }} />
+    @elseif($type == 'select')
+        <select
+            {{ $attributes->merge([
+                'class' => $baseClass,
+                'type' => $type,
+                'name' => $name,
+                'id' => $name,
+            ]) }}>
+            <option value="none">Selecione</option>
+            @foreach ($options as $option)
+                <option value="{{ $option['value'] }}">{{ $option['label'] }}</option>
+            @endforeach
+        </select>
     @endif
 
 </div>

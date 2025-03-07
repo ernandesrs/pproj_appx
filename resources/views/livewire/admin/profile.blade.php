@@ -65,6 +65,15 @@
                 type="radio"
                 name="radio_field" />
 
+            <x-shared.form.field
+                class="col-span-12 sm:col-span-6"
+                type="select"
+                name="gender"
+                :selected-value="\App\Enums\UserGendersEnum::UNDEFINED->value"
+                :options="collect(\App\Enums\UserGendersEnum::cases())
+                    ->map(fn($gender) => ['label' => $gender->label(), 'value' => $gender->value])
+                    ->toArray()" />
+
         </x-shared.form.form>
     </x-shared.card>
 
