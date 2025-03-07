@@ -17,8 +17,9 @@
                 :menu-items="[
                     [
                         'text' => 'Visão geral',
+                        'icon' => 'pie-chart',
                         'href' => route('admin.overview'),
-                        'activeIn' => ['admin.overivew'],
+                        'activeIn' => ['admin.overview'],
                     ],
                 ]" />
 
@@ -27,25 +28,35 @@
                 :menu-items="[
                     [
                         'text' => 'Menu item #1',
+                        'icon' => 'arrow-up',
                         'href' => '#',
                         'activeIn' => [],
                     ],
                     [
                         'text' => 'Menu item #2',
+                        'icon' => 'arrow-up',
                         'href' => '#',
                         'activeIn' => [],
                         'items' => [
                             [
                                 'text' => 'Subitem #1',
+                                'icon' => 'arrow-right',
                                 'href' => '#',
                                 'activeIn' => [],
                             ],
                             [
                                 'text' => 'Subitem #2',
+                                'icon' => 'arrow-right',
                                 'href' => '#',
                                 'activeIn' => [],
                             ],
                         ],
+                    ],
+                    [
+                        'text' => 'Menu item #3',
+                        'icon' => 'arrow-up',
+                        'href' => '#',
+                        'activeIn' => [],
                     ],
                 ]" />
         </x-slot:sidebar>
