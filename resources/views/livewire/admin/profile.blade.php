@@ -55,6 +55,16 @@
                 type="password"
                 name="password_confirmation" />
 
+            <x-shared.form.field
+                class="col-span-12 sm:col-span-6"
+                type="checkbox"
+                name="checkbox_field" />
+
+            <x-shared.form.field
+                class="col-span-12 sm:col-span-6"
+                type="radio"
+                name="radio_field" />
+
         </x-shared.form.form>
     </x-shared.card>
 
