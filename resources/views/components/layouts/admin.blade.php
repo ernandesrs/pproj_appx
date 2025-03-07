@@ -21,16 +21,22 @@
                         'href' => route('admin.overview'),
                         'activeIn' => ['admin.overview'],
                     ],
+                    [
+                        'text' => 'Usuários',
+                        'icon' => 'people',
+                        'href' => route('admin.users.index'),
+                        'activeIn' => ['admin.users.index'],
+                    ],
                 ]" />
 
             <x-shared.panel.sidebar.section
                 title="Outros"
                 :menu-items="[
                     [
-                        'text' => 'Menu item #1',
-                        'icon' => 'arrow-up',
-                        'href' => '#',
-                        'activeIn' => [],
+                        'text' => 'Meu perfil',
+                        'icon' => 'person-circle',
+                        'href' => route('admin.profile'),
+                        'activeIn' => ['admin.profile'],
                     ],
                     [
                         'text' => 'Menu item #2',

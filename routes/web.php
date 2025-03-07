@@ -30,4 +30,19 @@ Route::group([
 
     Route::get('/', \App\Livewire\Admin\Overview::class)->name('admin.overview');
 
+    /**
+     *
+     * Users
+     *
+     */
+    Route::group([
+        'prefix' => 'users'
+    ], function () {
+
+        Route::get('/', \App\Livewire\Admin\User\Index::class)->name('admin.users.index');
+
+    });
+
+    Route::get('/profile', \App\Livewire\Admin\Profile::class)->name('admin.profile');
+
 });
