@@ -33,51 +33,68 @@
             this.fileName = event.target.files.length + ' arquivo(s) selecionado(s).';
         }
     }"
-    {{ $attributes->only(['class'])->merge(['class' => '']) }}>
-    @if (in_array($type, ['text', 'email', 'password', 'number', 'date', 'checkbox', 'radio', 'file']))
-        @if ($type == 'file')
-            <div
-                {{ $attributes->except(['class'])->merge([
-                    'class' => $baseClass . ' !px-0 flex items-center overflow-hidden',
-                ]) }}>
-                <span class="bg-zinc-200 dark:bg-zinc-800 h-full px-5 flex items-center">Escolher</span>
-                <span
-                    x-text="fileName"
-                    x-on:click="selectFile"
-                    class="flex-1 h-full px-5 flex items-center cursor-pointer whitespace-nowrap truncate"></span>
-            </div>
-            <input x-on:change="selectedFile" x-ref="{{ $name }}" type="file" name="{{ $name }}"
-                id="{{ $name }}"
-                class="hidden" />
-        @else
-            <input
+    {{ $attributes->only(['class'])->merge(['class' => 'flex flex-col gap-y-1']) }}>
+    <div class="flex-1 flex {{ in_array($type, ['checkbox', 'radio']) ? 'flex-row' : 'flex-col' }} gap-y-2 gap-x-2">
+        @if (!empty($label) && !in_array($type, ['radio', 'checkbox']))
+            <label for="{{ $name }}"
+                class="text-zinc-500 dark:text-zinc-400">{{ $label }}</label>
+        @endif
+
+        @if (in_array($type, ['text', 'email', 'password', 'number', 'date', 'checkbox', 'radio', 'file']))
+            @if ($type == 'file')
+                <div
+                    {{ $attributes->except(['class'])->merge([
+                        'class' => $baseClass . ' !px-0 flex items-center overflow-hidden',
+                    ]) }}>
+                    <span class="bg-zinc-200 dark:bg-zinc-800 h-full px-5 flex items-center">Escolher</span>
+                    <span
+                        x-text="fileName"
+                        x-on:click="selectFile"
+                        class="flex-1 h-full px-5 flex items-center cursor-pointer whitespace-nowrap truncate"></span>
+                </div>
+                <input x-on:change="selectedFile" x-ref="{{ $name }}" type="file" name="{{ $name }}"
+                    id="{{ $name }}"
+                    class="hidden" />
+            @else
+                <input
+                    {{ $attributes->merge([
+                        'class' => $baseClass,
+                        'type' => $type,
+                        'name' => $name,
+                        'id' => $name,
+                    ]) }} />
+            @endif
+        @elseif($type == 'select')
+            <select
                 {{ $attributes->merge([
                     'class' => $baseClass,
                     'type' => $type,
                     'name' => $name,
                     'id' => $name,
-                ]) }} />
+                ]) }}>
+                <option value="none">Selecione</option>
+                @foreach ($options as $option)
+                    <option value="{{ $option['value'] }}">{{ $option['label'] }}</option>
+                @endforeach
+            </select>
+        @elseif($type == 'textarea')
+            <textarea
+                {{ $attributes->except(['value', 'type'])->merge([
+                    'class' => $baseClass . ' min-h-[80px] py-3',
+                    'name' => $name,
+                    'id' => $name,
+                ]) }}>{{ $attributes->get('value') }}</textarea>
         @endif
-    @elseif($type == 'select')
-        <select
-            {{ $attributes->merge([
-                'class' => $baseClass,
-                'type' => $type,
-                'name' => $name,
-                'id' => $name,
-            ]) }}>
-            <option value="none">Selecione</option>
-            @foreach ($options as $option)
-                <option value="{{ $option['value'] }}">{{ $option['label'] }}</option>
-            @endforeach
-        </select>
-    @elseif($type == 'textarea')
-        <textarea
-            {{ $attributes->except(['value', 'type'])->merge([
-                'class' => $baseClass . ' min-h-[80px] py-3',
-                'name' => $name,
-                'id' => $name,
-            ]) }}>{{ $attributes->get('value') }}</textarea>
+
+        @if (!empty($label) && in_array($type, ['radio', 'checkbox']))
+            <label for="{{ $name }}"
+                class="text-zinc-500 dark:text-zinc-400">{{ $label }}</label>
+        @endif
+    </div>
+    @if ($error)
+        <div class="w-full text-sm text-danger dark:text-danger-dark">
+            {{ $error }}
+        </div>
     @endif
 
 </div>
