@@ -17,15 +17,47 @@
     ]);
 @endphp
 
-<div {{ $attributes->only(['class'])->merge(['class' => '']) }}>
-    @if (in_array($type, ['text', 'email', 'password', 'number', 'date', 'checkbox', 'radio']))
-        <input
-            {{ $attributes->merge([
-                'class' => $baseClass,
-                'type' => $type,
-                'name' => $name,
-                'id' => $name,
-            ]) }} />
+<div
+    x-data="{
+        name: '{{ $name }}',
+        fileName: 'Nenhum arquivo',
+
+        selectFile(event) {
+            var file = $refs[this.name];
+            if (file) {
+                file.click();
+            }
+        },
+
+        selectedFile(event) {
+            this.fileName = event.target.files.length + ' arquivo(s) selecionado(s).';
+        }
+    }"
+    {{ $attributes->only(['class'])->merge(['class' => '']) }}>
+    @if (in_array($type, ['text', 'email', 'password', 'number', 'date', 'checkbox', 'radio', 'file']))
+        @if ($type == 'file')
+            <div
+                {{ $attributes->except(['class'])->merge([
+                    'class' => $baseClass . ' !px-0 flex items-center overflow-hidden',
+                ]) }}>
+                <span class="bg-zinc-200 dark:bg-zinc-800 h-full px-5 flex items-center">Escolher</span>
+                <span
+                    x-text="fileName"
+                    x-on:click="selectFile"
+                    class="flex-1 h-full px-5 flex items-center cursor-pointer whitespace-nowrap truncate"></span>
+            </div>
+            <input x-on:change="selectedFile" x-ref="{{ $name }}" type="file" name="{{ $name }}"
+                id="{{ $name }}"
+                class="hidden" />
+        @else
+            <input
+                {{ $attributes->merge([
+                    'class' => $baseClass,
+                    'type' => $type,
+                    'name' => $name,
+                    'id' => $name,
+                ]) }} />
+        @endif
     @elseif($type == 'select')
         <select
             {{ $attributes->merge([

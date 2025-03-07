@@ -75,6 +75,11 @@
                     ->toArray()" />
 
             <x-shared.form.field
+                class="col-span-12 sm:col-span-6"
+                type="file"
+                name="file_field" />
+
+            <x-shared.form.field
                 class="col-span-12"
                 type="textarea"
                 name="textarea_field"
