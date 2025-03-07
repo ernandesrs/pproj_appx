@@ -41,4 +41,79 @@
         <x-shared.heading title="Lorem dolor heading text h5" tag="h5" />
     </x-shared.card>
 
+    <x-shared.card
+        class="col-span-12 md:col-span-6"
+        icon="collection"
+        title="Botões">
+
+        <div class="flex flex-wrap gap-2 items-center justify-center">
+            <x-shared.clickable
+                prepend-icon="arrow-up"
+                style="primary"
+                variant="filled"
+                text="Primary" small />
+
+            <x-shared.clickable
+                prepend-icon="arrow-up"
+                style="primary"
+                variant="filled"
+                text="Primary" />
+
+            <x-shared.clickable
+                prepend-icon="arrow-up"
+                style="primary"
+                variant="outlined"
+                text="Primary outlined" />
+
+            <x-shared.clickable
+                prepend-icon="arrow-up"
+                style="primary"
+                variant="flat"
+                text="Primary flat" />
+
+            <x-shared.clickable
+                prepend-icon="arrow-up"
+                style="secondary"
+                variant="filled"
+                text="Secondary" small />
+
+            <x-shared.clickable
+                prepend-icon="arrow-up"
+                style="secondary"
+                variant="filled"
+                text="Secondary" />
+
+            <x-shared.clickable
+                prepend-icon="arrow-up"
+                style="secondary"
+                variant="outlined"
+                text="Secondary outlined" />
+
+            <x-shared.clickable
+                prepend-icon="arrow-up"
+                style="secondary"
+                variant="flat"
+                text="Secondary" />
+
+            <x-shared.clickable
+                prepend-icon="arrow-up"
+                style="primary"
+                variant="filled"
+                text="As link"
+                as-link
+                href="https://google.com.br"
+                target="_blank" />
+
+            <x-shared.clickable
+                prepend-icon="person-circle"
+                style="primary"
+                variant="filled"
+                text="Profile"
+                as-link
+                wire:navigate
+                href="{{ route('admin.profile') }}" />
+        </div>
+
+    </x-shared.card>
+
 </x-shared.panel.page-base>
