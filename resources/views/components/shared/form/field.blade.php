@@ -20,9 +20,9 @@
         <input
             {{ $attributes->merge([
                 'class' => $baseClass,
-            ]) }}
-            type="{{ $type }}"
-            name="{{ $name }}">
+                'type' => $type,
+                'name' => $name,
+            ]) }} />
     @endif
 
 </div>
