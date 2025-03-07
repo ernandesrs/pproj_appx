@@ -2,7 +2,7 @@
     {{ $attributes->merge([
         'class' => implode(' ', [
             'bg-zinc-100 relative dark:bg-zinc-900',
-            'border border-zinc-200 rounded dark:border-zinc-800',
+            'border border-zinc-300 rounded dark:border-zinc-800',
         ]),
     ]) }}>
 
