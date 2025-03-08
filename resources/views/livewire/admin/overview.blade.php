@@ -19,6 +19,10 @@
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit libero sed, velit assumenda eveniet
             quod voluptates quos, reprehenderit quaerat veniam commodi dolore nobis quae, officia dolorum accusamus
             ratione nihil!</p>
+        <hr class="my-3">
+        <x-shared.dialog-activator
+            controls="dialog_example_1"
+            text="Abrir dialog" />
     </x-shared.card>
 
     <x-shared.card

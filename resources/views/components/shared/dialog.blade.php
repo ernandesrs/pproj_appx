@@ -1,15 +1,17 @@
 <div
+    x-on:evt__dialog_activate.window="dialogActivatorClicked"
     x-data="{
         id: '{{ $id }}',
         backdropVisible: false,
         contentVisible: false,
 
-        init() {
-            this.show();
-        },
+        init() {},
 
         dialogActivatorClicked(event) {
-            console.log(event);
+            const controls = event?.detail?.id;
+            if (controls != this.id) return;
+
+            this.show();
         },
 
         show() {
