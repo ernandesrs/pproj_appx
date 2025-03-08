@@ -33,7 +33,7 @@
         fixed top-0 left-0 z-50
         flex justify-center items-start
         w-full h-screen
-        bg-zinc-600/50
+        bg-zinc-700/50 dark:bg-zinc-800/50
         p-5">
 
     <x-shared.card
