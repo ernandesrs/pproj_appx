@@ -1,7 +1,7 @@
 <{{ $asLink ? 'a' : 'button' }}
     {{ $attributes->merge([
         'class' => implode(' ', [
-            'flex items-center',
+            'flex items-center ' . ($icon ? 'justify-center' : ''),
             'border',
             [
                 'primary' => [
@@ -43,14 +43,21 @@
                 ],
             ][$getStyle()][$getVariant()],
             'hover:scale-105 duration-300 cursor-pointer',
-            ($small ? 'text-sm px-4 h-[35px]' : 'px-8 h-[45px]') . ($square ? ' ' : ' rounded-full'),
+            ($small ? 'text-sm h-[35px] ' . ($icon ? 'w-[35px]' : 'px-4') : 'h-[45px] ' . ($icon ? 'w-[45px]' : 'px-8')) .
+            ($square ? ' ' : ' rounded-full'),
         ]),
     ]) }}>
     <span class="pointer-events-none">
-        @if ($prependIcon)
-            <x-shared.icon :icon="$prependIcon" prepend />
+        @if ($prependIcon || $icon)
+            @if ($prependIcon)
+                <x-shared.icon :icon="$prependIcon" prepend />
+            @else
+                <x-shared.icon :icon="$icon" />
+            @endif
         @endif
-        <span>{{ $text }}</span>
+        @if (!$icon)
+            <span>{{ $text }}</span>
+        @endif
         @if ($appendIcon)
             <x-shared.icon :icon="$appendIcon" append />
         @endif

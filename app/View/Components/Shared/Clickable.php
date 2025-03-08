@@ -12,9 +12,10 @@ class Clickable extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public string $text,
+        public ?string $text = null,
         public string $style = 'primary',
         public string $variant = 'filled',
+        public ?string $icon = null,
         public ?string $prependIcon = null,
         public ?string $appendIcon = null,
         public bool $small = false,

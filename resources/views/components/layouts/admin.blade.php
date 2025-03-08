@@ -85,6 +85,8 @@
             {{ $slot }}
         </x-slot:content>
     </x-shared.panel.layout>
+
+    @stack('dialogs')
 </body>
 
 </html>

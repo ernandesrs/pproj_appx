@@ -1,3 +1,15 @@
+@push('dialogs')
+    <x-shared.dialog
+        id="dialog_example_1"
+        icon="plus-lg"
+        title="Dialog title" size="base">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, maiores autem asperiores accusamus dignissimos
+            quaerat et velit tempora mollitia eos qui voluptatem magni provident rerum iure iusto repellat. Dolores, quas.
+        </p>
+    </x-shared.dialog>
+@endpush
+
 <x-shared.panel.page-base
     title="Visão geral"
     without-title>
@@ -51,6 +63,14 @@
                 style="primary"
                 variant="filled"
                 text="Primary small" small />
+            <x-shared.clickable
+                icon="arrow-up"
+                style="primary"
+                variant="filled" small />
+            <x-shared.clickable
+                icon="arrow-up"
+                style="primary"
+                variant="filled" />
             <x-shared.clickable
                 prepend-icon="arrow-up"
                 style="primary"
