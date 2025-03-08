@@ -79,6 +79,45 @@
         </x-slot:sidebar>
 
         <x-slot:header>
+            <x-slot:append>
+                <x-shared.dropdown
+                    class="w-[200px] sm:w-[225px]"
+                    location="right">
+                    <x-slot:activator>
+                        <x-shared.clickable
+                            class="hover:!scale-100"
+                            style="light"
+                            variant="flat"
+                            icon="bell" />
+                    </x-slot:activator>
+                    <x-shared.card
+                        icon="bell"
+                        title="Notificações">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat dolor suscipit mollitia saepe
+                        nesciunt repudiandae autem assumenda nihil quia, inventore corporis fugiat placeat voluptatem
+                        perferendis, cum rerum aut aperiam harum!
+                    </x-shared.card>
+                </x-shared.dropdown>
+
+                <x-shared.dropdown
+                    class="w-[200px] sm:w-[225px]"
+                    location="right">
+                    <x-slot:activator>
+                        <x-shared.clickable
+                            class="hover:!scale-100"
+                            style="light"
+                            variant="flat"
+                            icon="person-circle" />
+                    </x-slot:activator>
+                    <x-shared.card
+                        icon="person-circle"
+                        title="Meu perfil">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat dolor suscipit mollitia saepe
+                        nesciunt repudiandae autem assumenda nihil quia, inventore corporis fugiat placeat voluptatem
+                        perferendis, cum rerum aut aperiam harum!
+                    </x-shared.card>
+                </x-shared.dropdown>
+            </x-slot:append>
         </x-slot:header>
 
         <x-slot:content>

@@ -56,13 +56,18 @@
             flex items-center relative
             border-b border-zinc-300 dark:border-zinc-900
             px-5">
+            <div class="flex gap-2">
+                {{ $prepend ?? null }}
+            </div>
             {{ $header ?? null }}
             <div class="flex gap-2 ml-auto">
-                <button
-                    class="text-xl cursor-pointer"
-                    x-on:click="toggleTheme">
-                    <x-shared.icon icon="brightness-high-fill" />
-                </button>
+                {{ $append ?? null }}
+                <x-shared.clickable
+                    class="hover:!scale-100"
+                    x-on:click="toggleTheme"
+                    style="light"
+                    variant="flat"
+                    icon="brightness-high-fill" />
                 <button
                     class="lg:hidden ml-auto text-xl cursor-pointer"
                     x-on:click="visibleSidebar = !visibleSidebar">

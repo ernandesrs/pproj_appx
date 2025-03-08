@@ -44,7 +44,8 @@
         flex justify-center items-start
         w-full h-screen
         bg-zinc-700/50 dark:bg-zinc-800/50
-        p-5">
+        p-5"
+    style="display: none;">
 
     <x-shared.card
         x-show="contentVisible"
