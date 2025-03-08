@@ -28,8 +28,14 @@
             <x-slot:activator>
                 <x-shared.icon icon="info-circle" />
             </x-slot:activator>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit
         </x-shared.tooltip>
+        <hr class="my-3">
+        <x-shared.labeled-info-text label="Label" text="Labeled text with tooltip"
+            tooltip-text="Lorem ipsum dolor sit amet consectetur adipisicing elit"
+            tooltip-location="left" />
+        <x-shared.labeled-info-text label="Label" text="Labeled text"
+            tooltip-location="left" />
+        <x-shared.labeled-info-text label="Label" text="Labeled text" inline tooltip-location="left" />
     </x-shared.card>
 
     <x-shared.card

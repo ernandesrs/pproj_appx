@@ -41,9 +41,9 @@
         x-show="visible"
 
         {{ $attributes->merge([
-            'class' => 'absolute z-40 ' . ['left' => 'left-0', 'right' => 'right-0'][$getLocation()],
+            'class' => 'absolute ' . ['left' => 'left-0', 'right' => 'right-0'][$getLocation()],
         ]) }}
-        style="display: none;">
+        style="display: none; z-index: 999;">
         {{ $content ?? $slot }}
     </div>
 </div>
