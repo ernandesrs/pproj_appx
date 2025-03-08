@@ -16,9 +16,9 @@
                     text-zinc-600 dark:text-zinc-300
                     font-semibold lg:text-lg cursor-default">
                 @empty($icon)
-                    <x-shared.heading tag="h2" :title="$title" />
+                    <x-shared.heading :tag="$titleTag" :title="$title" />
                 @else
-                    <x-shared.heading tag="h2" :icon="$icon" :title="$title" />
+                    <x-shared.heading :tag="$titleTag" :icon="$icon" :title="$title" />
                 @endempty
             </div>
         @endif

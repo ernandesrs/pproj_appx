@@ -92,7 +92,8 @@
                     </x-slot:activator>
                     <x-shared.card
                         icon="bell"
-                        title="Notificações">
+                        title="Notificações"
+                        title-tag="h4">
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat dolor suscipit mollitia saepe
                         nesciunt repudiandae autem assumenda nihil quia, inventore corporis fugiat placeat voluptatem
                         perferendis, cum rerum aut aperiam harum!
@@ -111,7 +112,8 @@
                     </x-slot:activator>
                     <x-shared.card
                         icon="person-circle"
-                        title="Meu perfil">
+                        title="Meu perfil"
+                        title-tag="h4">
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat dolor suscipit mollitia saepe
                         nesciunt repudiandae autem assumenda nihil quia, inventore corporis fugiat placeat voluptatem
                         perferendis, cum rerum aut aperiam harum!

@@ -57,7 +57,8 @@
             'xl' => 'max-w-[975px]',
         ][$getSize()] }}"
         :icon="$icon ?? ''"
-        :title="$title">
+        :title="$title"
+        title-tag="h5">
 
         <x-slot:actions>
             <x-shared.clickable

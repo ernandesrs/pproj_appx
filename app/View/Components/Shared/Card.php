@@ -14,6 +14,7 @@ class Card extends Component
     public function __construct(
         public string $title = '',
         public string $icon = '',
+        public string $titleTag = 'h2',
     ) {
     }
 
