@@ -23,6 +23,13 @@
         <x-shared.dialog-activator
             controls="dialog_example_1"
             text="Abrir dialog" />
+        <hr class="my-3">
+        <x-shared.tooltip class="w-[125px] md:w-[225px]" :location="'left'">
+            <x-slot:activator>
+                <x-shared.icon icon="info-circle" />
+            </x-slot:activator>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit
+        </x-shared.tooltip>
     </x-shared.card>
 
     <x-shared.card
