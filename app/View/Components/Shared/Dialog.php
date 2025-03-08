@@ -6,6 +6,22 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
+/**
+ *
+ * Summary of Dialog
+ *
+ * Listen this events
+ * - evt__dialog_show
+ * - evt__dialog_close
+ *
+ * Dispatch example:
+ * - $dispatch('evt_name', {id: 'dialog_id'})
+ *
+ * Dispatch this events
+ * - evt__dialog_showed
+ * - evt__dialog_closed
+ *
+ */
 class Dialog extends Component
 {
     /**

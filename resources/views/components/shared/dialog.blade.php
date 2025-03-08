@@ -1,5 +1,6 @@
 <div
-    x-on:evt__dialog_activate.window="dialogActivatorClicked"
+    x-on:evt__dialog_show.window="dialogActivatorClicked"
+    x-on:evt__dialog_close.window="dialogCloserClicked"
     x-data="{
         id: '{{ $id }}',
         backdropVisible: false,
@@ -14,10 +15,18 @@
             this.show();
         },
 
+        dialogCloserClicked(event) {
+            const controls = event?.detail?.id;
+            if (controls != this.id) return;
+
+            this.close();
+        },
+
         show() {
             this.backdropVisible = true;
             setTimeout(() => {
                 this.contentVisible = true;
+                $dispatch('evt__dialog_showed');
             }, 100);
         },
 
@@ -25,6 +34,7 @@
             this.contentVisible = false;
             setTimeout(() => {
                 this.backdropVisible = false;
+                $dispatch('evt__dialog_closed');
             }, 100);
         }
     }"

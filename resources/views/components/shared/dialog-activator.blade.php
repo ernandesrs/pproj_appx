@@ -2,7 +2,7 @@
     x-data="{
         id: '{{ $controls }}',
         activatorClicked(event) {
-            $dispatch('evt__dialog_activate', {
+            $dispatch('evt__dialog_show', {
                 id: this.id,
                 activator: $el
             })
