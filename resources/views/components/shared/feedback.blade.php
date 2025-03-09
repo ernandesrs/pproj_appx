@@ -69,7 +69,7 @@
     </div>
 
     <div class="flex-1 px-5">
-        <span class="font-medium" x-text="data.title"></span>
+        <span x-show="data.title" class="font-medium" x-text="data.title"></span>
         <p x-text="data.message"></p>
     </div>
 
