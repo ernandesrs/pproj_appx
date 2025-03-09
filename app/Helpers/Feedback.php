@@ -100,6 +100,17 @@ class Feedback
     }
 
     /**
+     * Error
+     * @param string $message
+     * @param ?string $title
+     * @return Feedback
+     */
+    public function error(string $message, ?string $title = null): Feedback
+    {
+        return $this->add($message, $title, 'error');
+    }
+
+    /**
      * Fixed
      * @return Feedback
      */

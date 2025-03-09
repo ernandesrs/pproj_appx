@@ -41,3 +41,11 @@
 .feedback_danger .feedback_timer {
     @apply bg-danger dark:bg-danger-dark;
 }
+
+.feedback_error {
+    @apply border-danger text-danger dark:border-danger-dark dark:text-danger-dark;
+}
+
+.feedback_error .feedback_timer {
+    @apply bg-danger dark:bg-danger-dark;
+}
