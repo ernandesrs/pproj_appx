@@ -10,6 +10,9 @@
     @apply w-[88vw] sm:max-w-[425px] fixed z-50 top-4 right-6;
 }
 
+/**
+ * Default
+ */
 .feedback_default {
     @apply border-zinc-300 text-zinc-600 dark:border-zinc-800 dark:text-zinc-400;
 }
@@ -18,6 +21,13 @@
     @apply bg-zinc-300 dark:bg-zinc-700;
 }
 
+.feedback_default .feedback_bg {
+    @apply bg-zinc-300/10 dark:bg-zinc-300/10;
+}
+
+/**
+ * Success
+ */
 .feedback_success {
     @apply border-success text-success dark:border-success-dark dark:text-success-dark;
 }
@@ -26,6 +36,13 @@
     @apply bg-success dark:bg-success-dark;
 }
 
+.feedback_success .feedback_bg {
+    @apply bg-success/10 dark:bg-success-dark/10;
+}
+
+/**
+ * Info
+ */
 .feedback_info {
     @apply border-info text-info dark:border-info-dark dark:text-info-dark;
 }
@@ -34,6 +51,13 @@
     @apply bg-info dark:bg-info-dark;
 }
 
+.feedback_info .feedback_bg {
+    @apply bg-info/10 dark:bg-info-dark/10;
+}
+
+/**
+ * Danger
+ */
 .feedback_danger {
     @apply border-danger text-danger dark:border-danger-dark dark:text-danger-dark;
 }
@@ -42,6 +66,13 @@
     @apply bg-danger dark:bg-danger-dark;
 }
 
+.feedback_danger .feedback_bg {
+    @apply bg-danger/10 dark:bg-danger-dark/10;
+}
+
+/**
+ * Error
+ */
 .feedback_error {
     @apply border-danger text-danger dark:border-danger-dark dark:text-danger-dark;
 }
@@ -50,10 +81,21 @@
     @apply bg-danger dark:bg-danger-dark;
 }
 
+.feedback_error .feedback_bg {
+    @apply bg-danger/10 dark:bg-danger-dark/10;
+}
+
+/**
+ * Warning
+ */
 .feedback_warning {
     @apply border-warning text-warning dark:border-warning-dark dark:text-warning-dark;
 }
 
 .feedback_warning .feedback_timer {
     @apply bg-warning dark:bg-warning-dark;
+}
+
+.feedback_warning .feedback_bg {
+    @apply bg-warning/10 dark:bg-warning-dark/10;
 }

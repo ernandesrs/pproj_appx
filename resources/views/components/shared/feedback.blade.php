@@ -47,7 +47,7 @@
 
     style="display: none;">
 
-    <div class="text-3xl sm:text-4xl">
+    <div class="relative z-10 text-3xl sm:text-4xl">
         <span x-show="data.type == 'default'">
             <x-shared.icon icon="info-circle" />
         </span>
@@ -68,16 +68,18 @@
         </span>
     </div>
 
-    <div class="flex-1 px-5">
+    <div class="relative z-10 flex-1 px-5">
         <span x-show="data.title" class="font-medium" x-text="data.title"></span>
         <p x-text="data.message"></p>
     </div>
 
-    <x-shared.clickable x-on:click="close" class="hover:!scale-100" icon="x-lg" style="danger" variant="flat"
+    <x-shared.clickable x-on:click="close" class="relative z-10 hover:!scale-100" icon="x-lg" style="danger"
+        variant="flat"
         small />
 
-    <div x-show="withTimer" class="w-full h-1 absolute left-0 bottom-0">
+    <div x-show="withTimer" class=" w-full h-1 absolute z-10 left-0 bottom-0">
         <div class="feedback_timer h-full" style="width: 100px;"></div>
     </div>
 
+    <div class="feedback_bg absolute z-0 top-0 left-0 w-full h-full"></div>
 </div>
