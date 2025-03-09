@@ -1,5 +1,5 @@
 .feedback {
-    @apply w-full flex items-start cursor-default overflow-hidden border pt-3 pb-4 px-4 shadow-md rounded-lg;
+    @apply w-full bg-zinc-100 dark:bg-zinc-950 flex items-start cursor-default overflow-hidden border pt-3 pb-4 px-4 shadow-md rounded-lg;
 }
 
 .feedback_fixed {
@@ -11,9 +11,17 @@
 }
 
 .feedback_default {
-    @apply bg-zinc-100 border-zinc-300 text-zinc-600 dark:bg-zinc-950 dark:border-zinc-800 dark:text-zinc-400;
+    @apply border-zinc-300 text-zinc-600 dark:border-zinc-800 dark:text-zinc-400;
 }
 
-.feedback_timer {
+.feedback_default .feedback_timer {
     @apply bg-zinc-300 dark:bg-zinc-700;
+}
+
+.feedback_success {
+    @apply border-success text-success dark:border-success-dark dark:text-success-dark;
+}
+
+.feedback_success .feedback_timer {
+    @apply bg-success dark:bg-success-dark;
 }
