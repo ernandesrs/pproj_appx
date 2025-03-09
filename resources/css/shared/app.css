@@ -19,3 +19,26 @@
     --color-light: oklch(0.869 0.022 252.894);
     --color-light-dark: oklch(0.372 0.044 257.287);
 }
+
+@keyframes fast-shake {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-5px);
+    }
+    40% {
+        transform: translateX(5px);
+    }
+    60% {
+        transform: translateX(-5px);
+    }
+    80% {
+        transform: translateX(5px);
+    }
+}
+
+.animate-shake {
+    animation: fast-shake 0.2s ease-in-out 4;
+}

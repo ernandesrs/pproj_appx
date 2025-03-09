@@ -36,9 +36,21 @@
                 this.backdropVisible = false;
                 $dispatch('evt__dialog_closed');
             }, 200);
+        },
+
+        bounce(event) {
+            const dialogContent = $refs['dialogContent'];
+
+            if (!dialogContent || event.target == dialogContent || dialogContent.contains(event.target)) return;
+
+            dialogContent.classList.add('animate-shake')
+            setTimeout(() => {
+                dialogContent.classList.remove('animate-shake')
+            }, 200);
         }
     }"
     x-show="backdropVisible"
+    x-on:click="bounce"
 
     x-transition:enter="duration-200"
     x-transition:enter-start="opacity-0"
@@ -57,6 +69,7 @@
     style="display: none;">
 
     <x-shared.card
+        x-ref="dialogContent"
         x-show="contentVisible"
 
         x-transition:enter="duration-200 ease-in"
