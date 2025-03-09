@@ -27,7 +27,7 @@
             setTimeout(() => {
                 this.contentVisible = true;
                 $dispatch('evt__dialog_showed');
-            }, 100);
+            }, 200);
         },
 
         close() {
@@ -35,10 +35,19 @@
             setTimeout(() => {
                 this.backdropVisible = false;
                 $dispatch('evt__dialog_closed');
-            }, 100);
+            }, 200);
         }
     }"
     x-show="backdropVisible"
+
+    x-transition:enter="duration-200"
+    x-transition:enter-start="opacity-0"
+    x-transition:enter-end="opacity-100"
+
+    x-transition:leave="duration-200"
+    x-transition:leave-start="opacity-100"
+    x-transition:leave-end="opacity-0"
+
     class="
         fixed top-0 left-0 z-50
         flex justify-center items-start
@@ -49,6 +58,14 @@
 
     <x-shared.card
         x-show="contentVisible"
+
+        x-transition:enter="duration-200 ease-in"
+        x-transition:enter-start="scale-90 opacity-0 -translate-y-1/2"
+        x-transition:enter-end="scale-100 opacity-100 -translate-y-0"
+
+        x-transition:leave="duration-100 ease-in-out"
+        x-transition:leave-start="scale-100 opacity-100 -translate-y-0"
+        x-transition:leave-end="scale-90 opacity-0 -translate-y-1/2"
 
         class="w-full {{ [
             'sm' => 'max-w-[375px]',
