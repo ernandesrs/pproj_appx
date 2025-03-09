@@ -25,3 +25,11 @@
 .feedback_success .feedback_timer {
     @apply bg-success dark:bg-success-dark;
 }
+
+.feedback_info {
+    @apply border-info text-info dark:border-info-dark dark:text-info-dark;
+}
+
+.feedback_info .feedback_timer {
+    @apply bg-info dark:bg-info-dark;
+}

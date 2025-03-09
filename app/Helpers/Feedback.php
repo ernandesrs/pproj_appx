@@ -78,6 +78,17 @@ class Feedback
     }
 
     /**
+     * Info
+     * @param string $message
+     * @param ?string $title
+     * @return Feedback
+     */
+    public function info(string $message, ?string $title = null): Feedback
+    {
+        return $this->add($message, $title, 'info');
+    }
+
+    /**
      * Fixed
      * @return Feedback
      */

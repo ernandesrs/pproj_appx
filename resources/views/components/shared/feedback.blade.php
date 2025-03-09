@@ -28,6 +28,7 @@
     :class="{
         'feedback_default': data.type == 'default',
         'feedback_success': data.type == 'success',
+        'feedback_info': data.type == 'info',
 
         'feedback_fixed': data.fixed,
         'feedback_float': !data.fixed,
@@ -49,6 +50,9 @@
         </span>
         <span x-show="data.type == 'success'">
             <x-shared.icon icon="check-circle" />
+        </span>
+        <span x-show="data.type == 'info'">
+            <x-shared.icon icon="info-circle" />
         </span>
     </div>
 

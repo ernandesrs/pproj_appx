@@ -15,7 +15,7 @@ class Feedback extends Component
         public string $id
     ) {
         \App\Helpers\Feedback::to('admin')
-            ->success('Message text lorem title dolorem sit inpsum', 'Title')
+            ->info('Message text lorem title dolorem sit inpsum', 'Title')
             ->fixed()->toSession();
     }
 
