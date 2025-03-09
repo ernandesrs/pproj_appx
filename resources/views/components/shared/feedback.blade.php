@@ -4,7 +4,7 @@
         id: '{{ $id }}',
         data: {{ json_encode($getFeedback()) }},
         visible: false,
-        withTimer: true,
+        withTimer: false,
 
         init() {
             if (this.data.message.length == 0) return;
