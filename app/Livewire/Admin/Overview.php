@@ -2,20 +2,20 @@
 
 namespace App\Livewire\Admin;
 
-use Livewire\Component;
-
-class Overview extends Component
+class Overview extends \App\Livewire\Admin\AdminBaseComponent
 {
     public function render()
     {
-        return view('livewire..admin.overview')
-            ->layout('components.layouts.admin', [
-                'title' => 'Admin - Overview'
-            ]);
+        return $this->renderView(
+            'livewire..admin.overview',
+            [
+                'pageTitle' => 'Visão geral'
+            ]
+        );
     }
 
     public function emitFeedbackTest()
     {
-        \App\Helpers\Feedback::to('admin_global')->success('Mensagem do feedback de teste.')->toLivewire($this);
+        $this->feedbackGlobal()->success('Mensagem do feedback de teste.')->toLivewire($this);
     }
 }
