@@ -1,0 +1,19 @@
+.feedback {
+    @apply w-full flex items-start cursor-default overflow-hidden border pt-3 pb-4 px-4 shadow-md rounded-lg;
+}
+
+.feedback_fixed {
+    @apply relative;
+}
+
+.feedback_float {
+    @apply w-[88vw] sm:max-w-[425px] fixed z-50 top-4 right-6;
+}
+
+.feedback_default {
+    @apply bg-zinc-100 border-zinc-300 text-zinc-600 dark:bg-zinc-950 dark:border-zinc-800 dark:text-zinc-400;
+}
+
+.feedback_timer {
+    @apply bg-zinc-300 dark:bg-zinc-700;
+}
