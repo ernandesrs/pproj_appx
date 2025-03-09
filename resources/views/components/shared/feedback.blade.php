@@ -1,5 +1,6 @@
 <div
     x-show="visible"
+    x-on:evt__feedback_add.window="feedbackFromEvent"
     x-data="{
         id: '{{ $id }}',
         data: {{ json_encode($getFeedback()) }},
@@ -7,8 +8,29 @@
         withTimer: false,
 
         init() {
-            if (this.data.message.length == 0) return;
 
+            if (!this.data || !this.data?.message?.length) return;
+
+            this.show();
+        },
+
+        feedbackFromEvent(event) {
+            const feedback = event.detail[0]?.feedback;
+            if (!feedback) return;
+
+            if (this.visible) {
+                this.close();
+                setTimeout(() => {
+                    this.data = feedback;
+                    this.show();
+                }, 200);
+            } else {
+                this.data = feedback;
+                this.show();
+            }
+        },
+
+        show() {
             setTimeout(() => {
                 this.visible = true;
             }, 50);
@@ -26,15 +48,15 @@
         'class' => 'feedback',
     ]) }}
     :class="{
-        'feedback_default': data.type == 'default',
-        'feedback_success': data.type == 'success',
-        'feedback_info': data.type == 'info',
-        'feedback_danger': data.type == 'danger',
-        'feedback_error': data.type == 'error',
-        'feedback_warning': data.type == 'warning',
+        'feedback_default': data?.type == 'default',
+        'feedback_success': data?.type == 'success',
+        'feedback_info': data?.type == 'info',
+        'feedback_danger': data?.type == 'danger',
+        'feedback_error': data?.type == 'error',
+        'feedback_warning': data?.type == 'warning',
 
-        'feedback_fixed': data.fixed,
-        'feedback_float': !data.fixed,
+        'feedback_fixed': data?.fixed,
+        'feedback_float': !data?.fixed,
     }"
 
     x-transition:enter="duration-300 ease-in"
@@ -48,29 +70,29 @@
     style="display: none;">
 
     <div class="relative z-10 text-3xl sm:text-4xl">
-        <span x-show="data.type == 'default'">
+        <span x-show="data?.type == 'default'">
             <x-shared.icon icon="info-circle" />
         </span>
-        <span x-show="data.type == 'success'">
+        <span x-show="data?.type == 'success'">
             <x-shared.icon icon="check-circle" />
         </span>
-        <span x-show="data.type == 'info'">
+        <span x-show="data?.type == 'info'">
             <x-shared.icon icon="info-circle" />
         </span>
-        <span x-show="data.type == 'danger'">
+        <span x-show="data?.type == 'danger'">
             <x-shared.icon icon="exclamation-circle" />
         </span>
-        <span x-show="data.type == 'error'">
+        <span x-show="data?.type == 'error'">
             <x-shared.icon icon="x-circle" />
         </span>
-        <span x-show="data.type == 'warning'">
+        <span x-show="data?.type == 'warning'">
             <x-shared.icon icon="exclamation-circle" />
         </span>
     </div>
 
     <div class="relative z-10 flex-1 px-5">
-        <span x-show="data.title" class="font-medium" x-text="data.title"></span>
-        <p x-text="data.message"></p>
+        <span x-show="data?.title" class="font-medium" x-text="data?.title"></span>
+        <p x-text="data?.message"></p>
     </div>
 
     <x-shared.clickable x-on:click="close" class="relative z-10 hover:!scale-100" icon="x-lg" style="danger"

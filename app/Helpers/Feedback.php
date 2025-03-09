@@ -63,7 +63,7 @@ class Feedback
      */
     public function default(string $message, ?string $title = null): Feedback
     {
-        return $this->add($message, $title, 'default');
+        return $this->add($message, $title ?? 'Mensagem!', 'default');
     }
 
     /**
@@ -74,7 +74,7 @@ class Feedback
      */
     public function success(string $message, ?string $title = null): Feedback
     {
-        return $this->add($message, $title, 'success');
+        return $this->add($message, $title ?? 'Sucesso!', 'success');
     }
 
     /**
@@ -85,7 +85,7 @@ class Feedback
      */
     public function info(string $message, ?string $title = null): Feedback
     {
-        return $this->add($message, $title, 'info');
+        return $this->add($message, $title ?? 'Informação!', 'info');
     }
 
     /**
@@ -96,7 +96,7 @@ class Feedback
      */
     public function danger(string $message, ?string $title = null): Feedback
     {
-        return $this->add($message, $title, 'danger');
+        return $this->add($message, $title ?? 'Atenção!', 'danger');
     }
 
     /**
@@ -107,7 +107,7 @@ class Feedback
      */
     public function error(string $message, ?string $title = null): Feedback
     {
-        return $this->add($message, $title, 'error');
+        return $this->add($message, $title ?? 'Erro!', 'error');
     }
 
     /**
@@ -118,7 +118,7 @@ class Feedback
      */
     public function warning(string $message, ?string $title = null): Feedback
     {
-        return $this->add($message, $title, 'warning');
+        return $this->add($message, $title ?? 'Atenção!', 'warning');
     }
 
     /**
@@ -134,9 +134,9 @@ class Feedback
     /**
      * From Session
      * @param string $to app layear name. Example: 'admin', 'customer'
-     * @return \App\Helpers\Feedback
+     * @return ?\App\Helpers\Feedback
      */
-    public static function fromSession(string $to): Feedback
+    public static function fromSession(string $to): ?Feedback
     {
         return \Session::get($to . '_feedback');
     }
@@ -148,6 +148,18 @@ class Feedback
     public function toSession(): void
     {
         \Session::flash($this->to . '_feedback', $this);
+    }
+
+    /**
+     * Dispatch a event with feedback data to a Livewire component
+     * @param \Livewire\Component $component
+     * @return void
+     */
+    public function toLivewire(\Livewire\Component $component): void
+    {
+        $component->dispatch('evt__feedback_add', [
+            'feedback' => $this->toArray()
+        ]);
     }
 
     /**

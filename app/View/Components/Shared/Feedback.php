@@ -6,6 +6,19 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
+/**
+ *
+ * Summary of Feedback
+ *
+ * Listen this events
+ * - evt__feedback_add
+ *
+ * Dispatch example:
+ * - $dispatch('evt_name', {feedback: {}})
+ *
+ * Dispatch this events
+ *
+ */
 class Feedback extends Component
 {
     /**
@@ -14,18 +27,16 @@ class Feedback extends Component
     public function __construct(
         public string $id
     ) {
-        \App\Helpers\Feedback::to('admin')
-            ->success('Message text lorem title dolorem sit inpsum', 'Title')
-            ->fixed()->toSession();
     }
 
     /**
      * Get Feedback from session
-     * @return array
+     * @return ?array
      */
-    public function getFeedback(): array
+    public function getFeedback(): ?array
     {
-        return \App\Helpers\Feedback::fromSession('admin')->toArray();
+        $feedback = \App\Helpers\Feedback::fromSession('admin');
+        return $feedback ? $feedback->toArray() : null;
     }
 
     /**

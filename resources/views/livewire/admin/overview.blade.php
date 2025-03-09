@@ -23,6 +23,8 @@
         <x-shared.dialog-activator
             controls="dialog_example_1"
             text="Abrir dialog" />
+
+        <x-shared.clickable wire:click='emitFeedbackTest' text="Emitir feedback teste" />
         <hr class="my-3">
         <x-shared.tooltip class="w-[125px] md:w-[225px]" :location="'left'">
             <x-slot:activator>

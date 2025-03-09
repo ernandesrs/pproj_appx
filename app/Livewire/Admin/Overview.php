@@ -13,4 +13,9 @@ class Overview extends Component
                 'title' => 'Admin - Overview'
             ]);
     }
+
+    public function emitFeedbackTest()
+    {
+        \App\Helpers\Feedback::to('admin')->success('Mensagem do feedback de teste.')->toLivewire($this);
+    }
 }
