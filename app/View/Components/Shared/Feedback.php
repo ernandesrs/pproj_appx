@@ -15,7 +15,7 @@ class Feedback extends Component
         public string $id
     ) {
         \App\Helpers\Feedback::to('admin')
-            ->error('Message text lorem title dolorem sit inpsum', 'Title')
+            ->warning('Message text lorem title dolorem sit inpsum', 'Title')
             ->fixed()->toSession();
     }
 

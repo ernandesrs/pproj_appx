@@ -111,6 +111,17 @@ class Feedback
     }
 
     /**
+     * Warning
+     * @param string $message
+     * @param ?string $title
+     * @return Feedback
+     */
+    public function warning(string $message, ?string $title = null): Feedback
+    {
+        return $this->add($message, $title, 'warning');
+    }
+
+    /**
      * Fixed
      * @return Feedback
      */

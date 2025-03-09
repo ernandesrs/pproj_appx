@@ -49,3 +49,11 @@
 .feedback_error .feedback_timer {
     @apply bg-danger dark:bg-danger-dark;
 }
+
+.feedback_warning {
+    @apply border-warning text-warning dark:border-warning-dark dark:text-warning-dark;
+}
+
+.feedback_warning .feedback_timer {
+    @apply bg-warning dark:bg-warning-dark;
+}
