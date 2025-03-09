@@ -89,6 +89,17 @@ class Feedback
     }
 
     /**
+     * Danger
+     * @param string $message
+     * @param ?string $title
+     * @return Feedback
+     */
+    public function danger(string $message, ?string $title = null): Feedback
+    {
+        return $this->add($message, $title, 'danger');
+    }
+
+    /**
      * Fixed
      * @return Feedback
      */

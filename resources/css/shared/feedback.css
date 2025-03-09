@@ -33,3 +33,11 @@
 .feedback_info .feedback_timer {
     @apply bg-info dark:bg-info-dark;
 }
+
+.feedback_danger {
+    @apply border-danger text-danger dark:border-danger-dark dark:text-danger-dark;
+}
+
+.feedback_danger .feedback_timer {
+    @apply bg-danger dark:bg-danger-dark;
+}

@@ -29,6 +29,7 @@
         'feedback_default': data.type == 'default',
         'feedback_success': data.type == 'success',
         'feedback_info': data.type == 'info',
+        'feedback_danger': data.type == 'danger',
 
         'feedback_fixed': data.fixed,
         'feedback_float': !data.fixed,
@@ -53,6 +54,9 @@
         </span>
         <span x-show="data.type == 'info'">
             <x-shared.icon icon="info-circle" />
+        </span>
+        <span x-show="data.type == 'danger'">
+            <x-shared.icon icon="exclamation-circle" />
         </span>
     </div>
 
