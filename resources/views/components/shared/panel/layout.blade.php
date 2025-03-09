@@ -83,7 +83,7 @@
             style="height: calc(100vh - 50px)">
 
             {{-- content --}}
-            <div class="flex-1 p-5">
+            <div class="flex-1 grid gap-5 p-5">
                 {{ $content ?? null }}
             </div>
 

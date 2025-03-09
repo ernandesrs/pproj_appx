@@ -123,6 +123,8 @@
         </x-slot:header>
 
         <x-slot:content>
+            <x-shared.feedback id="admin_global" />
+
             {{ $slot }}
         </x-slot:content>
     </x-shared.panel.layout>

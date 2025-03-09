@@ -20,8 +20,6 @@
 
     <div class="
         grid grid-cols-12 gap-5">
-        <x-shared.feedback class="col-span-12" id="admin" />
-
         {{ $slot }}
     </div>
 </div>

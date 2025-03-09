@@ -16,6 +16,6 @@ class Overview extends Component
 
     public function emitFeedbackTest()
     {
-        \App\Helpers\Feedback::to('admin')->success('Mensagem do feedback de teste.')->toLivewire($this);
+        \App\Helpers\Feedback::to('admin_global')->success('Mensagem do feedback de teste.')->toLivewire($this);
     }
 }

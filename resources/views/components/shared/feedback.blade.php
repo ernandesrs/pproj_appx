@@ -16,7 +16,8 @@
 
         feedbackFromEvent(event) {
             const feedback = event.detail[0]?.feedback;
-            if (!feedback) return;
+
+            if (!feedback || feedback.to != this.id) return;
 
             if (this.visible) {
                 this.close();

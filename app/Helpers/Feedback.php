@@ -5,7 +5,7 @@ namespace App\Helpers;
 class Feedback
 {
     /**
-     * App layear name. Example: 'admin', 'customer'
+     * Feedback component ID. Example: 'admin', 'customer'
      * @var string
      */
     private string $to;
@@ -36,7 +36,7 @@ class Feedback
 
     /**
      * __construct
-     * @param string $to app layear name. Example: 'admin', 'customer'
+     * @param string $to Feedback component ID. Example: 'admin', 'customer'
      */
     public function __construct(
         string $to
@@ -46,7 +46,7 @@ class Feedback
 
     /**
      * To
-     * @param string $to app layear name. Example: 'admin', 'customer'
+     * @param string $to Feedback component ID. Example: 'admin', 'customer'
      * @return \App\Helpers\Feedback
      */
     public static function to(string $to): Feedback
@@ -133,7 +133,7 @@ class Feedback
 
     /**
      * From Session
-     * @param string $to app layear name. Example: 'admin', 'customer'
+     * @param string $to Feedback component ID. Example: 'admin', 'customer'
      * @return ?\App\Helpers\Feedback
      */
     public static function fromSession(string $to): ?Feedback
