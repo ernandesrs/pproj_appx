@@ -33,6 +33,15 @@
         show() {
             setTimeout(() => {
                 this.visible = true;
+
+                if (!this.data?.fixed) {
+                    setTimeout(() => {
+                        $el.classList.add('animate-shake');
+                        setTimeout(() => {
+                            $el.classList.remove('animate-shake');
+                        }, 350);
+                    }, 225);
+                }
             }, 50);
         },
 
@@ -59,7 +68,7 @@
         'feedback_float': !data?.fixed,
     }"
 
-    x-transition:enter="duration-300 ease-in"
+    x-transition:enter="duration-200 ease-in"
     x-transition:enter-start="opacity-0 -translate-y-0.5"
     x-transition:enter-end="opacity-100 -translate-y-0"
 
