@@ -1,10 +1,6 @@
 <x-shared.panel.page-base
     title="Usuários">
 
-    @php
-        $users = \App\Models\User::limit(10)->get();
-    @endphp
-
     <x-shared.table.table class="col-span-12">
         <x-slot:theader>
             <x-shared.table.row header-row>

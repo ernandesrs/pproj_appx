@@ -2,15 +2,20 @@
 
 namespace App\Livewire\Admin\User;
 
-use Livewire\Component;
-
-class Index extends Component
+class Index extends \App\Livewire\Admin\AdminBaseComponent
 {
+    /**
+     * Render
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function render()
     {
-        return view('livewire..admin.user.index')
-            ->layout('components.layouts.admin', [
-                'title' => 'Admin - Usuários'
-            ]);
+        return $this->renderView(
+            'livewire..admin.user.index',
+            [
+                'pageTitle' => 'Usuários',
+                'users' => \App\Models\User::limit(20)->get()
+            ]
+        );
     }
 }

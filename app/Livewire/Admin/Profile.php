@@ -2,16 +2,20 @@
 
 namespace App\Livewire\Admin;
 
-use Livewire\Component;
-
-class Profile extends Component
+class Profile extends \App\Livewire\Admin\AdminBaseComponent
 {
+    /**
+     * Render
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function render()
     {
-        return view('livewire..admin.profile', [
-            'profile' => \App\Models\User::first()
-        ])->layout('components.layouts.admin', [
-                    'title' => 'Admin - Perfil'
-                ]);
+        return $this->renderView(
+            'livewire..admin.profile',
+            [
+                'pageTitle' => 'Perfil',
+                'profile' => \Auth::user()
+            ]
+        );
     }
 }
