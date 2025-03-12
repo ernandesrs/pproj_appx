@@ -42,7 +42,7 @@
     </x-shared.card>
 
     <x-shared.card
-        class="col-span-12 md:col-span-6"
+        class="col-span-12 md:col-span-6 lg:col-span-12 xl:col-span-6"
         icon="collection"
         title="Botões">
         <x-shared.tabs.tabs
@@ -241,7 +241,7 @@
     </x-shared.card>
 
     <x-shared.card
-        class="col-span-12 md:col-span-6"
+        class="col-span-12 md:col-span-6 lg:col-span-12 xl:col-span-6"
         icon="card-heading"
         title="Textos">
         <x-shared.tabs.tabs :tabs="[
