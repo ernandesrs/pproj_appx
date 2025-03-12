@@ -37,7 +37,7 @@
             relative overflow-x-auto
             w-full flex flex-nowrap justify-start lg:justify-center
             bg-zinc-200/50 dark:bg-zinc-900
-            border border-zinc-300 dark:border-zinc-800 rounded-t-lg
+            border border-zinc-300 dark:border-zinc-800 rounded-t-xl
             px-5 pt-2">
         @foreach ($tabs as $tab)
             <a
@@ -45,8 +45,8 @@
 
                 class="
                     flex flex-nowrap text-nowrap
-                     text-zinc-500
-                    border border-b-[3px] rounded-t-lg
+                     text-zinc-500 dark:text-zinc-400
+                    border border-b-[3px] rounded-t-xl
                     px-5 py-3"
                 :class="{
                     'pointer-events-none border-zinc-300 border-b-primary bg-zinc-100 dark:border-zinc-800 dark:border-b-primary-dark dark:bg-zinc-800/50': selected ==
@@ -69,7 +69,7 @@
     <div
         class="
             border border-t-0 bg-zinc-100 border-zinc-300 dark:bg-zinc-800/50 dark:border-zinc-800
-            rounded-b-lg
+            rounded-b-xl
             py-4 px-5">
         {{ $slot }}
     </div>
