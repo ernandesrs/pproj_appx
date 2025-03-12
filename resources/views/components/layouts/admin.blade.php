@@ -16,13 +16,13 @@
                 title="Dashboard"
                 :menu-items="[
                     [
-                        'text' => 'Visão geral',
+                        'text' => trans_choice('words.o.overview', 1),
                         'icon' => 'pie-chart',
                         'href' => route('admin.overview'),
                         'activeIn' => ['admin.overview'],
                     ],
                     [
-                        'text' => 'Usuários',
+                        'text' => trans_choice('words.u.user', 2),
                         'icon' => 'people',
                         'href' => route('admin.users.index'),
                         'activeIn' => ['admin.users.index'],
@@ -70,7 +70,7 @@
                 title="Outros"
                 :menu-items="[
                     [
-                        'text' => 'Meu perfil',
+                        'text' => trans_choice('words.m.my', 1) . ' ' . trans_choice('words.p.profile', 1),
                         'icon' => 'person-circle',
                         'href' => route('admin.profile'),
                         'activeIn' => ['admin.profile'],
@@ -92,7 +92,7 @@
                     </x-slot:activator>
                     <x-shared.card
                         icon="bell"
-                        title="Notificações"
+                        title="{{ trans_choice('words.n.notification', 2) }}"
                         title-tag="h4">
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat dolor suscipit mollitia saepe
                         nesciunt repudiandae autem assumenda nihil quia, inventore corporis fugiat placeat voluptatem
@@ -112,7 +112,7 @@
                     </x-slot:activator>
                     <x-shared.card
                         icon="person-circle"
-                        title="Meu perfil"
+                        title="{{ trans_choice('words.m.my', 1) . ' ' . trans_choice('words.p.profile', 1) }}"
                         title-tag="h4">
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat dolor suscipit mollitia saepe
                         nesciunt repudiandae autem assumenda nihil quia, inventore corporis fugiat placeat voluptatem
