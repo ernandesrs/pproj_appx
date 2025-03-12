@@ -14,6 +14,34 @@
     title="Visão geral"
     without-title>
 
+    <x-shared.tabs.tabs
+        class="col-span-12"
+        :tabs="[
+            [
+                'name' => 'Tab #1',
+                'icon' => 'arrow-up',
+            ],
+            [
+                'name' => 'Tab #2',
+                'icon' => 'arrow-up',
+            ],
+            [
+                'name' => 'Tab #3',
+                'icon' => 'arrow-up',
+            ],
+        ]"
+        selected="Tab #1">
+        <x-shared.tabs.tab-item name="Tab #1">
+            <p>Tab #1</p>
+        </x-shared.tabs.tab-item>
+        <x-shared.tabs.tab-item name="Tab #2">
+            <p>Tab #2</p>
+        </x-shared.tabs.tab-item>
+        <x-shared.tabs.tab-item name="Tab #3">
+            <p>Tab #3</p>
+        </x-shared.tabs.tab-item>
+    </x-shared.tabs.tabs>
+
     <x-shared.card
         class="col-span-12 sm:col-span-6 lg:col-span-4">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit libero sed, velit assumenda eveniet
