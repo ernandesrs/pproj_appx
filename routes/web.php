@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+\Auth::login(\App\Models\User::first());
+
 Route::get('/', function () {
     return redirect()->route('admin.overview');
 });

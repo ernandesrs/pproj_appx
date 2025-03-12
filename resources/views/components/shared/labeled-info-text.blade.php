@@ -1,5 +1,5 @@
 @php
-    $labelClass = (!$inline ? 'text-xs' : 'font-semibold') . ' text-zinc-500 dark:text-zinc-600 flex items-center';
+    $labelClass = (!$inline ? 'text-xs' : 'font-semibold') . ' text-zinc-500 dark:text-zinc-500 flex items-center';
     $textClass = $inline ? '' : 'font-semibold';
 @endphp
 
@@ -10,7 +10,7 @@
             'flex flex-wrap gap-x-1 cursor-default ' . ($inline ? 'flex-row items-center' : 'flex-col'),
 
             // colors
-            'text-zinc-500',
+            'text-zinc-500 dark:text-zinc-400',
         ]),
     ]) }}>
     <span class="{{ $labelClass }}">
