@@ -1,5 +1,4 @@
-<x-shared.panel.page-base
-    title="Meu perfil">
+<x-shared.panel.page-base :page="$page">
 
     <x-shared.card
         class="col-span-12">

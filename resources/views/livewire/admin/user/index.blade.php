@@ -1,5 +1,4 @@
-<x-shared.panel.page-base
-    title="Usuários">
+<x-shared.panel.page-base :page="$page">
 
     <x-shared.table.table class="col-span-12">
         <x-slot:theader>

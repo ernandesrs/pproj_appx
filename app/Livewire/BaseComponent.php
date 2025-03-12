@@ -25,18 +25,29 @@ class BaseComponent extends \Livewire\Component
     }
 
     /**
+     * Page configurator
+     * @return \App\Support\PageConfigurator
+     */
+    public function page(): \App\Support\PageConfigurator
+    {
+        return \App\Support\PageConfigurator::start();
+    }
+
+    /**
      * Render
      * @param string $viewPath
+     * @param \App\Support\PageConfigurator $page
      * @param array $data
      * @param array $layoutData
      * @param array $mergeData
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function renderView(string $viewPath, array $data = [], array $mergeData = []): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+    public function renderView(string $viewPath, \App\Support\PageConfigurator $page, array $data = [], array $mergeData = []): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
         return view($viewPath, $data, $mergeData)
+            ->with('page', $page)
             ->layout($this->layout(), [
-                'title' => $this->prependTitle() . ' | ' . ($data['pageTitle'] ?? 'Untitled page')
+                'title' => $this->prependTitle() . ' | ' . $page->getTitle()
             ]);
     }
 }

@@ -12,8 +12,10 @@ class Profile extends \App\Livewire\Admin\AdminBaseComponent
     {
         return $this->renderView(
             'livewire..admin.profile',
+            $this->page()->addTitle(trans_choice('words.p.profile', 1))
+                ->addBreadcrumb('Home', route('admin.overview'))
+                ->addBreadcrumb(trans_choice('words.p.profile', 1), '#', true),
             [
-                'pageTitle' => 'Perfil',
                 'profile' => \Auth::user()
             ]
         );

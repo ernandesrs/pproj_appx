@@ -10,9 +10,7 @@
     </x-shared.dialog>
 @endpush
 
-<x-shared.panel.page-base
-    title="Visão geral"
-    without-title>
+<x-shared.panel.page-base :page="$page">
 
     <x-shared.card
         class="col-span-12 sm:col-span-6 lg:col-span-4">

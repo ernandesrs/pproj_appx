@@ -12,9 +12,8 @@ class Overview extends \App\Livewire\Admin\AdminBaseComponent
     {
         return $this->renderView(
             'livewire..admin.overview',
-            [
-                'pageTitle' => 'Visão geral'
-            ]
+            $this->page()->addTitle(trans_choice('words.o.overview', 1))
+                ->withoutTitle()
         );
     }
 
