@@ -1,0 +1,45 @@
+/* Estilo para navegadores baseados em Webkit (Chrome, Edge, Safari, Opera) */
+::-webkit-scrollbar {
+    width: 12px; /* Largura da barra de rolagem vertical */
+    height: 12px; /* Altura da barra de rolagem horizontal */
+}
+
+::-webkit-scrollbar-track {
+    background: #18181b; /* Cor do fundo do trilho */
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #09090b; /* Cor do polegar (scroll handle) */
+    border-radius: 10px; /* Bordas arredondadas */
+    border: 3px solid #18181b; /* Espaçamento para destacar o polegar */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Cor ao passar o mouse sobre o polegar */
+}
+
+/* Estilo para Firefox */
+* {
+    scrollbar-width: thin; /* Largura fina */
+    scrollbar-color: #09090b #18181b; /* Cor do polegar e do trilho */
+}
+
+/* Estilo avançado para navegadores modernos com suporte a CSS variables */
+body {
+    --scrollbar-bg: #18181b; /* Fundo do trilho */
+    --scrollbar-thumb: #09090b; /* Cor do polegar */
+    --scrollbar-thumb-hover: #555; /* Cor ao passar o mouse sobre o polegar */
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+}
