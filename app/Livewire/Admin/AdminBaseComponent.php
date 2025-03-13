@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Admin;
 
+use App\Support\PageConfigurator;
+
 class AdminBaseComponent extends \App\Livewire\BaseComponent
 {
     /**
@@ -29,5 +31,14 @@ class AdminBaseComponent extends \App\Livewire\BaseComponent
     public function feedbackGlobal(): \App\Helpers\Feedback
     {
         return \App\Helpers\Feedback::to('admin_global');
+    }
+
+    /**
+     * Page
+     * @return PageConfigurator
+     */
+    public function page(): PageConfigurator
+    {
+        return parent::page()->home('admin.overview');
     }
 }

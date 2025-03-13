@@ -32,6 +32,16 @@ class PageConfigurator
     }
 
     /**
+     * Home
+     * @param string $homeRouteName
+     * @return PageConfigurator
+     */
+    public function home(string $homeRouteName): PageConfigurator
+    {
+        return $this->addBreadcrumb('Home', route($homeRouteName));
+    }
+
+    /**
      * Without Title
      * @return PageConfigurator
      */
