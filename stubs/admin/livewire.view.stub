@@ -1,0 +1,3 @@
+<x-shared.panel.page-base :page="$page">
+    {{-- [quote] --}}
+</x-shared.panel.page-base>
