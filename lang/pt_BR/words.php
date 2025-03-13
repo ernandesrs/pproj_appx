@@ -1,7 +1,9 @@
 <?php
 
 return [
-    'a' => [],
+    'a' => [
+        'attention' => 'Atenção'
+    ],
 
     'b' => [
         'button' => 'Botão|Botões'
@@ -14,7 +16,8 @@ return [
     ],
 
     'e' => [
-        'email' => 'E-mail'
+        'email' => 'E-mail',
+        'error' => 'Erro'
     ],
 
     'f' => [
@@ -40,7 +43,8 @@ return [
     ],
 
     'm' => [
-        'my' => 'Meu'
+        'my' => 'Meu',
+        'message' => 'Mensagem'
     ],
 
     'n' => [

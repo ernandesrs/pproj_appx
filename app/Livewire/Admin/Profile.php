@@ -30,8 +30,8 @@ class Profile extends \App\Livewire\Admin\AdminBaseComponent
         $feedback = $this->feedbackGlobal();
 
         $this->form->update() ?
-            $feedback->success('Perfil atualizado.')->toLivewire($this) :
-            $feedback->error('Erro inesperado ao atualizar.')->toLivewire($this);
+            $feedback->success(__('messages.success.on_update_profile'))->toLivewire($this) :
+            $feedback->error(__('messages.error.on_update_profile'))->toLivewire($this);
     }
 
     /**

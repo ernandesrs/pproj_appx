@@ -63,7 +63,7 @@ class Feedback
      */
     public function default(string $message, ?string $title = null): Feedback
     {
-        return $this->add($message, $title ?? 'Mensagem!', 'default');
+        return $this->add($message, $title ?? trans_choice('words.m.message', 1) . '!', 'default');
     }
 
     /**
@@ -74,7 +74,7 @@ class Feedback
      */
     public function success(string $message, ?string $title = null): Feedback
     {
-        return $this->add($message, $title ?? 'Sucesso!', 'success');
+        return $this->add($message, $title ?? trans_choice('words.s.success', 1) . '!', 'success');
     }
 
     /**
@@ -85,7 +85,7 @@ class Feedback
      */
     public function info(string $message, ?string $title = null): Feedback
     {
-        return $this->add($message, $title ?? 'Informação!', 'info');
+        return $this->add($message, $title ?? trans_choice('words.i.information', 1) . '!', 'info');
     }
 
     /**
@@ -96,7 +96,7 @@ class Feedback
      */
     public function danger(string $message, ?string $title = null): Feedback
     {
-        return $this->add($message, $title ?? 'Atenção!', 'danger');
+        return $this->add($message, $title ?? trans_choice('words.a.attention', 1) . '!', 'danger');
     }
 
     /**
@@ -107,7 +107,7 @@ class Feedback
      */
     public function error(string $message, ?string $title = null): Feedback
     {
-        return $this->add($message, $title ?? 'Erro!', 'error');
+        return $this->add($message, $title ?? trans_choice('words.e.error', 1) . '!', 'error');
     }
 
     /**
@@ -118,7 +118,7 @@ class Feedback
      */
     public function warning(string $message, ?string $title = null): Feedback
     {
-        return $this->add($message, $title ?? 'Atenção!', 'warning');
+        return $this->add($message, $title ?? trans_choice('words.a.attention', 1) . '!', 'warning');
     }
 
     /**

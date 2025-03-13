@@ -19,7 +19,7 @@ class AdminBaseComponent extends \App\Livewire\BaseComponent
      */
     public function prependTitle(): string
     {
-        return 'Administração';
+        return config('app.name') . ' ADMIN';
     }
 
     /**
