@@ -3,27 +3,59 @@
 namespace App\Livewire\Forms;
 
 use App\Services\UserService;
+use Livewire\Attributes\Locked;
 use Livewire\Form;
 
 class UserForm extends Form
 {
+    /**
+     * User
+     * @var \App\Models\User
+     */
+    #[Locked]
     public \App\Models\User $user;
 
+    /**
+     * First name
+     * @var string
+     */
     public string $first_name;
 
+    /**
+     * Last_name
+     * @var string
+     */
     public string $last_name;
 
+    /**
+     * Username
+     * @var string
+     */
     public string $username;
 
+    /**
+     * Gender
+     * @var \App\Enums\UserGendersEnum
+     */
     public \App\Enums\UserGendersEnum $gender;
 
+    /**
+     * Email
+     * @var string
+     */
     public string $email;
 
+    /**
+     * Password
+     * @var ?string
+     */
     public ?string $password;
 
+    /**
+     * Password confirmation
+     * @var ?string
+     */
     public ?string $password_confirmation;
-
-    public \Illuminate\Support\Carbon $created_at;
 
     /**
      * Set User
@@ -33,12 +65,13 @@ class UserForm extends Form
     public function setUser(\Illuminate\Contracts\Auth\Authenticatable|\App\Models\User $user): void
     {
         $this->user = $user;
-        $this->first_name = $this->user->first_name;
-        $this->last_name = $this->user->last_name;
-        $this->username = $this->user->username;
-        $this->email = $this->user->email;
-        $this->gender = $this->user->gender;
-        $this->created_at = $this->user->created_at;
+        $this->fill([
+            'first_name' => $user->first_name,
+            'last_name' => $user->last_name,
+            'username' => $user->username,
+            'email' => $user->email,
+            'gender' => $user->gender
+        ]);
     }
 
     /**
