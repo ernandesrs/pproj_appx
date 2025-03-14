@@ -2,6 +2,9 @@
 
 namespace App\Livewire\Admin\User;
 
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+
 class Index extends \App\Livewire\Admin\AdminBaseComponent
 {
     use \App\Traits\PageListTrait;
@@ -10,9 +13,9 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
      * Model Instance
      * @return \App\Models\User|\Illuminate\Database\Eloquent\Builder
      */
-    public function modelInstance(): \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Builder
+    public function modelInstance(): Model|Builder
     {
-        return (new \App\Models\User());
+        return new \App\Models\User();
     }
 
     /**

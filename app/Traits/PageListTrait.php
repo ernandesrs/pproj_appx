@@ -2,6 +2,9 @@
 
 namespace App\Traits;
 
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+
 trait PageListTrait
 {
     use FilterTrait, \Livewire\WithPagination;
@@ -16,7 +19,7 @@ trait PageListTrait
      * Model Instance
      * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Builder
      */
-    abstract public function modelInstance(): \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Builder;
+    abstract public function modelInstance(): Model|Builder;
 
     /**
      * Get Items
