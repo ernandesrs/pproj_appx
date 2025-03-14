@@ -11,16 +11,20 @@
             </x-shared.table.row>
         </x-slot:theader>
         <x-slot:tbody>
-            @foreach ($users as $user)
+            @foreach ($items as $item)
                 <x-shared.table.row>
-                    <x-shared.table.cell :value="$user->id" />
-                    <x-shared.table.cell :value="$user->first_name . ' ' . $user->last_name" />
-                    <x-shared.table.cell :value="$user->username" />
-                    <x-shared.table.cell :value="$user->email" />
-                    <x-shared.table.cell :value="$user->created_at->format('d/m/Y H:i')" />
+                    <x-shared.table.cell :value="$item->id" />
+                    <x-shared.table.cell :value="$item->first_name . ' ' . $item->last_name" />
+                    <x-shared.table.cell :value="$item->username" />
+                    <x-shared.table.cell :value="$item->email" />
+                    <x-shared.table.cell :value="$item->created_at->format('d/m/Y H:i')" />
                 </x-shared.table.row>
             @endforeach
         </x-slot:tbody>
     </x-shared.table.table>
+
+    <div class="col-span-12 flex justify-center">
+        {{ $items->links() }}
+    </div>
 
 </x-shared.panel.page-base>
