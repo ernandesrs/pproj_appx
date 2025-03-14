@@ -1,0 +1,46 @@
+<?php
+
+namespace [namespace];
+
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+
+class [class] extends \App\Livewire\Admin\AdminBaseComponent
+{
+    use \App\Traits\PageListTrait;
+
+    /**
+     * Model Instance
+     * @return \App\Models\User|\Illuminate\Database\Eloquent\Builder
+     */
+    public function modelInstance(): Model|Builder
+    {
+        return new \App\Models\User();
+    }
+
+    /**
+     * Columns
+     * @return array
+     */
+    public function columns(): array
+    {
+        return [
+            [
+                'label' => 'ID',
+                'key' => 'id'
+            ]
+        ];
+    }
+
+    /**
+     * Render
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function render()
+    {
+        return $this->renderView(
+            '[view]',
+            $this->page()->addTitle('Page title')
+        );
+    }
+}
