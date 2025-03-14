@@ -22,6 +22,12 @@ trait PageListTrait
     abstract public function modelInstance(): Model|Builder;
 
     /**
+     * Columns
+     * @return array
+     */
+    abstract public function columns(): array;
+
+    /**
      * Get Items
      * @return mixed
      */

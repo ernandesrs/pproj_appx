@@ -19,6 +19,32 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
     }
 
     /**
+     * Columns
+     * @return array
+     */
+    public function columns(): array
+    {
+        return [
+            [
+                'label' => 'ID',
+                'key' => 'id'
+            ],
+            [
+                'label' => 'Nome',
+                'view' => 'livewire.admin.user.includes.user-name'
+            ],
+            [
+                'label' => 'Usuário',
+                'key' => 'username'
+            ],
+            [
+                'label' => 'E-mail',
+                'key' => 'email'
+            ]
+        ];
+    }
+
+    /**
      * Render
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */

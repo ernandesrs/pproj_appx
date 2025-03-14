@@ -3,21 +3,27 @@
     <x-shared.table.table class="col-span-12">
         <x-slot:theader>
             <x-shared.table.row header-row>
-                <x-shared.table.cell header-cell :value="'ID'" />
-                <x-shared.table.cell header-cell :value="'Nome'" />
-                <x-shared.table.cell header-cell :value="'Usuário'" />
-                <x-shared.table.cell header-cell :value="'E-mail'" />
-                <x-shared.table.cell header-cell :value="'Data de registro'" />
+                @foreach (self::columns() as $column)
+                    <x-shared.table.cell header-cell :value="$column['label']" />
+                @endforeach
             </x-shared.table.row>
         </x-slot:theader>
         <x-slot:tbody>
             @foreach ($items as $item)
                 <x-shared.table.row>
-                    <x-shared.table.cell :value="$item->id" />
-                    <x-shared.table.cell :value="$item->first_name . ' ' . $item->last_name" />
-                    <x-shared.table.cell :value="$item->username" />
-                    <x-shared.table.cell :value="$item->email" />
-                    <x-shared.table.cell :value="$item->created_at->format('d/m/Y H:i')" />
+                    @foreach (self::columns() as $column)
+                        @php
+                            $modelAttr = $column['key'] ?? null;
+                            $view = $column['view'] ?? null;
+                        @endphp
+                        @if ($modelAttr)
+                            <x-shared.table.cell :value="$item->$modelAttr" />
+                        @elseif ($view)
+                            <x-shared.table.cell>
+                                @include($view, ['item' => $item])
+                            </x-shared.table.cell>
+                        @endif
+                    @endforeach
                 </x-shared.table.row>
             @endforeach
         </x-slot:tbody>
