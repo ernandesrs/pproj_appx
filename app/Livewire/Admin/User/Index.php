@@ -10,6 +10,15 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
     use \App\Traits\PageListTrait;
 
     /**
+     * Searchable Fields
+     * @return array
+     */
+    public function searchableFields(): array
+    {
+        return ['first_name', 'last_name', 'username'];
+    }
+
+    /**
      * Model Instance
      * @return \App\Models\User|\Illuminate\Database\Eloquent\Builder
      */

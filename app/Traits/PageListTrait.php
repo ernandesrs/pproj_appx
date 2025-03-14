@@ -33,6 +33,6 @@ trait PageListTrait
      */
     public function getItems(): mixed
     {
-        return $this->modelInstance()->paginate($this->limit);
+        return $this->applyFilter()->paginate($this->limit);
     }
 }
