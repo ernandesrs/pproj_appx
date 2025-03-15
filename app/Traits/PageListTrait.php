@@ -13,7 +13,7 @@ trait PageListTrait
      * Limit
      * @var int
      */
-    public int $limit = 5;
+    public int $limit = 10;
 
     /**
      * Model Instance
