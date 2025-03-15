@@ -15,7 +15,9 @@ class Form extends Component
         public string $action,
         public string $method = 'get',
         public string $submitText = 'Enviar',
-        public bool $inline = false
+        public string $clearText = 'Limpar formulário',
+        public bool $inline = false,
+        public bool $clearable = false,
     ) {
     }
 

@@ -10,7 +10,9 @@
                 wire:submit='applyFilters'
                 method="post"
                 action="#"
-                submit-text="Aplicar filtros">
+                submit-text="Aplicar filtros"
+                clear-text="Limpar filtros"
+                clearable>
 
                 @foreach ($betweenDefaultFields as $key => $bd)
                     <x-shared.card class="col-span-12" icon="calendar" title="Entre {{ $bd }}" title-tag="h3">

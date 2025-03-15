@@ -10,7 +10,8 @@ return [
     ],
 
     'c' => [
-        'created_at' => 'Criado em'
+        'created_at' => 'Criado em',
+        'clear' => 'Limpar'
     ],
 
     'd' => [
