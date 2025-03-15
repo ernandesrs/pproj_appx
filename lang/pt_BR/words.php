@@ -14,7 +14,8 @@ return [
     ],
 
     'd' => [
-        'danger' => 'Perigo'
+        'direction' => 'Direção',
+        'danger' => 'Perigo',
     ],
 
     'e' => [
@@ -34,7 +35,8 @@ return [
 
     'i' => [
         'information' => 'Informação|Informações',
-        'in' => 'Em'
+        'in' => 'Em',
+        'id' => 'ID',
     ],
 
     'j' => [],
@@ -78,7 +80,8 @@ return [
         'small' => 'Pequeno',
         'secondary' => 'Secundário',
         'success' => 'Sucesso',
-        'square' => 'Quadrado'
+        'square' => 'Quadrado',
+        'sort_by' => 'Ordenar por',
     ],
 
     't' => [
@@ -88,6 +91,7 @@ return [
     'u' => [
         'user' => 'Usuário|Usuários',
         'username' => 'Usuário',
+        'updated_at' => 'Atualizado em',
     ],
 
     'v' => [],

@@ -11,6 +11,8 @@ trait FilterTrait
 {
     public array $betweenDefaultFields = ['created_at'];
 
+    public array $sortableDefaultFields = ['id', 'created_at'];
+
     /**
      * Search
      * @var string
@@ -23,6 +25,18 @@ trait FilterTrait
      * @var array
      */
     public array $between = [];
+
+    /**
+     * Sort by field
+     * @var ?string
+     */
+    public ?string $sort_by;
+
+    /**
+     * Sort direction
+     * @var ?string
+     */
+    public ?string $sort_direction;
 
     /**
      * Searchable Fields
@@ -70,6 +84,14 @@ trait FilterTrait
             foreach ($betweenValidate['between'] as $key => $values) {
                 $query = $query->whereBetween($key, [$values['start'], $values['end']]);
             }
+        }
+
+        $sortValidate = $this->validate([
+            'sort_by' => ['nullable', \Illuminate\Validation\Rule::in($this->sortableDefaultFields)],
+            'sort_direction' => ['nullable', \Illuminate\Validation\Rule::in(['asc', 'desc'])],
+        ]);
+        if (isset($sortValidate['sort_by']) && isset($sortValidate['sort_direction'])) {
+            $query = $query->orderBy($sortValidate['sort_by'], $sortValidate['sort_direction']);
         }
 
         return $query;

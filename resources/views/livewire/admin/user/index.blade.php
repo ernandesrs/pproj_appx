@@ -31,6 +31,40 @@
                 </x-shared.card>
             @endforeach
 
+            <x-shared.card class="col-span-12" icon="calendar" title="Ordenar" title-tag="h3">
+                <div class="grid grid-cols-12 gap-1">
+                    <x-shared.form.field
+                        class="col-span-8"
+                        wire:model='sort_by'
+                        label="{{ trans_choice('words.s.sort_by', 1) }}"
+                        name="sort_by"
+                        type="select"
+                        :options="array_map(
+                            fn($i) => [
+                                'label' => trans_choice('words.' . \Str::charAt(\Str::lower($i), 0) . '.' . $i, 1),
+                                'value' => $i,
+                            ],
+                            $sortableDefaultFields,
+                        )" />
+                    <x-shared.form.field
+                        class="col-span-4"
+                        wire:model='sort_direction'
+                        label="{{ trans_choice('words.d.direction', 1) }}"
+                        name="sort_direction"
+                        type="select"
+                        :options="[
+                            [
+                                'label' => 'Crescente',
+                                'value' => 'asc',
+                            ],
+                            [
+                                'label' => 'Decrescente',
+                                'value' => 'desc',
+                            ],
+                        ]" />
+                </div>
+            </x-shared.card>
+
         </x-shared.form.form>
     </x-shared.dialog>
 
