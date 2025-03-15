@@ -1,10 +1,13 @@
 <x-shared.panel.page-base :page="$page">
 
     <div class="col-span-12 flex justify-end">
-        <div class="flex items-center gap-x-1">
-            <x-shared.form.field wire:model='search' name="search" placeholder="Pesquisar" />
-            <x-shared.clickable class="hover:!scale-100" wire:click='searchBy' icon="search" variant="filled" />
-        </div>
+        {{-- search --}}
+        @if (count(self::searchableFields()))
+            <div class="flex items-center gap-x-1">
+                <x-shared.form.field wire:model='search' name="search" placeholder="Pesquisar" />
+                <x-shared.clickable class="hover:!scale-100" wire:click='searchBy' icon="search" variant="filled" />
+            </div>
+        @endif
     </div>
 
     <x-shared.table.table class="col-span-12">
