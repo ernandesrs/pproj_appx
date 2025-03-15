@@ -55,18 +55,21 @@ return [
 
     'n' => [
         'name' => 'Nome',
-        'notification' => 'Notificação|Notificações'
+        'notification' => 'Notificação|Notificações',
+        'next' => 'Próximo'
     ],
 
     'o' => [
         'overview' => 'Visão geral',
         'open' => 'Abrir',
-        'other' => 'Outro|Outros'
+        'other' => 'Outro|Outros',
+        'of' => 'De'
     ],
 
     'p' => [
         'primary' => 'Primário',
-        'profile' => 'Perfil|Perfis'
+        'profile' => 'Perfil|Perfis',
+        'previous' => 'Anterior'
     ],
 
     'q' => [],
@@ -74,6 +77,7 @@ return [
     'r' => [
         'register' => 'Registro',
         'registered' => 'Registrado',
+        'result' => 'Resultado|Resultados'
     ],
 
     's' => [
@@ -82,6 +86,7 @@ return [
         'success' => 'Sucesso',
         'square' => 'Quadrado',
         'sort_by' => 'Ordenar por',
+        'showing' => 'Mostrando'
     ],
 
     't' => [

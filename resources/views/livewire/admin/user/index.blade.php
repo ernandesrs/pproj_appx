@@ -119,7 +119,7 @@
     </x-shared.table.table>
 
     <div class="col-span-12 flex justify-center">
-        {{ $items->links() }}
+        {{ $items->onEachSide(0)->links() }}
     </div>
 
 </x-shared.panel.page-base>
