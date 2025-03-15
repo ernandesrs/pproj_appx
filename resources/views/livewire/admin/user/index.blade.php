@@ -1,13 +1,56 @@
 <x-shared.panel.page-base :page="$page">
 
-    <div class="col-span-12 flex justify-end">
+    <x-shared.dialog
+        id="dialog_list_filter"
+        icon="funnel-fill"
+        title="{{ trans_choice('words.f.filter', 2) }}"
+        size="lg">
+        <x-shared.form.form
+            wire:submit='applyFilters'
+            method="post"
+            action="#"
+            submit-text="Aplicar filtros">
+
+            @foreach ($betweenDefaultFields as $key => $bd)
+                <x-shared.card class="col-span-12" icon="calendar" title="Entre {{ $bd }}" title-tag="h3">
+                    <div class="grid grid-cols-12 gap-1">
+                        <x-shared.form.field
+                            class="col-span-6"
+                            label="{{ trans_choice('words.f.from', 1) }}"
+                            wire:model='between.{{ $bd }}.start'
+                            name="between_{{ $bd }}_start"
+                            type="date" />
+
+                        <x-shared.form.field
+                            class="col-span-6"
+                            label="{{ trans_choice('words.t.to', 2) }}"
+                            wire:model='between.{{ $bd }}.end'
+                            name="between_{{ $bd }}_end"
+                            type="date" />
+                    </div>
+                </x-shared.card>
+            @endforeach
+
+        </x-shared.form.form>
+    </x-shared.dialog>
+
+    <div class="col-span-12 flex gap-x-3 justify-end">
         {{-- search --}}
         @if (count(self::searchableFields()))
             <div class="flex items-center gap-x-1">
                 <x-shared.form.field wire:model='search' name="search" placeholder="Pesquisar" />
-                <x-shared.clickable class="hover:!scale-100" wire:click='searchBy' icon="search" variant="filled" />
+                <x-shared.clickable
+                    class="hover:!scale-100"
+                    wire:click='searchBy'
+                    icon="search"
+                    style="light"
+                    variant="filled" />
             </div>
         @endif
+
+        <x-shared.dialog-activator
+            controls="dialog_list_filter"
+            icon="funnel-fill" />
     </div>
 
     <x-shared.table.table class="col-span-12">

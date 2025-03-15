@@ -9,7 +9,9 @@ return [
         'button' => 'Botão|Botões'
     ],
 
-    'c' => [],
+    'c' => [
+        'created_at' => 'Criado em'
+    ],
 
     'd' => [
         'danger' => 'Perigo'
@@ -21,7 +23,9 @@ return [
     ],
 
     'f' => [
-        'first_name' => 'Nome'
+        'first_name' => 'Nome',
+        'filter' => 'Filtro|Filtros',
+        'from' => 'De'
     ],
 
     'g' => [],
@@ -77,7 +81,9 @@ return [
         'square' => 'Quadrado'
     ],
 
-    't' => [],
+    't' => [
+        'to' => 'Para|Até'
+    ],
 
     'u' => [
         'user' => 'Usuário|Usuários',
