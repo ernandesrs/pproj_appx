@@ -9,8 +9,16 @@ use Livewire\Attributes\Validate;
 
 trait FilterTrait
 {
+    /**
+     * Default Between Dates Fields
+     * @var array
+     */
     public array $defaultBetweenDatesFields = ['created_at'];
 
+    /**
+     * Default Sortable Fields
+     * @var array
+     */
     public array $defaultSortableFields = ['id', 'created_at'];
 
     /**
@@ -95,5 +103,32 @@ trait FilterTrait
         }
 
         return $query;
+    }
+
+
+    /**
+     *
+     *
+     *  Getters
+     *
+     *
+     */
+
+    /**
+     * Get Filter Fields BetweenDates
+     * @return array
+     */
+    public function getFilterFieldsBetweenDates(): array
+    {
+        return array_merge($this->defaultBetweenDatesFields, []);
+    }
+
+    /**
+     * Get Filter Fields Sortables
+     * @return array
+     */
+    public function getFilterFieldsSortables(): array
+    {
+        return array_merge($this->defaultSortableFields, []);
     }
 }
