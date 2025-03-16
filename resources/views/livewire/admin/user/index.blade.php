@@ -14,7 +14,7 @@
                 clear-text="Limpar filtros"
                 clearable>
 
-                @foreach ($betweenDefaultFields as $key => $bd)
+                @foreach ($defaultBetweenDatesFields as $key => $bd)
                     <x-shared.card class="col-span-12" icon="calendar" title="Entre {{ $bd }}" title-tag="h3">
                         <div class="grid grid-cols-12 gap-1">
                             <x-shared.form.field
@@ -47,7 +47,7 @@
                                     'label' => trans_choice('words.' . \Str::charAt(\Str::lower($i), 0) . '.' . $i, 1),
                                     'value' => $i,
                                 ],
-                                $sortableDefaultFields,
+                                $defaultSortableFields,
                             )" />
                         <x-shared.form.field
                             class="col-span-4"

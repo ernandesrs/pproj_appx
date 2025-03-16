@@ -9,9 +9,9 @@ use Livewire\Attributes\Validate;
 
 trait FilterTrait
 {
-    public array $betweenDefaultFields = ['created_at'];
+    public array $defaultBetweenDatesFields = ['created_at'];
 
-    public array $sortableDefaultFields = ['id', 'created_at'];
+    public array $defaultSortableFields = ['id', 'created_at'];
 
     /**
      * Search
@@ -87,7 +87,7 @@ trait FilterTrait
         }
 
         $sortValidate = $this->validate([
-            'sort_by' => ['nullable', \Illuminate\Validation\Rule::in($this->sortableDefaultFields)],
+            'sort_by' => ['nullable', \Illuminate\Validation\Rule::in($this->defaultSortableFields)],
             'sort_direction' => ['nullable', \Illuminate\Validation\Rule::in(['asc', 'desc'])],
         ]);
         if (isset($sortValidate['sort_by']) && isset($sortValidate['sort_direction'])) {
