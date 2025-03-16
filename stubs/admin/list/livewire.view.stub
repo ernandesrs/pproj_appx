@@ -1,8 +1,8 @@
 <x-shared.panel.page-list
     :page="$page"
     :items="$items"
-    :filterBetweenDates="$defaultBetweenDatesFields"
-    :filterSortableFields="$defaultSortableFields">
+    :filterBetweenDates="self::getFilterFieldsBetweenDates()"
+    :filterSortableFields="self::getFilterFieldsSortables()">
 
     <x-slot:filters>
         {{-- More filter filds --}}
