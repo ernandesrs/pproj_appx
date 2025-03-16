@@ -18,7 +18,9 @@ use Illuminate\View\Component;
  * - $dispatch('evt_name', {id: 'dialog_id'})
  *
  * Dispatch this events
+ * - evt__dialog_showing
  * - evt__dialog_showed
+ * - evt__dialog_closing
  * - evt__dialog_closed
  *
  */

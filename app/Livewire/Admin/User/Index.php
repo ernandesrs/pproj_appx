@@ -4,6 +4,7 @@ namespace App\Livewire\Admin\User;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Livewire\Attributes\On;
 
 class Index extends \App\Livewire\Admin\AdminBaseComponent
 {

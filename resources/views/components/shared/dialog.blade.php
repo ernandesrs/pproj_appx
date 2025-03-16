@@ -23,18 +23,28 @@
         },
 
         show() {
+            $dispatch('evt__dialog_showing', {
+                dialog_id: this.id
+            });
             this.backdropVisible = true;
             setTimeout(() => {
                 this.contentVisible = true;
-                $dispatch('evt__dialog_showed');
+                $dispatch('evt__dialog_showed', {
+                    dialog_id: this.id
+                });
             }, 200);
         },
 
         close() {
+            $dispatch('evt__dialog_closing', {
+                dialog_id: this.id
+            });
             this.contentVisible = false;
             setTimeout(() => {
                 this.backdropVisible = false;
-                $dispatch('evt__dialog_closed');
+                $dispatch('evt__dialog_closed', {
+                    dialog_id: this.id
+                });
             }, 200);
         },
 
