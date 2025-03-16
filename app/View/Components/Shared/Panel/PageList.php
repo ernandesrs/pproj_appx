@@ -14,6 +14,7 @@ class PageList extends Component
     public function __construct(
         public \App\Support\PageConfigurator $page,
         public mixed $items,
+        public array $listColumns = [],
         public array $filterBetweenDates = [],
         public array $filterSortableFields = []
     ) {

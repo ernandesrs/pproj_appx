@@ -108,7 +108,7 @@
     <x-shared.table.table class="col-span-12">
         <x-slot:theader>
             <x-shared.table.row header-row>
-                @foreach (self::columns() as $column)
+                @foreach ($listColumns as $column)
                     <x-shared.table.cell header-cell :value="$column['label']" />
                 @endforeach
             </x-shared.table.row>
@@ -116,10 +116,11 @@
         <x-slot:tbody>
             @foreach ($items ?? [] as $item)
                 <x-shared.table.row>
-                    @foreach (self::columns() as $column)
+                    @foreach ($listColumns as $column)
                         @php
                             $modelAttr = $column['key'] ?? null;
                             $view = $column['view'] ?? null;
+                            $actionsButtons = $column['actions'] ?? null;
                         @endphp
                         @if ($modelAttr)
                             <x-shared.table.cell :value="$item->$modelAttr" />

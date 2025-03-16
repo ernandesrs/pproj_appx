@@ -35,4 +35,13 @@ trait PageListTrait
     {
         return $this->applyFilter()->paginate($this->limit);
     }
+
+    /**
+     * Get Columns
+     * @return array
+     */
+    public function getColumns(): array
+    {
+        return array_merge($this->columns() ?? [], []);
+    }
 }

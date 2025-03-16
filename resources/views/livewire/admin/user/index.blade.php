@@ -1,6 +1,7 @@
 <x-shared.panel.page-list
     :page="$page"
     :items="$items"
+    :list-columns="self::getColumns()"
     :filterBetweenDates="self::getFilterFieldsBetweenDates()"
     :filterSortableFields="self::getFilterFieldsSortables()">
 

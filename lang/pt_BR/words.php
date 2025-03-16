@@ -2,7 +2,8 @@
 
 return [
     'a' => [
-        'attention' => 'Atenção'
+        'attention' => 'Atenção',
+        'action' => 'Ação|Ações'
     ],
 
     'b' => [
