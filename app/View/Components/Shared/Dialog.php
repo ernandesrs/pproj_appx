@@ -17,11 +17,11 @@ use Illuminate\View\Component;
  * Dispatch example:
  * - $dispatch('evt_name', {id: 'dialog_id'})
  *
- * Dispatch this events
- * - evt__dialog_showing
- * - evt__dialog_showed
- * - evt__dialog_closing
- * - evt__dialog_closed
+ * Dispatch this events:
+ * - evt__dialog_showing_dialog_id
+ * - evt__dialog_showed_dialog_id
+ * - evt__dialog_closing_dialog_id
+ * - evt__dialog_closed_dialog_id
  *
  */
 class Dialog extends Component

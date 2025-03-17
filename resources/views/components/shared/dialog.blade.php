@@ -10,6 +10,7 @@
 
         dialogActivatorClicked(event) {
             const controls = event?.detail?.id;
+
             if (controls != this.id) return;
 
             this.show();
@@ -17,32 +18,33 @@
 
         dialogCloserClicked(event) {
             const controls = event?.detail?.id;
+
             if (controls != this.id) return;
 
             this.close();
         },
 
         show() {
-            $dispatch('evt__dialog_showing', {
+            $dispatch('evt__dialog_showing_' + this.id, {
                 dialog_id: this.id
             });
             this.backdropVisible = true;
             setTimeout(() => {
                 this.contentVisible = true;
-                $dispatch('evt__dialog_showed', {
+                $dispatch('evt__dialog_showed_' + this.id, {
                     dialog_id: this.id
                 });
             }, 200);
         },
 
         close() {
-            $dispatch('evt__dialog_closing', {
+            $dispatch('evt__dialog_closing_' + this.id, {
                 dialog_id: this.id
             });
             this.contentVisible = false;
             setTimeout(() => {
                 this.backdropVisible = false;
-                $dispatch('evt__dialog_closed', {
+                $dispatch('evt__dialog_closed_' + this.id, {
                     dialog_id: this.id
                 });
             }, 200);
