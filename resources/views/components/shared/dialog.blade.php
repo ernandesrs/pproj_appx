@@ -110,7 +110,9 @@
                 small />
         </x-slot:actions>
 
-        {{ $slot }}
+        <div class="max-h-[82vh] overflow-y-auto">
+            {{ $slot }}
+        </div>
 
     </x-shared.card>
 
