@@ -30,7 +30,8 @@
     </div>
 @endif
 
-<div class="px-5 {{ $showHeader() ? 'pb-4 py-2' : 'py-4' }}">
+<div
+    class="px-5 {{ $showHeader() ? 'pb-4 py-2' : 'py-4' }} {{ $contentHeight ? $contentHeight . ' overflow-y-auto' : '' }}">
     {{ $content ?? $slot }}
 </div>
 

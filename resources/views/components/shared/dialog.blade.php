@@ -99,7 +99,8 @@
             'xl' => 'max-w-[975px]',
         ][$getSize()] }}"
         :icon="$icon ?? ''"
-        :title="$title">
+        :title="$title"
+        content-height="max-h-[80vh]">
 
         <x-slot:actions>
             <x-shared.clickable
@@ -110,9 +111,7 @@
                 small />
         </x-slot:actions>
 
-        <div class="max-h-[82vh] overflow-y-auto">
-            {{ $slot }}
-        </div>
+        {{ $slot }}
 
     </x-shared.card>
 

@@ -15,6 +15,7 @@ class Card extends Component
         public string $title = '',
         public string $icon = '',
         public string $titleTag = 'h2',
+        public ?string $contentHeight = null
     ) {
     }
 
