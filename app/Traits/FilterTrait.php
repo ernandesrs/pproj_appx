@@ -38,13 +38,13 @@ trait FilterTrait
      * Sort by field
      * @var ?string
      */
-    public ?string $sort_by;
+    public ?string $sort_by = 'created_at';
 
     /**
      * Sort direction
      * @var ?string
      */
-    public ?string $sort_direction;
+    public ?string $sort_direction = 'desc';
 
     /**
      * Searchable Fields

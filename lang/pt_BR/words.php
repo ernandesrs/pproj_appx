@@ -58,7 +58,8 @@ return [
     'n' => [
         'name' => 'Nome',
         'notification' => 'Notificação|Notificações',
-        'next' => 'Próximo'
+        'next' => 'Próximo',
+        'new' => 'Novo|Novos',
     ],
 
     'o' => [
@@ -77,7 +78,7 @@ return [
     'q' => [],
 
     'r' => [
-        'register' => 'Registro',
+        'register' => 'Registrar|Registros|Registrar',
         'registered' => 'Registrado',
         'result' => 'Resultado|Resultados'
     ],
@@ -99,6 +100,7 @@ return [
         'user' => 'Usuário|Usuários',
         'username' => 'Usuário',
         'updated_at' => 'Atualizado em',
+        'update' => 'Atualizar|Atualização|Atualizações'
     ],
 
     'v' => [],

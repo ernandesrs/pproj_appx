@@ -1,4 +1,4 @@
-<x-shared.panel.page-base :page="$page">
+<x-shared.panel.page-base :page="$page" :errors="$errors">
 
     <x-slot:actions>
         <x-shared.dialog
@@ -105,6 +105,8 @@
         </div>
     </x-slot:actions>
 
+    {{ $prependList ?? $slot }}
+
     <x-shared.table.table class="col-span-12">
         <x-slot:theader>
             <x-shared.table.row header-row>
@@ -140,5 +142,7 @@
             {{ $items->onEachSide(0)->links() }}
         </div>
     @endif
+
+    {{ $appendList ?? null }}
 
 </x-shared.panel.page-base>

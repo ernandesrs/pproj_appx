@@ -2,6 +2,9 @@
 
 namespace App\Livewire\Forms;
 
+use App\Enums\UserGendersEnum;
+use App\Models\User;
+use App\Rules\UserRules;
 use App\Services\UserService;
 use Livewire\Attributes\Locked;
 use Livewire\Form;
@@ -10,10 +13,10 @@ class UserForm extends Form
 {
     /**
      * User
-     * @var \App\Models\User
+     * @var ?\App\Models\User
      */
     #[Locked]
-    public \App\Models\User $user;
+    public ?User $user;
 
     /**
      * First name
@@ -37,7 +40,7 @@ class UserForm extends Form
      * Gender
      * @var \App\Enums\UserGendersEnum
      */
-    public \App\Enums\UserGendersEnum $gender;
+    public UserGendersEnum $gender;
 
     /**
      * Email
@@ -62,16 +65,29 @@ class UserForm extends Form
      * @param \Illuminate\Contracts\Auth\Authenticatable|\App\Models\User $user
      * @return void
      */
-    public function setUser(\Illuminate\Contracts\Auth\Authenticatable|\App\Models\User $user): void
+    public function setUser(\Illuminate\Contracts\Auth\Authenticatable|User|null $user = null): void
     {
         $this->user = $user;
         $this->fill([
-            'first_name' => $user->first_name,
-            'last_name' => $user->last_name,
-            'username' => $user->username,
-            'email' => $user->email,
-            'gender' => $user->gender
+            'first_name' => $user ? $user->first_name : '',
+            'last_name' => $user ? $user->last_name : '',
+            'username' => $user ? $user->username : '',
+            'email' => $user ? $user->email : '',
+            'gender' => $user ? $user->gender : UserGendersEnum::UNDEFINED,
+            'password' => null,
+            'password_confirmation' => null,
         ]);
+    }
+
+    /**
+     * Create
+     * @return User|null
+     */
+    public function create(): ?User
+    {
+        return UserService::create(
+            $this->validate(UserRules::create())
+        );
     }
 
     /**
@@ -80,6 +96,9 @@ class UserForm extends Form
      */
     public function update(): bool
     {
-        return UserService::update($this->user, $this->validate(\App\Rules\UserRules::update($this->user)));
+        return UserService::update(
+            $this->user,
+            $this->validate(UserRules::update($this->user))
+        );
     }
 }
