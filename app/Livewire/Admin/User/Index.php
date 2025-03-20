@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Livewire\Attributes\Locked;
+use Livewire\Attributes\On;
 
 class Index extends \App\Livewire\Admin\AdminBaseComponent
 {
@@ -78,18 +79,18 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
     public function deleteUserConfirmation(User $user)
     {
         $this->userDelete = $user;
-        $this->dispatch('evt__dialog_show', id: 'dialog_user_delete_show');
+        $this->dispatch('evt__dialog_show', id: 'user_delete_confirmation');
     }
 
     /**
      * User Delete Confirmed
      * @return void
      */
+    #[On('evt__confirmation_confirmed_user_delete_confirmation')]
     public function userDeleteConfirmed()
     {
         $feedback = $this->feedbackGlobal();
         if (\Auth::user()->id != $this->userDelete?->id) {
-
             \App\Services\UserService::delete($this->userDelete) ?
                 $feedback->success(__('messages.success.on_delete_user')) :
                 $feedback->error(__('messages.error.on_delete_user'));
@@ -98,7 +99,7 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
         }
 
         $feedback->toLivewire($this);
-        $this->dispatch('evt__dialog_close', id: 'dialog_user_delete_show');
+        $this->dispatch('evt__dialog_close', id: 'user_delete_confirmation');
     }
 
     /**
