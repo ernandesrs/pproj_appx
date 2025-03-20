@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\User;
+use function PHPUnit\Framework\returnArgument;
 
 class UserService
 {
@@ -23,12 +24,22 @@ class UserService
      * @param array $validated
      * @return bool
      */
-    public static function update(User $user, array $validated)
+    public static function update(User $user, array $validated): bool
     {
         if (empty($validated['password'])) {
             unset($validated['password']);
         }
 
         return $user->update($validated);
+    }
+
+    /**
+     * Delete user
+     * @param \App\Models\User $user
+     * @return ?bool
+     */
+    public static function delete(User $user): ?bool
+    {
+        return $user->delete();
     }
 }

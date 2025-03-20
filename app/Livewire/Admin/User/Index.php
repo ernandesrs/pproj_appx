@@ -3,8 +3,10 @@
 namespace App\Livewire\Admin\User;
 
 use App\Livewire\Forms\UserForm;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Livewire\Attributes\Locked;
 
 class Index extends \App\Livewire\Admin\AdminBaseComponent
 {
@@ -21,6 +23,13 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
      * @var UserForm
      */
     public UserForm $formUserUpdate;
+
+    /**
+     * User to Delete
+     * @var ?User
+     */
+    #[Locked]
+    public ?User $userDelete = null;
 
     /**
      * Mount
@@ -50,7 +59,7 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
      * Open Create User Modal
      * @return void
      */
-    public function openUserFormModal(string $modalId, ?\App\Models\User $user = null)
+    public function openUserFormModal(string $modalId, ?User $user = null)
     {
         if ($modalId == 'dialog_create_show') {
             $this->formUserCreate->setUser();
@@ -59,6 +68,37 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
         }
 
         $this->dispatch('evt__dialog_show', id: $modalId);
+    }
+
+    /**
+     * Delete User Confirmation
+     * @param \App\Models\User $user
+     * @return void
+     */
+    public function deleteUserConfirmation(User $user)
+    {
+        $this->userDelete = $user;
+        $this->dispatch('evt__dialog_show', id: 'dialog_user_delete_show');
+    }
+
+    /**
+     * User Delete Confirmed
+     * @return void
+     */
+    public function userDeleteConfirmed()
+    {
+        $feedback = $this->feedbackGlobal();
+        if (\Auth::user()->id != $this->userDelete?->id) {
+
+            \App\Services\UserService::delete($this->userDelete) ?
+                $feedback->success(__('messages.success.on_delete_user')) :
+                $feedback->error(__('messages.error.on_delete_user'));
+        } else {
+            $feedback->error(__('messages.error.on_delete_user'));
+        }
+
+        $feedback->toLivewire($this);
+        $this->dispatch('evt__dialog_close', id: 'dialog_user_delete_show');
     }
 
     /**

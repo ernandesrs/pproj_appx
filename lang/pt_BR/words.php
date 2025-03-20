@@ -11,13 +11,16 @@ return [
     ],
 
     'c' => [
+        'cancel' => 'Cancelar',
         'created_at' => 'Criado em',
-        'clear' => 'Limpar'
+        'clear' => 'Limpar',
+        'confirm' => 'Confirmar'
     ],
 
     'd' => [
         'direction' => 'Direção',
         'danger' => 'Perigo',
+        'delete' => 'Excluir|Exclusão'
     ],
 
     'e' => [
