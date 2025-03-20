@@ -19,6 +19,9 @@
 
     {{-- more contents --}}
     <x-slot:prepend-list>
+        <x-shared.dialog-confirmation
+            id="user_delete_confirmation" />
+
         <x-shared.dialog
             title="{{ trans_choice('words.n.new', 1) }} {{ \Str::lower(trans_choice('words.u.user', 1)) }}"
             id="dialog_create_show">

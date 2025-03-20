@@ -15,6 +15,7 @@ return [
     ],
 
     'alerts' => [
+        'confirmation' => 'Esta ação precisa de confirmação para prosseguir. Continuar?',
         'user_delete_confirmation' => 'Você está excluindo :text e isso não pode ser desfeito, continuar?'
     ]
 ];

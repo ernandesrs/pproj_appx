@@ -8,6 +8,9 @@
             quaerat et velit tempora mollitia eos qui voluptatem magni provident rerum iure iusto repellat. Dolores, quas.
         </p>
     </x-shared.dialog>
+
+    <x-shared.dialog-confirmation
+        id="dialog_confirmation_example_1" />
 @endpush
 
 <x-shared.panel.page-base :page="$page">
@@ -279,10 +282,20 @@
 
         <hr class="my-5 border border-zinc-300 dark:border-zinc-800">
 
-        <div class="flex justify-center flex-wrap gap-2">
+        <div
+
+            {{-- dialog confirmation --}}
+            x-on:evt__confirmation_confirmed.window="alert('Confirmed!')"
+            x-on:evt__confirmation_canceled.window="alert('Canceled!')"
+
+            class="flex justify-center flex-wrap gap-2">
             <x-shared.dialog-activator
                 controls="dialog_example_1"
                 text="Abrir dialog" sm />
+
+            <x-shared.dialog-activator
+                controls="dialog_confirmation_example_1"
+                text="Dialog de confirmação" />
 
             <x-shared.clickable wire:click='emitFeedbackTest' text="Emitir feedback teste" sm />
         </div>

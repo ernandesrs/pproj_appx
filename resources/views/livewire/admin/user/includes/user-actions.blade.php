@@ -12,4 +12,11 @@
         variant="filled"
         icon="trash"
         small />
+
+    <x-shared.dialog-activator
+        controls="user_delete_confirmation"
+        style="danger"
+        variant="filled"
+        icon="trash"
+        small />
 </div>
