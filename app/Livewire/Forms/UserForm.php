@@ -68,6 +68,9 @@ class UserForm extends Form
     public function setUser(\Illuminate\Contracts\Auth\Authenticatable|User|null $user = null): void
     {
         $this->user = $user;
+
+        $this->resetErrorBag();
+
         $this->fill([
             'first_name' => $user ? $user->first_name : '',
             'last_name' => $user ? $user->last_name : '',

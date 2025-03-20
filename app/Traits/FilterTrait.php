@@ -5,7 +5,6 @@ namespace App\Traits;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Livewire\Attributes\Url;
-use Livewire\Attributes\Validate;
 
 trait FilterTrait
 {
@@ -25,8 +24,8 @@ trait FilterTrait
      * Search
      * @var string
      */
-    #[Validate(['nullable', 'string']), Url(keep: false, except: null, nullable: true)]
-    public ?string $search;
+    #[Url(keep: false, except: null, nullable: true)]
+    public ?string $search = null;
 
     /**
      * Between
@@ -76,30 +75,35 @@ trait FilterTrait
     {
         $query = $this->modelInstance();
 
-        if (!empty($this->search)) {
+        $validated = \Validator::make([
+            'search' => $this->search,
+            'between' => $this->between,
+            'sort_by' => $this->sort_by,
+            'sort_direction' => $this->sort_direction,
+        ], [
+            'search' => ['nullable', 'string'],
+            'between.*.start' => ['nullable', 'date'],
+            'between.*.end' => ['nullable', 'date'],
+            'sort_by' => ['nullable', \Illuminate\Validation\Rule::in($this->defaultSortableFields)],
+            'sort_direction' => ['nullable', \Illuminate\Validation\Rule::in(['asc', 'desc'])],
+        ])->validated();
+
+        if (!empty($validated['search'])) {
             $query = $query
                 ->whereRaw(
                     "MATCH(" . implode(', ', $this->searchableFields()) . ") AGAINST(? IN BOOLEAN MODE)",
-                    $this->search
+                    $validated['search']
                 );
         }
 
-        $betweenValidate = $this->validate([
-            'between.*.start' => ['nullable', 'date'],
-            'between.*.end' => ['nullable', 'date'],
-        ]);
-        if (count($betweenValidate['between'] ?? [])) {
-            foreach ($betweenValidate['between'] as $key => $values) {
+        if (count($validated['between'] ?? [])) {
+            foreach ($validated['between'] as $key => $values) {
                 $query = $query->whereBetween($key, [$values['start'], $values['end']]);
             }
         }
 
-        $sortValidate = $this->validate([
-            'sort_by' => ['nullable', \Illuminate\Validation\Rule::in($this->defaultSortableFields)],
-            'sort_direction' => ['nullable', \Illuminate\Validation\Rule::in(['asc', 'desc'])],
-        ]);
-        if (isset($sortValidate['sort_by']) && isset($sortValidate['sort_direction'])) {
-            $query = $query->orderBy($sortValidate['sort_by'], $sortValidate['sort_direction']);
+        if (isset($validated['sort_by']) && isset($validated['sort_direction'])) {
+            $query = $query->orderBy($validated['sort_by'], $validated['sort_direction']);
         }
 
         return $query;
