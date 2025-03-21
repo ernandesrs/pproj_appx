@@ -22,7 +22,7 @@ enum UserPermission: string
      * Label
      * @return string
      */
-    public function label(): string
+    public static function label(): string
     {
         return __('permissions.permissions_over_users');
     }

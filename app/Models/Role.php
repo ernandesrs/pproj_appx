@@ -15,4 +15,13 @@ class Role extends \Spatie\Permission\Models\Role
     protected $casts = [
         'name' => \App\Enums\AdminRolesEnum::class
     ];
+
+    /**
+     * Is Default Admin Role
+     * @return bool
+     */
+    public function isDefaultAdminRole(): bool
+    {
+        return in_array($this->name, \App\Enums\AdminRolesEnum::cases());
+    }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Admin\Role;
 
+use App\Livewire\Forms\Admin\RoleForm;
+use App\Models\Role;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,9 +11,25 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
 {
     use \App\Traits\PageListTrait;
 
-    public function openRoleFormModal()
+    /**
+     * Role Update
+     * @var RoleForm
+     */
+    public RoleForm $roleUpdate;
+
+    /**
+     * Open Role Form Modal
+     * @param string $dialogId
+     * @param mixed $role
+     * @return void
+     */
+    public function openRoleFormModal(string $dialogId, ?Role $role = null)
     {
-        $this->dispatch('evt__dialog_show', id: 'dialog_role_update');
+        $dialogId == 'dialog_role_update' ?
+            $this->roleUpdate->setRole($role) :
+            $this->roleUpdate->setRole();
+
+        $this->dispatch('evt__dialog_show', id: $dialogId);
     }
 
     /**

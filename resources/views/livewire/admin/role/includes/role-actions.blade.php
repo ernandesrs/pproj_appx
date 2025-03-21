@@ -2,7 +2,7 @@
     @can('update', $item)
         <x-shared.clickable
             wire:loading.class='pointer-events-none animation-pulse'
-            wire:click="openRoleFormModal({{ $item->id }})"
+            wire:click="openRoleFormModal('dialog_role_update', {{ $item->id }})"
             icon="pencil"
             small />
     @endcan
