@@ -11,10 +11,12 @@
 
     <x-slot:actions>
         {{-- Page actions --}}
-        <x-shared.clickable
-            wire:loading.class='pointer-events-none animate-pulse'
-            wire:click="openUserFormModal('dialog_create_show')"
-            text="{{ trans_choice('words.n.new', 1) }} {{ \Str::lower(trans_choice('words.u.user', 1)) }}" />
+        @can('create', \App\Models\User::class)
+            <x-shared.clickable
+                wire:loading.class='pointer-events-none animate-pulse'
+                wire:click="openUserFormModal('dialog_create_show')"
+                text="{{ trans_choice('words.n.new', 1) }} {{ \Str::lower(trans_choice('words.u.user', 1)) }}" />
+        @endcan
     </x-slot:actions>
 
     {{-- more contents --}}

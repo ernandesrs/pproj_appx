@@ -12,6 +12,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        /**
+         *
+         *
+         * Permissions
+         *
+         *
+         */
+        \App\Models\Permission::permissionsEnumsClass()->map(function ($permissionEnumClass) {
+            foreach ($permissionEnumClass::cases() as $permission) {
+                \App\Models\Permission::create([
+                    'name' => $permission->value
+                ]);
+            }
+        });
+
+        /**
+         *
+         *
+         * Roles
+         *
+         *
+         */
+
         $roleSuper = \App\Models\Role::create([
             'name' => \App\Enums\Permissions\Admin\RolesEnum::SUPER
         ]);
@@ -19,6 +42,8 @@ class DatabaseSeeder extends Seeder
         $roleAdmin = \App\Models\Role::create([
             'name' => \App\Enums\Permissions\Admin\RolesEnum::ADMIN
         ]);
+
+        $roleAdmin->givePermissionTo(\App\Enums\Permissions\Admin\UserPermission::VIEW_ANY);
 
         $super = \App\Models\User::factory()->create([
             'first_name' => 'Super',

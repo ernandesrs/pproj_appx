@@ -46,6 +46,8 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
      */
     public function render()
     {
+        $this->authorize('viewAny', User::class);
+
         return $this->renderView(
             'livewire..admin.user.index',
             $this->page()->addTitle(trans_choice('words.u.user', 2))
@@ -89,6 +91,8 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
     #[On('evt__confirmation_confirmed_user_delete_confirmation')]
     public function userDeleteConfirmed()
     {
+        $this->authorize('delete', $this->userDelete);
+
         $feedback = $this->feedbackGlobal();
         if (\Auth::user()->id != $this->userDelete?->id) {
             \App\Services\UserService::delete($this->userDelete) ?
@@ -108,6 +112,8 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
      */
     public function saveUser()
     {
+        $this->authorize('create', $this->formUserCreate->user);
+
         $feedback = $this->feedbackGlobal();
 
         $created = $this->formUserCreate->create();
@@ -127,6 +133,8 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
      */
     public function updateUser()
     {
+        $this->authorize('update', $this->formUserUpdate->user);
+
         $feedback = $this->feedbackGlobal();
 
         $updated = $this->formUserUpdate->update();

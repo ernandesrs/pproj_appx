@@ -16,7 +16,7 @@ class UserForm extends Form
      * @var ?\App\Models\User
      */
     #[Locked]
-    public ?User $user;
+    public ?User $user = null;
 
     /**
      * First name
