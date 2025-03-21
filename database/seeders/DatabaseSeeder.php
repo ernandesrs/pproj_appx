@@ -12,13 +12,32 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\User::factory()->create([
+        $roleSuper = \App\Models\Role::create([
+            'name' => \App\Enums\Permissions\Admin\RolesEnum::SUPER
+        ]);
+
+        $roleAdmin = \App\Models\Role::create([
+            'name' => \App\Enums\Permissions\Admin\RolesEnum::ADMIN
+        ]);
+
+        $super = \App\Models\User::factory()->create([
             'first_name' => 'Super',
             'last_name' => 'User',
             'username' => 'superuser',
             'gender' => \App\Enums\UserGendersEnum::MALE,
             'email' => 'super@mail.com',
         ]);
+
+        $admin = \App\Models\User::factory()->create([
+            'first_name' => 'Admin',
+            'last_name' => 'User',
+            'username' => 'adminuser',
+            'gender' => \App\Enums\UserGendersEnum::MALE,
+            'email' => 'admin@mail.com',
+        ]);
+
+        $super->assignRole($roleSuper);
+        $admin->assignRole($roleAdmin);
 
         \App\Models\User::factory(100)->create();
     }
