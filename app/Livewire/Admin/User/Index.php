@@ -112,7 +112,7 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
      */
     public function saveUser()
     {
-        $this->authorize('create', $this->formUserCreate->user);
+        $this->authorize('create', User::class);
 
         $feedback = $this->feedbackGlobal();
 
