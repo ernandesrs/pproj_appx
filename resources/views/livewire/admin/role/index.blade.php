@@ -34,16 +34,18 @@
                     </x-shared.card>
                 @else
                     @foreach (\App\Models\Permission::permissionsEnumsClass() as $permissionEnumClass)
-                        <x-shared.card class="col-span-12" :title="$permissionEnumClass::label()">
+                        <x-shared.card class="col-span-12" title-tag="h4" :title="$permissionEnumClass::label()">
                             <div class="flex flex-wrap justify-start gap-2">
                                 @foreach ($permissionEnumClass::cases() as $permissionEnum)
                                     @if ($roleUpdate->role?->hasPermissionTo($permissionEnum))
                                         <x-shared.clickable
+                                            wire:click="revokePermission('{{ $permissionEnum }}')"
                                             prepend-icon="check-lg"
                                             :text="$permissionEnum->permissionLabel()"
                                             style="success" small />
                                     @else
                                         <x-shared.clickable
+                                            wire:click="givePermission('{{ $permissionEnum }}')"
                                             prepend-icon="x-lg"
                                             :text="$permissionEnum->permissionLabel()"
                                             style="light" variant="flat" small />

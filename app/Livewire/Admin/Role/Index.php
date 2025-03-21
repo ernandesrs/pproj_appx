@@ -33,11 +33,37 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
     }
 
     /**
+     * Give a Permission
+     * @param string $permission
+     * @return void
+     */
+    public function givePermission(string $permission)
+    {
+        $this->authorize('update', $this->roleUpdate->role);
+
+        $this->roleUpdate->role->givePermissionTo($permission);
+    }
+
+    /**
+     * Revoke a Permission
+     * @param string $permission
+     * @return void
+     */
+    public function revokePermission(string $permission)
+    {
+        $this->authorize('update', $this->roleUpdate->role);
+
+        $this->roleUpdate->role->revokePermissionTo($permission);
+    }
+
+    /**
      * Render
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function render()
     {
+        $this->authorize('viewAny', Role::class);
+
         return $this->renderView(
             'livewire..admin.role.index',
             $this->page()->addTitle(trans_choice('words.r.role', 2))
