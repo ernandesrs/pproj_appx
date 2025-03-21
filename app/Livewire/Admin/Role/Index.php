@@ -9,6 +9,11 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
 {
     use \App\Traits\PageListTrait;
 
+    public function openRoleFormModal()
+    {
+        $this->dispatch('evt__dialog_show', id: 'dialog_role_update');
+    }
+
     /**
      * Render
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
@@ -31,7 +36,7 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
      */
     public function searchableFields(): array
     {
-        return [''];
+        return [];
     }
 
     /**
