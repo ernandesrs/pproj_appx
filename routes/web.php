@@ -76,6 +76,19 @@ Route::group([
 
     });
 
+    /**
+     *
+     * Roles
+     *
+     */
+    Route::group([
+        'prefix' => 'roles'
+    ], function () {
+
+        Route::get('/', \App\Livewire\Admin\Role\Index::class)->name('admin.roles.index');
+
+    });
+
     Route::get('/profile', \App\Livewire\Admin\Profile::class)->name('admin.profile');
 
 });

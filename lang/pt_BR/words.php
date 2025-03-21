@@ -83,7 +83,8 @@ return [
     'r' => [
         'register' => 'Registrar|Registros|Registrar',
         'registered' => 'Registrado',
-        'result' => 'Resultado|Resultados'
+        'result' => 'Resultado|Resultados',
+        'role' => 'Cargo|Cargos'
     ],
 
     's' => [

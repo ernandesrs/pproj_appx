@@ -27,6 +27,12 @@
                         'href' => route('admin.users.index'),
                         'activeIn' => ['admin.users.index'],
                     ],
+                    [
+                        'text' => trans_choice('words.r.role', 2),
+                        'icon' => 'shield',
+                        'href' => route('admin.roles.index'),
+                        'activeIn' => ['admin.roles.index'],
+                    ],
                 ]" />
 
             <x-shared.panel.sidebar.section
