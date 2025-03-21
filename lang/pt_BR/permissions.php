@@ -7,6 +7,7 @@ return [
     ],
 
     'permissions_over_users' => 'Permissões sobre usuários',
+    'permissions_over_roles' => 'Permissões sobre cargos',
 
     'view_any' => 'Ver todos',
     'view' => 'Ver um',

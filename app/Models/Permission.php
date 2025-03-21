@@ -22,6 +22,7 @@ class Permission extends \Spatie\Permission\Models\Permission
     public static function permissionsEnumsClass(): \Illuminate\Support\Collection
     {
         return \Illuminate\Support\Collection::make([])
-            ->push(\App\Enums\Permissions\UserPermission::class);
+            ->push(\App\Enums\Permissions\UserPermission::class)
+            ->push(\App\Enums\Permissions\RolePermission::class);
     }
 }
