@@ -34,9 +34,9 @@
 
             <x-shared.clickable
                 x-on:click="canceled"
-                prepend-icon="check-lg"
+                prepend-icon="x-lg"
                 text="{{ $cancelText }}"
-                style="light"
+                style="danger"
                 variant="outlined" />
         </div>
     </x-shared.dialog>
