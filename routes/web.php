@@ -13,10 +13,40 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-\Auth::login(\App\Models\User::first());
-
 Route::get('/', function () {
     return redirect()->route('admin.overview');
+})->name('home');
+
+/**
+ *
+ *
+ * Auth
+ *
+ *
+ */
+Route::group([
+    'prefix' => 'auth'
+], function () {
+
+    Route::group([
+        'middleware' => ['guest']
+    ], function () {
+
+        Route::get('/login', \App\Livewire\Auth\Login::class)->name('auth.login');
+
+    });
+
+    Route::group([
+        'middleware' => ['auth']
+    ], function () {
+
+        Route::get('/logout', function () {
+            \Auth::logout();
+            return redirect()->route('auth.login');
+        })->name('auth.logout');
+
+    });
+
 });
 
 /**
@@ -27,7 +57,8 @@ Route::get('/', function () {
  *
  */
 Route::group([
-    'prefix' => 'admin'
+    'prefix' => 'admin',
+    'middleware' => ['auth']
 ], function () {
 
     Route::get('/', \App\Livewire\Admin\Overview::class)->name('admin.overview');

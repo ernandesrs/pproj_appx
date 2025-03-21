@@ -114,9 +114,17 @@
                         icon="person-circle"
                         title="{{ trans_choice('words.m.my', 1) . ' ' . trans_choice('words.p.profile', 1) }}"
                         title-tag="h4">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat dolor suscipit mollitia saepe
-                        nesciunt repudiandae autem assumenda nihil quia, inventore corporis fugiat placeat voluptatem
-                        perferendis, cum rerum aut aperiam harum!
+                        A
+                        <hr class="border border-zinc-200 dark:border-zinc-800 my-3">
+                        <div class="flex gap-2 justify-center items-center">
+                            <x-shared.clickable
+                                style="danger"
+                                prepend-icon="box-arrow-left"
+                                text="Logout"
+                                :href="route('auth.logout')"
+                                as-link
+                                small />
+                        </div>
                     </x-shared.card>
                 </x-shared.dropdown>
             </x-slot:append>
