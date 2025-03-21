@@ -1,16 +1,19 @@
 <?php
 
-namespace App\Traits;
+namespace App\Policies;
 
 use App\Models\User;
 
-trait BasePolicyTrait
+class BasePolicy
 {
     /**
      * Permissions Enum Class
      * @return string
      */
-    abstract public static function permissionsEnum(): string;
+    public function permissionsEnum(): string
+    {
+        throw new \Exception('Override the method: "public function permissionsEnum()" returning permissions enum');
+    }
 
     /**
      * View Any
@@ -22,7 +25,7 @@ trait BasePolicyTrait
         if ($this->isSuperUser($user))
             return true;
 
-        return $user->hasPermissionTo(self::permissionsEnum()::VIEW_ANY);
+        return $user->hasPermissionTo($this->permissionsEnum()::VIEW_ANY);
     }
 
     /**
@@ -36,7 +39,7 @@ trait BasePolicyTrait
         if ($this->isSuperUser($user))
             return true;
 
-        return $user->hasPermissionTo(self::permissionsEnum()::VIEW);
+        return $user->hasPermissionTo($this->permissionsEnum()::VIEW);
     }
 
     /**
@@ -49,7 +52,7 @@ trait BasePolicyTrait
         if ($this->isSuperUser($user))
             return true;
 
-        return $user->hasPermissionTo(self::permissionsEnum()::CREATE);
+        return $user->hasPermissionTo($this->permissionsEnum()::CREATE);
     }
 
     /**
@@ -63,7 +66,7 @@ trait BasePolicyTrait
         if ($this->isSuperUser($user))
             return true;
 
-        return $user->hasPermissionTo(self::permissionsEnum()::UPDATE);
+        return $user->hasPermissionTo($this->permissionsEnum()::UPDATE);
     }
 
     /**
@@ -77,7 +80,7 @@ trait BasePolicyTrait
         if ($this->isSuperUser($user))
             return true;
 
-        return $user->hasPermissionTo(self::permissionsEnum()::DELETE);
+        return $user->hasPermissionTo($this->permissionsEnum()::DELETE);
     }
 
     /**
@@ -91,7 +94,7 @@ trait BasePolicyTrait
         if ($this->isSuperUser($user))
             return true;
 
-        return $user->hasPermissionTo(self::permissionsEnum()::RESTORE);
+        return $user->hasPermissionTo($this->permissionsEnum()::RESTORE);
     }
 
     /**
@@ -105,7 +108,7 @@ trait BasePolicyTrait
         if ($this->isSuperUser($user))
             return true;
 
-        return $user->hasPermissionTo(self::permissionsEnum()::FORCE_DELETE);
+        return $user->hasPermissionTo($this->permissionsEnum()::FORCE_DELETE);
     }
 
     /**
