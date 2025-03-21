@@ -19,7 +19,7 @@ class AdminAccess
          * @var \App\Models\User
          */
         $user = $request->user();
-        if (!$user->hasAnyRole(\App\Enums\Permissions\Admin\RolesEnum::cases())) {
+        if (!$user->hasAnyRole(\App\Enums\AdminRolesEnum::cases())) {
             abort(401);
         }
 

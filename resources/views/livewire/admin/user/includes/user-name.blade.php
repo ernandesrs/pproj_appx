@@ -2,7 +2,7 @@
     <span>
         {{ $item->first_name }} {{ $item->last_name }}
     </span>
-    @if ($item->hasAnyRole(\App\Enums\Permissions\Admin\RolesEnum::cases()))
+    @if ($item->hasAnyRole(\App\Enums\AdminRolesEnum::cases()))
         @foreach ($item->roles()->get() as $role)
             <span class="bg-success dark:bg-success-dark px-2 text-xs rounded-lg overflow-hidden relative">
                 {{ $role->name->label() }}

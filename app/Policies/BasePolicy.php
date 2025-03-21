@@ -118,6 +118,6 @@ class BasePolicy
      */
     protected function isSuperUser(User $user): bool
     {
-        return $user->hasRole(\App\Enums\Permissions\Admin\RolesEnum::SUPER);
+        return $user->hasRole(\App\Enums\AdminRolesEnum::SUPER);
     }
 }

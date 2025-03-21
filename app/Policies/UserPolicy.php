@@ -14,7 +14,7 @@ class UserPolicy extends BasePolicy
      */
     public function permissionsEnum(): string
     {
-        return \App\Enums\Permissions\Admin\UserPermission::class;
+        return \App\Enums\Permissions\UserPermission::class;
     }
 
     /**
@@ -32,9 +32,9 @@ class UserPolicy extends BasePolicy
 
         // admin can't update other admin or super
         if (
-            $user->hasRole(roles: \App\Enums\Permissions\Admin\RolesEnum::ADMIN) &&
-            ($model->hasRole(\App\Enums\Permissions\Admin\RolesEnum::ADMIN) ||
-                $model->hasRole(\App\Enums\Permissions\Admin\RolesEnum::SUPER))
+            $user->hasRole(roles: \App\Enums\AdminRolesEnum::ADMIN) &&
+            ($model->hasRole(\App\Enums\AdminRolesEnum::ADMIN) ||
+                $model->hasRole(\App\Enums\AdminRolesEnum::SUPER))
         ) {
             return false;
         }
@@ -57,9 +57,9 @@ class UserPolicy extends BasePolicy
 
         // admin can't delete admin or super
         if (
-            $user->hasRole(roles: \App\Enums\Permissions\Admin\RolesEnum::ADMIN) &&
-            ($model->hasRole(\App\Enums\Permissions\Admin\RolesEnum::ADMIN) ||
-                $model->hasRole(\App\Enums\Permissions\Admin\RolesEnum::SUPER))
+            $user->hasRole(roles: \App\Enums\AdminRolesEnum::ADMIN) &&
+            ($model->hasRole(\App\Enums\AdminRolesEnum::ADMIN) ||
+                $model->hasRole(\App\Enums\AdminRolesEnum::SUPER))
         ) {
             return false;
         }

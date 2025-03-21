@@ -13,6 +13,6 @@ class Role extends \Spatie\Permission\Models\Role
      * @var array
      */
     protected $casts = [
-        'name' => \App\Enums\Permissions\Admin\RolesEnum::class
+        'name' => \App\Enums\AdminRolesEnum::class
     ];
 }
