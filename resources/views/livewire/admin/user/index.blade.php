@@ -20,7 +20,12 @@
     {{-- more contents --}}
     <x-slot:prepend-list>
         <x-shared.dialog-confirmation
-            id="user_delete_confirmation" />
+            id="user_delete_confirmation"
+            :title="trans_choice('words.d.delete', 1) . ' ' . \Str::lower(trans_choice('words.u.user', 1)) . '?'"
+            :message="__('messages.alerts.user_delete_confirmation', [
+                'text' => $userDelete?->first_name . ' ' . $userDelete?->last_name,
+            ])"
+            :confirmation-text="trans_choice('words.d.delete', 1)" />
 
         <x-shared.dialog
             title="{{ trans_choice('words.n.new', 1) }} {{ \Str::lower(trans_choice('words.u.user', 1)) }}"
@@ -54,30 +59,6 @@
                     'formName' => 'formUserUpdate',
                 ])
             </x-shared.form.form>
-        </x-shared.dialog>
-
-        <x-shared.dialog
-            title="{{ trans_choice('words.d.delete', 2) }} {{ \Str::lower(trans_choice('words.o.of', 1)) }} {{ \Str::lower(trans_choice('words.u.user', 1)) }}"
-            id="dialog_user_delete_show">
-
-            <p>
-                {{ __('messages.alerts.user_delete_confirmation', ['text' => $userDelete?->first_name . ' ' . $userDelete?->last_name]) }}
-            </p>
-
-            <div class="mt-3 flex justify-between items-center gap-2">
-                <x-shared.clickable
-                    wire:click='userDeleteConfirmed'
-                    prepend-icon="check-lg"
-                    text="{{ trans_choice('words.c.confirm', 1) }}"
-                    style="danger" />
-
-                <x-shared.clickable
-                    x-on:click="$dispatch('evt__dialog_close', {id: 'dialog_user_delete_show'})"
-                    prepend-icon="check-lg"
-                    text="{{ trans_choice('words.c.cancel', 1) }}"
-                    style="light"
-                    variant="flat" />
-            </div>
         </x-shared.dialog>
     </x-slot:prepend-list>
 
