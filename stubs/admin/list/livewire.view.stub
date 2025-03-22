@@ -13,4 +13,12 @@
         {{-- Page actions --}}
     </x-slot:actions>
 
+    <x-slot:prepend-list>
+        {{-- Prepend List --}}
+    </x-slot:prepend-list>
+
+    <x-slot:append-list>
+        {{-- Append List --}}
+    </x-slot:append-list>
+
 </x-shared.panel.page-list>

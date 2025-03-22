@@ -4,7 +4,7 @@
             class="
             flex items-center
             w-full
-            {{ isset($actions) && $actions->isNotEmpty() ? '' : 'mb-5' }}">
+            mb-5">
             <div class="flex flex-col gap-x-3">
                 @if (!empty($page->getTitle()) && !$page->isWithoutTitle())
                     <h1 class="font-semibold text-lg md:text-xl">

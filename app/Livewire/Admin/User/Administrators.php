@@ -2,12 +2,20 @@
 
 namespace App\Livewire\Admin\User;
 
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class Administrators extends \App\Livewire\Admin\AdminBaseComponent
 {
     use \App\Traits\PageListTrait;
+
+    public string $searchUser = '';
+
+    public mixed $searchResults = null;
+
+    public ?User $userToPromote = null;
 
     /**
      * Mount
@@ -17,6 +25,46 @@ class Administrators extends \App\Livewire\Admin\AdminBaseComponent
     {
         $this->defaultBetweenDatesFields = [];
         $this->defaultSortableFields = [];
+    }
+
+    /**
+     * Open User Promotion Dialog
+     * @return void
+     */
+    public function openUserPromotionDialog(): void
+    {
+        $this->searchUser = '';
+        $this->searchResults = null;
+        $this->userToPromote = null;
+        $this->dispatch('evt__dialog_show', id: 'dialog_new_admin');
+    }
+
+    public function searchByUser(): void
+    {
+        $validated = $this->validate(['searchUser' => ['nullable', 'string']]);
+        if (!empty($validated['searchUser'])) {
+            $this->searchResults = User::whereRaw('MATCH(first_name,last_name,username) AGAINST(? IN BOOLEAN MODE)', [$validated['searchUser']])->limit(5)->get();
+        } else {
+            $this->searchResults = null;
+        }
+    }
+
+    public function chooseUserToPromote(User $user)
+    {
+        $this->authorize('update', $user);
+        $this->userToPromote = $user;
+    }
+
+    public function assingRole(Role $role)
+    {
+        $this->authorize('update', $this->userToPromote);
+        $this->userToPromote->assignRole($role);
+    }
+
+    public function removeRole(Role $role)
+    {
+        $this->authorize('update', $this->userToPromote);
+        $this->userToPromote->removeRole($role);
     }
 
     /**
