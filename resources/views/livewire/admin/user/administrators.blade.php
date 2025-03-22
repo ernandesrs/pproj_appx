@@ -14,10 +14,11 @@
         {{-- Dialog: promote user --}}
         <x-shared.dialog
             id="dialog_new_admin"
-            title="{{ $userToPromote ? 'Gerenciando cargo de ' . $userToPromote->first_name : 'Novo administrador' }}"
+            title="{{ $userToPromote ? 'Cargos de ' . $userToPromote->first_name . ' ' . $userToPromote->last_name : 'Novo administrador' }}"
             size="lg">
             @if ($userToPromote)
-                <x-shared.heading class="mb-3" tag="h4" title="Clique sobre o cargo para atribui-lo ao usuário." />
+                <x-shared.heading class="mb-3" tag="h4"
+                    title="Clique sobre o cargo para remove-lo ou atribui-lo ao usuário atual." />
                 <div class="col-span-12 flex flex-wrap justify-start items-center gap-x-2 gap-y-3">
                     @foreach (\App\Models\Role::all() as $role)
                         @if ($userToPromote->hasRole($role))

@@ -55,6 +55,7 @@ return [
     ],
 
     'm' => [
+        'manage' => 'Gerenciar',
         'my' => 'Meu',
         'message' => 'Mensagem'
     ],
