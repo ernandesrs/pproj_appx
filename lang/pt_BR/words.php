@@ -94,7 +94,8 @@ return [
         'success' => 'Sucesso',
         'square' => 'Quadrado',
         'sort_by' => 'Ordenar por',
-        'showing' => 'Mostrando'
+        'showing' => 'Mostrando',
+        'system' => 'Sistema|Sistemas'
     ],
 
     't' => [

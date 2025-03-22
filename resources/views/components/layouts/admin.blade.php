@@ -67,7 +67,7 @@
                 ]" />
 
             <x-shared.panel.sidebar.section
-                title="Sistema"
+                title="{{ trans_choice('words.s.system', 1) }}"
                 :menu-items="[
                     [
                         'text' => trans_choice('words.r.role', 2),
