@@ -62,6 +62,7 @@ Route::group([
 ], function () {
 
     Route::get('/', \App\Livewire\Admin\Overview::class)->name('admin.overview');
+    Route::get('/components-overview', \App\Livewire\Admin\ComponentsOverview::class)->name('admin.componentsOverview');
 
     /**
      *

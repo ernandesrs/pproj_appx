@@ -43,6 +43,12 @@
                         'icon' => 'arrow-up',
                         'href' => '#',
                         'activeIn' => [],
+                    ],
+                    [
+                        'text' => 'Menu item #3',
+                        'icon' => 'arrow-up',
+                        'href' => '#',
+                        'activeIn' => [],
                         'items' => [
                             [
                                 'text' => 'Subitem #1',
@@ -57,12 +63,6 @@
                                 'activeIn' => [],
                             ],
                         ],
-                    ],
-                    [
-                        'text' => 'Menu item #3',
-                        'icon' => 'arrow-up',
-                        'href' => '#',
-                        'activeIn' => [],
                     ],
                 ]" />
 
@@ -80,6 +80,17 @@
                         'icon' => 'person-check',
                         'href' => route('admin.users.administrators'),
                         'activeIn' => ['admin.users.administrators'],
+                    ],
+                ]" />
+
+            <x-shared.panel.sidebar.section
+                title="{{ trans_choice('words.o.other', 2) }}"
+                :menu-items="[
+                    [
+                        'text' => 'Componentes',
+                        'icon' => 'diagram-3',
+                        'href' => route('admin.componentsOverview'),
+                        'activeIn' => ['admin.componentsOverview'],
                     ],
                     [
                         'text' => trans_choice('words.m.my', 1) . ' ' . trans_choice('words.p.profile', 1),
