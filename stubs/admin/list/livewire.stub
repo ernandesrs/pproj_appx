@@ -30,7 +30,8 @@ class [class] extends \App\Livewire\Admin\AdminBaseComponent
      */
     public function searchableFields(): array
     {
-        return [''];
+        // The fields provided must be a full text index
+        return [];
     }
 
     /**
@@ -52,6 +53,11 @@ class [class] extends \App\Livewire\Admin\AdminBaseComponent
             [
                 'label' => 'ID',
                 'key' => 'id'
+                /**
+                 * It can be either 'key' or 'view'. The value of 'key' must be a valid attribute in the model.
+                 * The value of 'view' must be a valid path to the view from 'resources/views/',
+                 * example: 'livewire.admin.user.includes.actions'
+                 */
             ]
         ];
     }
