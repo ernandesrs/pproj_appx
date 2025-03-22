@@ -73,6 +73,7 @@ Route::group([
     ], function () {
 
         Route::get('/', \App\Livewire\Admin\User\Index::class)->name('admin.users.index');
+        Route::get('/administrators', \App\Livewire\Admin\User\Administrators::class)->name('admin.users.administrators');
 
     });
 

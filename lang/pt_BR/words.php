@@ -2,6 +2,7 @@
 
 return [
     'a' => [
+        'admin' => 'Administrador|Administradores',
         'attention' => 'Atenção',
         'action' => 'Ação|Ações'
     ],

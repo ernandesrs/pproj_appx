@@ -27,12 +27,6 @@
                         'href' => route('admin.users.index'),
                         'activeIn' => ['admin.users.index'],
                     ],
-                    [
-                        'text' => trans_choice('words.r.role', 2),
-                        'icon' => 'shield',
-                        'href' => route('admin.roles.index'),
-                        'activeIn' => ['admin.roles.index'],
-                    ],
                 ]" />
 
             <x-shared.panel.sidebar.section
@@ -73,8 +67,20 @@
                 ]" />
 
             <x-shared.panel.sidebar.section
-                title="Outros"
+                title="Sistema"
                 :menu-items="[
+                    [
+                        'text' => trans_choice('words.r.role', 2),
+                        'icon' => 'shield',
+                        'href' => route('admin.roles.index'),
+                        'activeIn' => ['admin.roles.index'],
+                    ],
+                    [
+                        'text' => trans_choice('words.a.admin', 2),
+                        'icon' => 'person-check',
+                        'href' => route('admin.users.administrators'),
+                        'activeIn' => ['admin.users.administrators'],
+                    ],
                     [
                         'text' => trans_choice('words.m.my', 1) . ' ' . trans_choice('words.p.profile', 1),
                         'icon' => 'person-circle',
