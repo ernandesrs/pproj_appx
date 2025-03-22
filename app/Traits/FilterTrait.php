@@ -84,7 +84,7 @@ trait FilterTrait
             'search' => ['nullable', 'string'],
             'between.*.start' => ['nullable', 'date'],
             'between.*.end' => ['nullable', 'date'],
-            'sort_by' => ['nullable', \Illuminate\Validation\Rule::in($this->defaultSortableFields)],
+            'sort_by' => ['nullable', count($this->defaultBetweenDatesFields) ? \Illuminate\Validation\Rule::in($this->defaultSortableFields) : null],
             'sort_direction' => ['nullable', \Illuminate\Validation\Rule::in(['asc', 'desc'])],
         ])->validated();
 

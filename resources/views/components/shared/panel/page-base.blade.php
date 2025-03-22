@@ -1,9 +1,10 @@
 <div class="flex flex-col">
     @if (!$page->isWithoutTitle() && (!empty($page->getTitle()) || isset($actions)))
-        <div class="
+        <div
+            class="
             flex items-center
             w-full
-            mb-4">
+            {{ isset($actions) && $actions->isNotEmpty() ? '' : 'mb-5' }}">
             <div class="flex flex-col gap-x-3">
                 @if (!empty($page->getTitle()) && !$page->isWithoutTitle())
                     <h1 class="font-semibold text-lg md:text-xl">

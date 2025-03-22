@@ -18,6 +18,16 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
     public RoleForm $roleUpdate;
 
     /**
+     * Mount
+     * @return void
+     */
+    public function mount()
+    {
+        $this->defaultBetweenDatesFields = [];
+        $this->defaultSortableFields = [];
+    }
+
+    /**
      * Open Role Form Modal
      * @param string $dialogId
      * @param mixed $role

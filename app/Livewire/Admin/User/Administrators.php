@@ -10,6 +10,16 @@ class Administrators extends \App\Livewire\Admin\AdminBaseComponent
     use \App\Traits\PageListTrait;
 
     /**
+     * Mount
+     * @return void
+     */
+    public function mount()
+    {
+        $this->defaultBetweenDatesFields = [];
+        $this->defaultSortableFields = [];
+    }
+
+    /**
      * Render
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
