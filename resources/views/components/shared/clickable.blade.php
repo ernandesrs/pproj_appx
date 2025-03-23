@@ -1,6 +1,7 @@
 <{{ $asLink ? 'a' : 'button' }}
     {{ $attributes->merge([
         'class' => implode(' ', [
+            'button' . ($loading ? ' loading' : ''),
             'flex items-center ' . ($icon ? 'justify-center' : ''),
             'border',
             [
@@ -50,16 +51,19 @@
     <span class="pointer-events-none">
         @if ($prependIcon || $icon)
             @if ($prependIcon)
-                <x-shared.icon :icon="$prependIcon" prepend />
+                <x-shared.icon class="button-icon" :icon="$prependIcon" prepend />
+                <x-shared.icon class="button-loading-icon" icon="arrow-clockwise" prepend />
             @else
-                <x-shared.icon :icon="$icon" />
+                <x-shared.icon class="button-icon" :icon="$icon" />
+                <x-shared.icon class="button-loading-icon" icon="arrow-clockwise" />
             @endif
         @endif
         @if (!$icon)
             <span>{{ $text }}</span>
         @endif
         @if ($appendIcon)
-            <x-shared.icon :icon="$appendIcon" append />
+            <x-shared.icon class="button-icon" :icon="$appendIcon" append />
+            <x-shared.icon class="button-loading-icon" icon="arrow-clockwise" append />
         @endif
     </span>
     </{{ $asLink ? 'a' : 'button' }}>

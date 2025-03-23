@@ -44,3 +44,19 @@
 .animate-shake {
     animation: fast-shake 0.2s ease-in-out 4;
 }
+
+.button .button-loading-icon {
+    @apply hidden;
+}
+
+.button.loading {
+    @apply pointer-events-none animate-pulse;
+}
+
+.button.loading .button-icon {
+    @apply hidden;
+}
+
+.button.loading .button-loading-icon {
+    @apply inline-block animate-spin;
+}

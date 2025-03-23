@@ -114,6 +114,21 @@
                         style="primary"
                         variant="filled"
                         text="With icons" />
+                    <x-shared.clickable
+                        prepend-icon="arrow-left"
+                        append-icon="arrow-right"
+                        style="primary"
+                        variant="filled"
+                        text="Loading" loading />
+                    <x-shared.clickable
+                        prepend-icon="square"
+                        style="primary"
+                        variant="filled"
+                        text="Loading" loading />
+                    <x-shared.clickable
+                        icon="square"
+                        style="primary"
+                        variant="filled" loading />
                 </div>
             </x-shared.tabs.tab-item>
             <x-shared.tabs.tab-item name="Estilos e variações">

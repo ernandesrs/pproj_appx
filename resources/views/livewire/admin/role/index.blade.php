@@ -1,22 +1,3 @@
-<x-shared.panel.page-list
-    :page="$page"
-    :items="$items"
-    :list-columns="self::getColumns()"
-    :filterBetweenDates="self::getFilterFieldsBetweenDates()"
-    :filterSortableFields="self::getFilterFieldsSortables()">
-
-    <x-slot:filters>
-        {{-- More filter filds --}}
-    </x-slot:filters>
-
-    <x-slot:actions>
-        {{-- Page actions --}}
-    </x-slot:actions>
-
-    <x-slot:prepend-list>
-    </x-slot:prepend-list>
-</x-shared.panel.page-list>
-
 @push('livewire_dialogs')
     <x-shared.dialog
         id="dialog_role_update"
@@ -62,3 +43,22 @@
         </div>
     </x-shared.dialog>
 @endpush
+
+<x-shared.panel.page-list
+    :page="$page"
+    :items="$items"
+    :list-columns="self::getColumns()"
+    :filterBetweenDates="self::getFilterFieldsBetweenDates()"
+    :filterSortableFields="self::getFilterFieldsSortables()">
+
+    <x-slot:filters>
+        {{-- More filter filds --}}
+    </x-slot:filters>
+
+    <x-slot:actions>
+        {{-- Page actions --}}
+    </x-slot:actions>
+
+    <x-slot:prepend-list>
+    </x-slot:prepend-list>
+</x-shared.panel.page-list>

@@ -163,7 +163,7 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
      */
     public function modelInstance(): Model|Builder
     {
-        return new \App\Models\User();
+        return new User();
     }
 
     /**
