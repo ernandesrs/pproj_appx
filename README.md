@@ -3,13 +3,10 @@
 APPX é uma aplicação criada para estudos em desenvolvimento de aplicações com Talwind CSS, Alpine JS, Livewire e Laravel.
 
 ### PRINTSCREEN DA HOME
-![home](https://github.com/user-attachments/assets/e53ddb4b-a4b2-45a0-a714-3d6dd5694096)
-
+![home](https://github.com/user-attachments/assets/08b9c633-63a3-41e7-befa-4f28a399b617)
 
 ### PRINTSCREEN DA LISTA DE USUÁRIOS
-![users](https://github.com/user-attachments/assets/c26906e1-38fe-4f7b-a729-7d6d23a7a9c0)
-
-
+![users](https://github.com/user-attachments/assets/4f93954e-0b1c-456e-89f1-2fd6058b290e)
 
 # RECURSOS IMPLEMENTADOS
 
