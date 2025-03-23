@@ -1,4 +1,6 @@
 <div class="flex flex-col">
+    @stack('livewire_dialogs')
+
     @if (!$page->isWithoutTitle() && (!empty($page->getTitle()) || isset($actions)))
         <div
             class="

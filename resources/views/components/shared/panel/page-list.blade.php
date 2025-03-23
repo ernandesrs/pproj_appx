@@ -1,4 +1,4 @@
-<x-shared.panel.page-base :page="$page" :errors="$errors">
+<x-shared.panel.page-base :page="$page">
 
     <x-slot:actions>
         {{ $actions ?? null }}
