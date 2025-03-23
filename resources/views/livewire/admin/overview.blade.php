@@ -2,12 +2,14 @@
 
     <x-shared.card class="col-span-12 md:col-span-6 lg:col-span-12 xl:col-span-6">
         <x-shared.charts.chart
-            id="line_chart_1" />
+            id="line_chart_1"
+            :chart="\App\Support\ChartCreator::line()" />
     </x-shared.card>
 
     <x-shared.card class="col-span-12 md:col-span-6 lg:col-span-12 xl:col-span-6">
         <x-shared.charts.chart
-            id="area_chart_2" />
+            id="area_chart_2"
+            :chart="\App\Support\ChartCreator::area()" />
     </x-shared.card>
 
     <x-shared.card class="col-span-12 sm:col-span-6 lg:col-span-4">

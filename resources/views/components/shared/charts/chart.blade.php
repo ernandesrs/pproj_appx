@@ -1,11 +1,12 @@
 <div x-data="{
     id: '{{ $id }}',
+    configuration: {{ json_encode($chart->toArray()) }},
     chartInstance: null,
 
     init() {
         var options = {
             chart: {
-                type: 'area'
+                type: this.configuration.type
             },
             series: [{
                 name: 'sales',
