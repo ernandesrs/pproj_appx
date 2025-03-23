@@ -57,7 +57,8 @@
         {{-- Page actions --}}
         @can('create', \App\Models\User::class)
             <x-shared.clickable
-                wire:loading.class='pointer-events-none animate-pulse'
+                wire:loading.class='loading'
+                wire:target="openUserFormModal('dialog_create_show')"
                 wire:click="openUserFormModal('dialog_create_show')"
                 prepend-icon="person-plus"
                 text="{{ trans_choice('words.n.new', 1) }} {{ \Str::lower(trans_choice('words.u.user', 1)) }}" />

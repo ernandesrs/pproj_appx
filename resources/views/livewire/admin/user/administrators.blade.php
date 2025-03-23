@@ -78,7 +78,8 @@
     <x-slot:actions>
         {{-- Dialog: promote user --}}
         <x-shared.clickable
-            wire:loading.class='pointer-events-none animate-pulse'
+            wire:loading.class='loading'
+            wire:target='openUserPromotionDialog'
             wire:click='openUserPromotionDialog'
             prepend-icon="person-plus"
             text="{{ trans_choice('words.n.new', 1) }} {{ \Str::lower(trans_choice('words.a.admin', 1)) }}" />
