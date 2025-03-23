@@ -1,5 +1,15 @@
 <x-shared.panel.page-base :page="$page">
 
+    <x-shared.card class="col-span-12 md:col-span-6 lg:col-span-12 xl:col-span-6">
+        <x-shared.charts.chart
+            id="line_chart_1" />
+    </x-shared.card>
+
+    <x-shared.card class="col-span-12 md:col-span-6 lg:col-span-12 xl:col-span-6">
+        <x-shared.charts.chart
+            id="area_chart_2" />
+    </x-shared.card>
+
     <x-shared.card class="col-span-12 sm:col-span-6 lg:col-span-4">
         <div class="flex flex-col items-start gap-4">
             <x-shared.heading icon="people-fill" tag="h2" title="{{ trans_choice('words.u.user', 2) }}" />
