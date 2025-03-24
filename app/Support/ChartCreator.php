@@ -56,9 +56,26 @@ class ChartCreator
         return static::setData('line', $title, $height);
     }
 
+    /**
+     * Area type
+     * @param ?string $title
+     * @param ?string $height
+     * @return ChartCreator
+     */
     public static function area(?string $title = null, ?string $height = null): ChartCreator
     {
         return static::setData('area', $title, $height);
+    }
+
+    /**
+     * Bar type
+     * @param ?string $title
+     * @param ?string $height
+     * @return ChartCreator
+     */
+    public static function bar(?string $title = null, ?string $height = null): ChartCreator
+    {
+        return static::setData('bar', $title, $height);
     }
 
     /**
@@ -122,6 +139,16 @@ class ChartCreator
     }
 
     /**
+     * Horizontal Bar
+     * @return ChartCreator
+     */
+    public function horizontalBar(): ChartCreator
+    {
+        $this->data['plotOptions']['bar']['horizontal'] = true;
+        return $this;
+    }
+
+    /**
      * To Array
      * @return array{type: string}
      */
@@ -130,6 +157,12 @@ class ChartCreator
         $this->data['stroke'] = [
             'curve' => 'smooth'
         ];
+
+        if ($this->data['chart']['type'] == 'bar') {
+            $this->data['plotOptions']['bar']['borderRadiusApplication'] = 'end';
+            $this->data['plotOptions']['bar']['borderRadius'] = 4;
+        }
+
         return $this->data;
     }
 }
