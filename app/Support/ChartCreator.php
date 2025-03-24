@@ -5,6 +5,7 @@ namespace App\Support;
 use App\Support\Chart\AreaChart;
 use App\Support\Chart\BarChart;
 use App\Support\Chart\LineChart;
+use App\Support\Chart\PieChart;
 
 class ChartCreator
 {
@@ -39,5 +40,16 @@ class ChartCreator
     public static function bar(?string $title = null, ?int $height = null): BarChart
     {
         return new BarChart($title, $height);
+    }
+
+    /**
+     *  Pie
+     * @param ?string $title
+     * @param ?string $height
+     * @return \App\Support\Chart\PieChart
+     */
+    public static function pie(?string $title = null, ?int $height = null): PieChart
+    {
+        return new PieChart($title, $height);
     }
 }
