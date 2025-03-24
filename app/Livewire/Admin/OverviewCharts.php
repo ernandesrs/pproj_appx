@@ -13,42 +13,14 @@ class OverviewCharts extends Component
     public function render()
     {
         return view('livewire..admin.overview-charts', [
-            'line' => \App\Support\ChartCreator::line('Gráfico de vendas')
-                ->addVerticalInfo(-5, 120)
-                ->addHorizontalInfo(['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN'])
-                ->addSerieData(
-                    'Vendas 2023',
-                    [rand(0, 100), rand(0, 100), rand(0, 100), rand(0, 100), rand(0, 100)]
-                )
-                ->addSerieData(
-                    'Vendas 2024',
-                    [rand(0, 100), rand(0, 100), rand(0, 100), rand(0, 100), rand(0, 100)]
-                )
-                ->addSerieData(
-                    'Vendas 2025',
-                    [rand(0, 100), rand(0, 100), rand(0, 100), rand(0, 100), rand(0, 100)]
-                ),
-            'area' => \App\Support\ChartCreator::area('Gráfico de vendas')
-                ->addVerticalInfo(-5, 120)
-                ->addHorizontalInfo(['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN'])
-                ->addSerieData(
-                    'Vendas 2023',
-                    [rand(0, 100), rand(0, 100), rand(0, 100), rand(0, 100), rand(0, 100)]
-                )
-                ->addSerieData(
-                    'Vendas 2024',
-                    [rand(0, 100), rand(0, 100), rand(0, 100), rand(0, 100), rand(0, 100)]
-                )
-                ->addSerieData(
-                    'Vendas 2025',
-                    [rand(0, 100), rand(0, 100), rand(0, 100), rand(0, 100), rand(0, 100)]
-                ),
-            'bar' => \App\Support\ChartCreator::pie('Gráfico de vendas')
-                ->addHorizontalInfo(['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN'])
-                ->addSerieData(
-                    'Vendas 2023',
-                    [rand(0, 100), rand(0, 100), rand(0, 100), rand(0, 100), rand(0, 100)]
-                ),
+            'chart1' => \App\Support\ChartCreator::line('Line chart title', 275)
+                ->addHorizontalInfo(['JAN', 'FEV', 'MAR', 'ABR'])
+                ->addSeries('Serie #1', [rand(0, 100), rand(0, 100), rand(0, 100), rand(0, 100)])
+                ->addSeries('Serie #2', [rand(0, 100), rand(0, 100), rand(0, 100), rand(0, 100)]),
+            'chart2' => \App\Support\ChartCreator::area('Area chart title', 275)
+                ->addHorizontalInfo(['JAN', 'FEV', 'MAR', 'ABR'])
+                ->addSeries('Serie #1', [rand(0, 100), rand(0, 100), rand(0, 100), rand(0, 100)])
+                ->addSeries('Serie #2', [rand(0, 100), rand(0, 100), rand(0, 100), rand(0, 100)]),
         ]);
     }
 }

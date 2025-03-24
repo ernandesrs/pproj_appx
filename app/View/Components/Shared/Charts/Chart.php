@@ -13,7 +13,7 @@ class Chart extends Component
      */
     public function __construct(
         public string $id,
-        public \App\Support\ChartCreator $chart
+        public \App\Support\Chart\Chart $chart
     ) {
     }
 
