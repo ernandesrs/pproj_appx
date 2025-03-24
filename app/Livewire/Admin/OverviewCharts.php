@@ -43,15 +43,10 @@ class OverviewCharts extends Component
                     'Vendas 2025',
                     [rand(0, 100), rand(0, 100), rand(0, 100), rand(0, 100), rand(0, 100)]
                 ),
-            'bar' => \App\Support\ChartCreator::bar('Gráfico de vendas')
-                ->addVerticalInfo(-5, 120)
+            'bar' => \App\Support\ChartCreator::pie('Gráfico de vendas')
                 ->addHorizontalInfo(['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN'])
                 ->addSerieData(
                     'Vendas 2023',
-                    [rand(0, 100), rand(0, 100), rand(0, 100), rand(0, 100), rand(0, 100)]
-                )
-                ->addSerieData(
-                    'Vendas 2024',
                     [rand(0, 100), rand(0, 100), rand(0, 100), rand(0, 100), rand(0, 100)]
                 ),
         ]);

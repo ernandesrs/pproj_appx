@@ -79,6 +79,17 @@ class ChartCreator
     }
 
     /**
+     * Pie type
+     * @param ?string $title
+     * @param ?string $height
+     * @return ChartCreator
+     */
+    public static function pie(?string $title = null, ?string $height = null): ChartCreator
+    {
+        return static::setData('pie', $title, $height);
+    }
+
+    /**
      * Add Vertical Info
      * @param int $min
      * @param int $max
@@ -103,10 +114,14 @@ class ChartCreator
      */
     public function addHorizontalInfo(array $labels, ?string $title = null): ChartCreator
     {
-        $this->data['xaxis']['type'] = 'category';
-        $this->data['xaxis']['categories'] = $labels;
+        if (in_array($this->data['chart']['type'], ['pie', 'donut'])) {
+            $this->data['labels'] = $labels;
+        } else {
+            $this->data['xaxis']['type'] = 'category';
+            $this->data['xaxis']['categories'] = $labels;
 
-        $title ? $this->data['xaxis']['title']['text'] = $title : null;
+            $title ? $this->data['xaxis']['title']['text'] = $title : null;
+        }
 
         return $this;
     }
@@ -131,10 +146,15 @@ class ChartCreator
      */
     public function addSerieData(string $name, array $serieData = []): ChartCreator
     {
-        $this->data['series'][] = [
-            'name' => $name,
-            'data' => $serieData
-        ];
+        if (in_array($this->data['chart']['type'], ['pie', 'donut'])) {
+            $this->data['series'] = $serieData;
+        } else {
+            $this->data['series'][] = [
+                'name' => $name,
+                'data' => $serieData
+            ];
+        }
+
         return $this;
     }
 
@@ -154,9 +174,11 @@ class ChartCreator
      */
     public function toArray(): array
     {
-        $this->data['stroke'] = [
-            'curve' => 'smooth'
-        ];
+        if ($this->data['chart']['type'] == 'line') {
+            $this->data['stroke'] = [
+                'curve' => 'smooth'
+            ];
+        }
 
         if ($this->data['chart']['type'] == 'bar') {
             $this->data['plotOptions']['bar']['borderRadiusApplication'] = 'end';
