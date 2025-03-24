@@ -17,6 +17,34 @@
 
     <x-shared.card
         class="col-span-12 sm:col-span-6 lg:col-span-4">
+        <x-shared.charts.chart
+            id="chart_1"
+            :chart="\App\Support\ChartCreator::bar()
+                ->addSeries('Serie #1', [20, 5, 12, 8])
+                ->addSeries('Serie #2', [10, 15, 10, 18])
+                ->addSeries('Serie #3', [5, 7, 15, 8])" />
+    </x-shared.card>
+
+    <x-shared.card
+        class="col-span-12 sm:col-span-6 lg:col-span-4">
+        <x-shared.charts.chart
+            id="chart_1"
+            :chart="\App\Support\ChartCreator::area()
+                ->addSeries('Serie #1', [20, 5, 12, 8])
+                ->addSeries('Serie #2', [10, 15, 12, 18])" />
+    </x-shared.card>
+
+    <x-shared.card
+        class="col-span-12 sm:col-span-6 lg:col-span-4">
+        <x-shared.charts.chart
+            id="chart_1"
+            :chart="\App\Support\ChartCreator::line()
+                ->addSeries('Serie #1', [20, 5, 12, 8])
+                ->addSeries('Serie #2', [10, 15, 12, 18])" />
+    </x-shared.card>
+
+    <x-shared.card
+        class="col-span-12 sm:col-span-6 lg:col-span-4">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit libero sed, velit assumenda eveniet
             quod voluptates quos, reprehenderit quaerat veniam commodi dolore nobis quae, officia dolorum accusamus
             ratione nihil!</p>

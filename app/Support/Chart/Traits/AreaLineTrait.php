@@ -88,10 +88,18 @@ trait AreaLineTrait
                 'text' => $this->verticalInfo['title']
             ];
 
-        $data['stroke']['width'] = 2;
-
-        if ($data['chart']['type'] == 'line') {
+        if (in_array($data['chart']['type'], ['line', 'area'])) {
+            $data['stroke']['width'] = 2;
             $data['stroke']['curve'] = 'smooth';
+        }
+
+        if ($data['chart']['type'] == 'bar') {
+            $data['plotOptions']['bar'] = [
+                'horizontal' => false,
+                'columnWidth' => '55%',
+                'borderRadius' => 4,
+                'borderRadiusApplication' => 'end'
+            ];
         }
 
         return $data;

@@ -3,6 +3,7 @@
 namespace App\Support;
 
 use App\Support\Chart\AreaChart;
+use App\Support\Chart\BarChart;
 use App\Support\Chart\LineChart;
 
 class ChartCreator
@@ -27,5 +28,16 @@ class ChartCreator
     public static function area(?string $title = null, ?int $height = null): AreaChart
     {
         return new AreaChart($title, $height);
+    }
+
+    /**
+     *  Bar
+     * @param ?string $title
+     * @param ?string $height
+     * @return \App\Support\Chart\BarChart
+     */
+    public static function bar(?string $title = null, ?int $height = null): BarChart
+    {
+        return new BarChart($title, $height);
     }
 }
