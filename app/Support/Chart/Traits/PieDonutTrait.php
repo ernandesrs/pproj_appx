@@ -51,6 +51,10 @@ trait PieDonutTrait
                     'label' => $this->totalLabel
                 ]
             ];
+        } else {
+            $data['stroke']['show'] = true;
+            $data['stroke']['width'] = 0;
+            $data['stroke']['colors'] = ['transparent'];
         }
 
         return $data;

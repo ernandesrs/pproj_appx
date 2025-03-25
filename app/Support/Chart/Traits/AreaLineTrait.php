@@ -94,6 +94,9 @@ trait AreaLineTrait
         }
 
         if ($data['chart']['type'] == 'bar') {
+            $data['stroke']['show'] = true;
+            $data['stroke']['width'] = 2;
+            $data['stroke']['colors'] = ['transparent'];
             $data['plotOptions']['bar'] = [
                 'horizontal' => false,
                 'columnWidth' => '55%',
