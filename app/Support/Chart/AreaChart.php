@@ -2,7 +2,7 @@
 
 namespace App\Support\Chart;
 
-use App\Support\Chart\Traits\AreaLineTrait;
+use App\Traits\Chart\AreaLineTrait;
 
 class AreaChart extends Chart
 {

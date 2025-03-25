@@ -2,7 +2,7 @@
 
 namespace App\Support\Chart;
 
-use App\Support\Chart\Traits\PieDonutTrait;
+use App\Traits\Chart\PieDonutTrait;
 
 class DonutChart extends Chart
 {

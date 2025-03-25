@@ -2,8 +2,8 @@
 
 namespace App\Support\Chart;
 
-use App\Enums\ChartColors;
-use App\Enums\ChartTextColors;
+use App\Enums\Chart\ChartColors;
+use App\Enums\Chart\ChartTextColors;
 
 abstract class Chart
 {
