@@ -36,6 +36,14 @@ trait PieDonutTrait
         $data['series'] = $series;
         $data['labels'] = $labels;
 
+        if ($data['chart']['type'] == 'donut' && $this->semi) {
+            $data['plotOptions']['pie'] = [
+                'startAngle' => -90,
+                'endAngle' => 90,
+                'offsetY' => 10
+            ];
+        }
+
         return $data;
     }
 }
