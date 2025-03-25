@@ -2,6 +2,8 @@
 
 namespace App\Support\Chart;
 
+use App\Enums\ChartColor;
+
 abstract class Chart
 {
     /**
@@ -61,5 +63,17 @@ abstract class Chart
         ];
 
         return $data;
+    }
+
+    /**
+     * Get colors from config
+     * @return array
+     */
+    public function getColors(): array
+    {
+        return [
+            'light' => ChartColor::lightColors(),
+            'dark' => ChartColor::darkColors(),
+        ];
     }
 }
