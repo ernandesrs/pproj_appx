@@ -47,4 +47,16 @@ enum ChartColors: string
             self::DARK_PURPLE->value,
         ];
     }
+
+    /**
+     * Get color by theme and name
+     * @param string $theme
+     * @param string $color
+     * @return string|null
+     */
+    public static function getColor(string $theme, string $color): ?string
+    {
+        $constant = strtoupper($theme . '_' . $color);
+        return defined("self::$constant") ? constant("self::$constant")->value : null;
+    }
 }

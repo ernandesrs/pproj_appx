@@ -50,16 +50,24 @@ abstract class Chart
 
     /**
      * Add Series Color
-     * @param array[\App\Enums\Chart\ChartColors] $light
-     * @param array[\App\Enums\Chart\ChartColors] $dark
+     * @param array[\App\Enums\Chart\ChartColor] $colors
      * @return Chart
      */
-    public function addSeriesColor(array $light, array $dark): Chart
+    public function addSeriesColor(array $colors): Chart
     {
+        $light = [];
+        $dark = [];
+
+        array_map(function ($item) use (&$light, &$dark) {
+            $light[] = ChartColors::getColor('light', $item->value);
+            $dark[] = ChartColors::getColor('dark', $item->value);
+        }, $colors);
+
         $this->seriesColor = [
             'light' => $light,
             'dark' => $dark
         ];
+
         return $this;
     }
 
