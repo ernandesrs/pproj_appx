@@ -32,6 +32,12 @@ abstract class Chart
     public array $series = [];
 
     /**
+     * Series color
+     * @var array
+     */
+    public array $seriesColor = [];
+
+    /**
      * Constructor
      * @param ?string $title
      * @param ?string $height
@@ -40,6 +46,39 @@ abstract class Chart
     {
         $this->title = $title;
         $this->height = $height;
+    }
+
+    /**
+     * Add Series Color
+     * @param array[\App\Enums\Chart\ChartColors] $light
+     * @param array[\App\Enums\Chart\ChartColors] $dark
+     * @return Chart
+     */
+    public function addSeriesColor(array $light, array $dark): Chart
+    {
+        $this->seriesColor = [
+            'light' => $light,
+            'dark' => $dark
+        ];
+        return $this;
+    }
+
+    /**
+     * Get colors from config
+     * @return array
+     */
+    public function getColors(): array
+    {
+        return [
+            'colors' => [
+                'light' => ChartColors::lightColors(),
+                'dark' => ChartColors::darkColors(),
+            ],
+            'text' => [
+                'light' => ChartTextColors::lightColors(),
+                'dark' => ChartTextColors::darkColors(),
+            ],
+        ];
     }
 
     /**
@@ -63,24 +102,10 @@ abstract class Chart
             'align' => 'left'
         ];
 
-        return $data;
-    }
+        count($this->seriesColor) ?
+            $data['customColors'] = $this->seriesColor :
+            null;
 
-    /**
-     * Get colors from config
-     * @return array
-     */
-    public function getColors(): array
-    {
-        return [
-            'colors' => [
-                'light' => ChartColors::lightColors(),
-                'dark' => ChartColors::darkColors(),
-            ],
-            'text' => [
-                'light' => ChartTextColors::lightColors(),
-                'dark' => ChartTextColors::darkColors(),
-            ],
-        ];
+        return $data;
     }
 }

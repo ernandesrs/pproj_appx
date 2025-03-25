@@ -26,7 +26,9 @@
             var theme = theme ?? 'light';
 
             {{-- colors --}}
-            this.chartInstance.theme.w.config.colors = this.colors[theme];
+            this.chartInstance.theme.w.config.colors = this.configuration?.customColors ?
+                this.configuration?.customColors[theme] :
+                this.colors[theme];
 
             {{-- primary texts --}}
             var primaryText = this.texts[theme][0];
