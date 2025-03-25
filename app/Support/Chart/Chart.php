@@ -48,7 +48,10 @@ abstract class Chart
         $data = [
             'chart' => [
                 'type' => $this->type,
-                'height' => $this->height
+                'height' => $this->height,
+                'toolbar' => [
+                    'show' => false
+                ]
             ]
         ];
 
