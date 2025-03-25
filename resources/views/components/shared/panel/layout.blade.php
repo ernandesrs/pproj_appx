@@ -4,6 +4,9 @@
 
         init() {
             this.setTheme(this.getTheme() ?? 'light');
+            $nextTick(() => {
+                $dispatch('evt__theme', { theme: this.getTheme() });
+            });
         },
 
         toggleTheme() {
@@ -21,6 +24,8 @@
                 base.classList.remove('dark');
                 base.classList.add('light');
             }
+
+            $dispatch('evt__theme', { theme: theme });
         },
 
         getTheme() {
