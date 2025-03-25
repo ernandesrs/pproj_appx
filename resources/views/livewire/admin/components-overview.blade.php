@@ -19,6 +19,18 @@
         class="col-span-12 sm:col-span-6 lg:col-span-4">
         <x-shared.charts.chart
             id="chart_1"
+            :chart="\App\Support\ChartCreator::radial()
+                ->withTotal(null)
+                ->addSerie('Serie #1', 10)
+                ->addSerie('Serie #2', 20)
+                ->addSerie('Serie #3', 10)
+                ->addSerie('Serie #4', 80)" />
+    </x-shared.card>
+
+    <x-shared.card
+        class="col-span-12 sm:col-span-6 lg:col-span-4">
+        <x-shared.charts.chart
+            id="chart_1"
             :chart="\App\Support\ChartCreator::donut()
                 ->addSerie('Serie #1', 10)
                 ->addSerie('Serie #2', 20)

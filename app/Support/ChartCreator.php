@@ -7,6 +7,7 @@ use App\Support\Chart\BarChart;
 use App\Support\Chart\DonutChart;
 use App\Support\Chart\LineChart;
 use App\Support\Chart\PieChart;
+use App\Support\Chart\RadialChart;
 
 class ChartCreator
 {
@@ -63,5 +64,16 @@ class ChartCreator
     public static function donut(?string $title = null, ?int $height = null): DonutChart
     {
         return new DonutChart($title, $height);
+    }
+
+    /**
+     *  Radial
+     * @param ?string $title
+     * @param ?string $height
+     * @return \App\Support\Chart\RadialChart
+     */
+    public static function radial(?string $title = null, ?int $height = null): RadialChart
+    {
+        return new RadialChart($title, $height);
     }
 }

@@ -44,6 +44,15 @@ trait PieDonutTrait
             ];
         }
 
+        if ($data['chart']['type'] == 'radialBar' && $this->withTotal) {
+            $data['plotOptions']['radialBar']['dataLabels'] = [
+                'total' => [
+                    'show' => true,
+                    'label' => $this->totalLabel
+                ]
+            ];
+        }
+
         return $data;
     }
 }
