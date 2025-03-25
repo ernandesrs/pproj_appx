@@ -13,14 +13,18 @@ class OverviewCharts extends Component
     public function render()
     {
         return view('livewire..admin.overview-charts', [
-            'chart1' => \App\Support\ChartCreator::pie('Usuários')
+            'chart1' => \App\Support\ChartCreator::pie('Pie chart')
                 ->addSeriesColor([
                     \App\Enums\Chart\ChartColor::GREEN,
                     \App\Enums\Chart\ChartColor::ORANGE,
+                    \App\Enums\Chart\ChartColor::BLUE,
+                    \App\Enums\Chart\ChartColor::RED,
                 ])
-                ->addSerie('Comum', \App\Models\User::count())
-                ->addSerie('Admin', \App\Models\User::whereHas('roles')->count()),
-            'chart2' => \App\Support\ChartCreator::line('Line chart title', 275)
+                ->addSerie('Serie #1', 8)
+                ->addSerie('Serie #2', 25)
+                ->addSerie('Serie #3', 30)
+                ->addSerie('Serie #4', 10),
+            'chart2' => \App\Support\ChartCreator::line('Line chart', 275)
                 ->addSeriesColor([
                     \App\Enums\Chart\ChartColor::RED,
                     \App\Enums\Chart\ChartColor::BLUE,
