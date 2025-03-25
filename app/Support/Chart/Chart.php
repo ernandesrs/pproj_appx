@@ -2,7 +2,7 @@
 
 namespace App\Support\Chart;
 
-use App\Enums\ChartColor;
+use App\Enums\ChartColors;
 
 abstract class Chart
 {
@@ -72,8 +72,8 @@ abstract class Chart
     public function getColors(): array
     {
         return [
-            'light' => ChartColor::lightColors(),
-            'dark' => ChartColor::darkColors(),
+            'light' => ChartColors::lightColors(),
+            'dark' => ChartColors::darkColors(),
         ];
     }
 }

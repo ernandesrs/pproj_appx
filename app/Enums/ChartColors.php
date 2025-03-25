@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum ChartColor: string
+enum ChartColors: string
 {
     // Light theme colors
     case LIGHT_BLUE = '#4f39f6';
