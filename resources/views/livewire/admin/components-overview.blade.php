@@ -72,7 +72,9 @@
         class="col-span-12 sm:col-span-6 lg:col-span-4">
         <x-shared.charts.chart
             id="chart_4"
-            :chart="\App\Support\ChartCreator::line()
+            :chart="\App\Support\ChartCreator::line('Line title')
+                ->addHorizontalInfo(['JAN', 'FEV', 'MAR', 'ABR'], 'Horizontal label')
+                ->addVerticalInfo(-5, 25, 'Vertical label')
                 ->addSeries('Serie #1', [20, 5, 12, 8])
                 ->addSeries('Serie #2', [10, 15, 12, 18])" />
     </x-shared.card>
