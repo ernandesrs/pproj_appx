@@ -157,6 +157,13 @@
             <x-shared.feedback id="admin_global" />
 
             {{ $slot }}
+
+            <div class="text-center text-sm">
+                <a href="https://github.com/ernandesrs/pproj_appx"
+                    title="{{ config('app.name') }}" target="_blank">{{ config('app.name') }} ADMIN</a> | Desenvolvido
+                por <a href="https://github.com/ernandesrs" title="I'm on Github" target="_blank">Ernandes
+                    RS</a>
+            </div>
         </x-slot:content>
 
         @stack('scripts')
