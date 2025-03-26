@@ -9,11 +9,14 @@ class Role extends \Spatie\Permission\Models\Role
     use HasFactory;
 
     /**
-     * Casts
+     * Fillable
      * @var array
      */
-    protected $casts = [
-        'name' => \App\Enums\AdminRolesEnum::class
+    protected $fillable = [
+        'name',
+        'guard_name',
+        'is_default',
+        'admin_access'
     ];
 
     /**
@@ -23,5 +26,26 @@ class Role extends \Spatie\Permission\Models\Role
     public function isDefaultAdminRole(): bool
     {
         return in_array($this->name, \App\Enums\AdminRolesEnum::cases());
+    }
+
+    /**
+     * Get Name
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->is_default ? $this->name->label() : $this->name;
+    }
+
+    /**
+     * The "booted" method of the model.
+     */
+    protected static function booted(): void
+    {
+        static::retrieved(function (\App\Models\Role $role) {
+            if ($role->is_default) {
+                $role->name = \App\Enums\AdminRolesEnum::from($role->name);
+            }
+        });
     }
 }

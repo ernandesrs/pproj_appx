@@ -36,11 +36,21 @@ class DatabaseSeeder extends Seeder
          */
 
         $roleSuper = \App\Models\Role::create([
-            'name' => \App\Enums\AdminRolesEnum::SUPER
+            'name' => \App\Enums\AdminRolesEnum::SUPER,
+            'is_default' => true,
+            'admin_access' => true,
         ]);
 
         $roleAdmin = \App\Models\Role::create([
-            'name' => \App\Enums\AdminRolesEnum::ADMIN
+            'name' => \App\Enums\AdminRolesEnum::ADMIN,
+            'is_default' => true,
+            'admin_access' => true,
+        ]);
+
+        \App\Models\Role::create([
+            'name' => 'Custom',
+            'is_default' => false,
+            'admin_access' => true,
         ]);
 
         $roleAdmin->givePermissionTo(\App\Enums\Permissions\UserPermission::VIEW_ANY);

@@ -12,13 +12,13 @@
                         <x-shared.clickable
                             wire:click='removeRole({{ $role->id }})'
                             prepend-icon="check-lg"
-                            :text="$role->name->label()"
+                            :text="$role->getName()"
                             style="success" small />
                     @else
                         <x-shared.clickable
                             wire:click='assingRole({{ $role->id }})'
                             prepend-icon="x-lg"
-                            :text="$role->name->label()"
+                            :text="$role->getName()"
                             style="light"
                             variant="outlined" small />
                     @endif
@@ -41,22 +41,28 @@
                 </x-shared.form.form>
 
                 @if ($searchResults)
-                    <x-shared.table.table class="col-span-12">
-                        @foreach ($searchResults as $sr)
-                            <x-shared.table.row>
-                                <x-shared.table.cell :value="$sr->first_name . ' ' . $sr->last_name" />
-                                <x-shared.table.cell :value="$sr->email" />
-                                <x-shared.table.cell>
-                                    @can('update', $sr)
-                                        <x-shared.clickable
-                                            wire:click='chooseUserToPromote({{ $sr->id }})'
-                                            prepend-icon="check-lg"
-                                            text="Escolher" small />
-                                    @endcan
-                                </x-shared.table.cell>
-                            </x-shared.table.row>
-                        @endforeach
-                    </x-shared.table.table>
+                    @if ($searchResults->count())
+                        <x-shared.table.table class="col-span-12">
+                            @foreach ($searchResults as $sr)
+                                <x-shared.table.row>
+                                    <x-shared.table.cell :value="$sr->first_name . ' ' . $sr->last_name" />
+                                    <x-shared.table.cell :value="$sr->email" />
+                                    <x-shared.table.cell>
+                                        @can('update', $sr)
+                                            <x-shared.clickable
+                                                wire:click='chooseUserToPromote({{ $sr->id }})'
+                                                prepend-icon="check-lg"
+                                                text="Escolher" small />
+                                        @endcan
+                                    </x-shared.table.cell>
+                                </x-shared.table.row>
+                            @endforeach
+                        </x-shared.table.table>
+                    @else
+                        <div class="col-span-12 text-center text-xl px-5 py-3">
+                            <span>0</span> {{ \Str::lower(trans_choice('words.u.user', 2)) }}
+                        </div>
+                    @endif
                 @endif
             </div>
         @endif

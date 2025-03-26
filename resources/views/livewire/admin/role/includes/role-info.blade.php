@@ -1,1 +1,1 @@
-{{ $item->name->label() }}
+{{ $item->getName() }}

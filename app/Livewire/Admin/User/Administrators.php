@@ -145,8 +145,8 @@ class Administrators extends \App\Livewire\Admin\AdminBaseComponent
      */
     public function modelInstance(): Model|Builder
     {
-        return (new \App\Models\User())->whereHas('roles', function ($query) {
-            return $query->whereIn('name', \App\Enums\AdminRolesEnum::cases());
+        return (new User())->whereHas('roles', function ($query) {
+            return $query->whereIn('name', \App\Enums\AdminRolesEnum::cases())->orWhere('admin_access', '=', true);
         });
     }
 
