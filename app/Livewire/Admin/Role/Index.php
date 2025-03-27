@@ -43,6 +43,25 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
     }
 
     /**
+     * Update Role
+     * @return void
+     */
+    public function updateRole()
+    {
+        $this->authorize('update', $this->roleUpdate->role);
+
+        $feedback = $this->feedbackGlobal();
+
+        $this->roleUpdate->update() ?
+            $feedback->success(__('messages.success.on_create_role')) :
+            $feedback->error(__('messages.error.on_create_role'));
+
+        $feedback->toLivewire($this);
+
+        $this->dispatch('evt__dialog_close', id: 'dialog_role_update');
+    }
+
+    /**
      * Give a Permission
      * @param string $permission
      * @return void

@@ -3,12 +3,26 @@
         id="dialog_role_update"
         title="{{ trans_choice('words.u.update', 1) }} {{ \Str::lower(trans_choice('words.r.role', 1)) }}">
         <div class="grid grid-cols-12 gap-5">
-            <x-shared.form.field
-                class="col-span-12"
-                wire:model.live='roleUpdate.name'
-                label="Nome do cargo"
-                type="text"
-                name="name" :disabled="$roleUpdate->role?->isDefaultAdminRole()" />
+            @if ($roleUpdate->role?->isDefaultAdminRole())
+                <x-shared.form.field
+                    class="col-span-12"
+                    wire:model.live='roleUpdate.name'
+                    label="Nome do cargo"
+                    type="text"
+                    name="name" disabled />
+            @else
+                <x-shared.form.form
+                    wire:submit='updateRole'
+                    class="col-span-12"
+                    action="#"
+                    method="get"
+                    submit-text="{{ trans_choice('words.u.update', 1) }} {{ \Str::lower(trans_choice('words.r.role', 1)) }}">
+                    @include('livewire.admin.role.includes.role-form-fields', [
+                        'creating' => false,
+                        'formName' => 'roleUpdate',
+                    ])
+                </x-shared.form.form>
+            @endif
 
             @if ($roleUpdate->role?->name == \App\Enums\AdminRolesEnum::SUPER)
                 <x-shared.card class="col-span-12">
