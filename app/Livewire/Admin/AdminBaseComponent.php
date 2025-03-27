@@ -30,6 +30,15 @@ class AdminBaseComponent extends \App\Livewire\BaseComponent
      */
     public function feedbackGlobal(): \App\Helpers\Feedback
     {
+        return $this->globalFeedback();
+    }
+
+    /**
+     * Feedback Global
+     * @return \App\Helpers\Feedback
+     */
+    public function globalFeedback(): \App\Helpers\Feedback
+    {
         return \App\Helpers\Feedback::to('admin_global');
     }
 

@@ -106,7 +106,10 @@
     </div>
 
     <template x-if="!data?.unclosable">
-        <x-shared.clickable x-on:click="close" class="relative z-10 hover:!scale-100" icon="x-lg"
+        <x-shared.clickable
+            x-on:click="close"
+            class="relative z-10 hover:!scale-100"
+            icon="x-lg"
             style="danger"
             variant="flat"
             small />

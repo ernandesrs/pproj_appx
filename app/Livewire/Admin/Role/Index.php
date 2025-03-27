@@ -100,17 +100,17 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
     {
         $this->authorize('create', Role::class);
 
-        $feedback = $this->feedbackGlobal();
-
         $created = $this->roleCreate->create();
         if ($created) {
-            $feedback->success(__('messages.success.on_create_role'));
+            $feedback = $this->formFeedback('form_update_role')->success(__('messages.success.on_create_role'));
+            $this->dispatch('evt__dialog_close', id: 'dialog_role_create');
+            $this->openRoleFormModal('dialog_role_update', $created);
         } else {
-            $feedback->error(__('messages.error.on_create_role'));
+            $feedback = $this->formFeedback('form_create_role')->error(__('messages.error.on_create_role'));
+            $this->dispatch('evt__dialog_close', id: 'dialog_role_create');
         }
 
         $feedback->toLivewire($this);
-        $this->dispatch('evt__dialog_close', id: 'dialog_role_create');
     }
 
     /**

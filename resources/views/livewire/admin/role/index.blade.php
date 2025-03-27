@@ -6,6 +6,7 @@
         id="dialog_role_create"
         title="{{ trans_choice('words.r.register', 1) }} {{ \Str::lower(trans_choice('words.r.role', 1)) }}">
         <x-shared.form.form
+            id="form_create_role"
             wire:submit='saveRole'
             class="col-span-12"
             action="#"
@@ -31,6 +32,7 @@
                     name="name" disabled />
             @else
                 <x-shared.form.form
+                    id="form_update_role"
                     wire:submit='updateRole'
                     class="col-span-12"
                     action="#"

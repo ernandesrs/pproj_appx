@@ -47,7 +47,8 @@
             ($small ? 'text-sm h-[35px] ' . ($icon ? 'w-[35px]' : 'px-4') : 'h-[45px] ' . ($icon ? 'w-[45px]' : 'px-8')) .
             ($square ? ' ' : ' rounded-full'),
         ]),
-    ]) }}>
+    ]) }}
+    {{ $asLink ? '' : 'type=' . $attributes->get('type', 'button') }}>
     <span class="pointer-events-none">
         @if ($prependIcon || $icon)
             @if ($prependIcon)

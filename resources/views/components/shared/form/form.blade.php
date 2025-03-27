@@ -15,6 +15,9 @@
         'action' => $action,
     ]) }}
     enctype="multipart/form-data">
+    <div class="col-span-12">
+        <x-shared.feedback id="{{ $attributes->get('id', uniqid()) }}_feedback" />
+    </div>
     <div class="grid grid-cols-12 gap-5 {{ $inline ? 'flex-1' : '' }}">
         {{ $slot }}
     </div>

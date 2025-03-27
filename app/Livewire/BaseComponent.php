@@ -2,6 +2,8 @@
 
 namespace App\Livewire;
 
+use App\Helpers\Feedback;
+
 class BaseComponent extends \Livewire\Component
 {
     /**
@@ -31,6 +33,16 @@ class BaseComponent extends \Livewire\Component
     public function page(): \App\Support\PageConfigurator
     {
         return \App\Support\PageConfigurator::start();
+    }
+
+    /**
+     * Form Feedback
+     * @param string $formId
+     * @return Feedback
+     */
+    public function formFeedback(string $formId): Feedback
+    {
+        return Feedback::to($formId . '_feedback')->fixed();
     }
 
     /**
