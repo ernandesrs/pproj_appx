@@ -13,7 +13,7 @@
         <div class="flex flex-col items-start gap-4">
             <x-shared.heading icon="person-fill-gear" tag="h2" title="{{ trans_choice('words.a.admin', 2) }}" />
             <span
-                class="text-xl sm:text-2xl md:text-3xl">{{ \App\Models\User::whereHas('roles', fn($query) => $query->whereIn('name', \App\Enums\AdminRolesEnum::cases()))->count() }}</span>
+                class="text-xl sm:text-2xl md:text-3xl">{{ \App\Models\User::whereHas('roles', fn($query) => $query->whereIn('name', \App\Enums\AdminRolesEnum::cases())->orWhere('admin_access', '=', true))->count() }}</span>
         </div>
     </x-shared.card>
 
