@@ -16,9 +16,4 @@ class Overview extends \App\Livewire\Admin\AdminBaseComponent
                 ->withoutTitle()
         );
     }
-
-    public function emitFeedbackTest()
-    {
-        $this->feedbackGlobal()->success('Mensagem do feedback de teste.')->toLivewire($this);
-    }
 }

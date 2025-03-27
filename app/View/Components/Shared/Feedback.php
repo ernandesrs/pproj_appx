@@ -22,20 +22,43 @@ use Illuminate\View\Component;
 class Feedback extends Component
 {
     /**
+     * Data
+     * @var array
+     */
+    protected array $data = [];
+
+    /**
      * Create a new component instance.
      */
     public function __construct(
-        public string $id
+        public string $id,
+        public string $message = '',
+        public ?string $title = null,
+        public string $type = 'default',
+        public bool $fixed = true,
+        public bool $unclosable = false,
     ) {
+        if (!empty($this->message)) {
+            $this->data = [
+                'fixed' => $fixed,
+                'type' => $type,
+                'title' => $title,
+                'message' => $message,
+                'unclosable' => $unclosable
+            ];
+        }
     }
 
     /**
      * Get Feedback from session
      * @return ?array
      */
-    public function getFeedback(): ?array
+    public function getFeedback(string $id): ?array
     {
-        $feedback = \App\Helpers\Feedback::fromSession('admin');
+        if (!empty($this->data['message']))
+            return $this->data;
+
+        $feedback = \App\Helpers\Feedback::fromSession($id);
         return $feedback ? $feedback->toArray() : null;
     }
 

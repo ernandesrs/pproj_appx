@@ -44,12 +44,14 @@
             @endif
 
             @if ($roleUpdate->role?->name == \App\Enums\AdminRolesEnum::SUPER)
-                <x-shared.card class="col-span-12">
-                    <div class="flex justify-center">
-                        <x-shared.heading tag="h4" icon="shield-fill"
-                            title="Cargo possui todas as permissões!" />
-                    </div>
-                </x-shared.card>
+                <div class="col-span-12">
+                    <x-shared.feedback
+                        unclosable
+                        id="{{ uniqid() }}"
+                        type="danger"
+                        title="Cuidado, muita atenção!"
+                        message="Quem possuir este cargo, possuirá todas as permissões possíveis sobre o sistema!" />
+                </div>
             @else
                 @foreach (\App\Models\Permission::permissionsEnumsClass() as $permissionEnumClass)
                     <x-shared.card class="col-span-12" title-tag="h4" :title="$permissionEnumClass::label()">

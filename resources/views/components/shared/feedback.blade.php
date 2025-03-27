@@ -3,7 +3,7 @@
     x-on:evt__feedback_add.window="feedbackFromEvent"
     x-data="{
         id: '{{ $id }}',
-        data: {{ json_encode($getFeedback()) }},
+        data: {{ json_encode($getFeedback($id)) }},
         visible: false,
         withTimer: false,
 
@@ -105,9 +105,12 @@
         <p x-text="data?.message"></p>
     </div>
 
-    <x-shared.clickable x-on:click="close" class="relative z-10 hover:!scale-100" icon="x-lg" style="danger"
-        variant="flat"
-        small />
+    <template x-if="!data?.unclosable">
+        <x-shared.clickable x-on:click="close" class="relative z-10 hover:!scale-100" icon="x-lg"
+            style="danger"
+            variant="flat"
+            small />
+    </template>
 
     <div x-show="withTimer" class=" w-full h-1 absolute z-10 left-0 bottom-0">
         <div class="feedback_timer h-full" style="width: 100px;"></div>

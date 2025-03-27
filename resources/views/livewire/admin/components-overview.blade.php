@@ -360,6 +360,11 @@
         </x-shared.tabs.tabs>
 
         <hr class="my-5 border border-zinc-300 dark:border-zinc-800">
+        <x-shared.feedback id="{{ uniqid() }}"
+            type="info"
+            title="Título do feedback!"
+            message="Este é um feedback com dados fixos definidos via propriedades do componente de feedback." />
+        <hr class="my-5 border border-zinc-300 dark:border-zinc-800">
 
         <div
 

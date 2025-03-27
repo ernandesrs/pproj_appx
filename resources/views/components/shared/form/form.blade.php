@@ -2,11 +2,11 @@
     x-on:submit="submit"
     x-data="{
         submit(event) {
-            event.preventDefault();
-        },
-        clear() {
-            $el.reset();
-        }
+                event.preventDefault();
+            },
+            clear() {
+                $el.reset();
+            }
     }"
 
     {{ $attributes->merge([

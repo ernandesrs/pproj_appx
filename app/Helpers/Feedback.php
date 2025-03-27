@@ -39,19 +39,19 @@ class Feedback
      * @param string $to Feedback component ID. Example: 'admin', 'customer'
      */
     public function __construct(
-        string $to
+        string $feedbackComponentId
     ) {
-        $this->to = $to;
+        $this->to = $feedbackComponentId;
     }
 
     /**
      * To
-     * @param string $to Feedback component ID. Example: 'admin', 'customer'
+     * @param string $feedbackComponentId Feedback component ID. Example: 'admin', 'customer'
      * @return \App\Helpers\Feedback
      */
-    public static function to(string $to): Feedback
+    public static function to(string $feedbackComponentId): Feedback
     {
-        $feedback = new Feedback($to);
+        $feedback = new Feedback($feedbackComponentId);
         return $feedback;
     }
 
