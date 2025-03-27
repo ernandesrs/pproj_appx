@@ -1,5 +1,21 @@
 @push('livewire_dialogs')
     <x-shared.dialog
+        id="dialog_role_create"
+        title="{{ trans_choice('words.r.register', 1) }} {{ \Str::lower(trans_choice('words.r.role', 1)) }}">
+        <x-shared.form.form
+            wire:submit='saveRole'
+            class="col-span-12"
+            action="#"
+            method="get"
+            submit-text="{{ trans_choice('words.r.register', 1) }} {{ \Str::lower(trans_choice('words.r.role', 1)) }}">
+            @include('livewire.admin.role.includes.role-form-fields', [
+                'creating' => true,
+                'formName' => 'roleCreate',
+            ])
+        </x-shared.form.form>
+    </x-shared.dialog>
+
+    <x-shared.dialog
         id="dialog_role_update"
         title="{{ trans_choice('words.u.update', 1) }} {{ \Str::lower(trans_choice('words.r.role', 1)) }}">
         <div class="grid grid-cols-12 gap-5">
@@ -70,7 +86,12 @@
     </x-slot:filters>
 
     <x-slot:actions>
-        {{-- Page actions --}}
+        <x-shared.clickable
+            wire:loading.class='loading'
+            wire:target="openRoleFormModal('dialog_role_create')"
+            wire:click="openRoleFormModal('dialog_role_create')"
+            prepend-icon="plus-lg"
+            text="{{ trans_choice('words.n.new', 1) }} {{ \Str::lower(trans_choice('words.r.role', 1)) }}" />
     </x-slot:actions>
 
     <x-slot:prepend-list>

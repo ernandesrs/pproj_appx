@@ -3,6 +3,7 @@
 namespace App\Livewire\Forms\Admin;
 
 use App\Models\Role;
+use App\Models\User;
 use App\Rules\RoleRules;
 use App\Services\RoleService;
 use Livewire\Attributes\Locked;
@@ -47,10 +48,19 @@ class RoleForm extends Form
         $this->resetErrorBag();
 
         $this->fill([
-            'name' => $this->role ? $this->role->getName() : null,
-            'guard_name' => $this->role ? $this->role->guard_name : null,
+            'name' => $this->role ? $this->role->getName() : '',
+            'guard_name' => $this->role ? $this->role->guard_name : '',
             'admin_access' => $this->role ? $this->role->admin_access : false,
         ]);
+    }
+
+    /**
+     * Create
+     * @return ?\App\Models\Role
+     */
+    public function create(): ?Role
+    {
+        return RoleService::create($this->validate(RoleRules::create()));
     }
 
     /**

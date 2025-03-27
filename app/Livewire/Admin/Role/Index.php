@@ -18,6 +18,12 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
     public RoleForm $roleUpdate;
 
     /**
+     * Role Create
+     * @var RoleForm
+     */
+    public RoleForm $roleCreate;
+
+    /**
      * Mount
      * @return void
      */
@@ -37,9 +43,30 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
     {
         $dialogId == 'dialog_role_update' ?
             $this->roleUpdate->setRole($role) :
-            $this->roleUpdate->setRole();
+            $this->roleCreate->setRole();
 
         $this->dispatch('evt__dialog_show', id: $dialogId);
+    }
+
+    /**
+     * Save Role
+     * @return void
+     */
+    public function saveRole()
+    {
+        $this->authorize('create', Role::class);
+
+        $feedback = $this->feedbackGlobal();
+
+        $created = $this->roleCreate->create();
+        if ($created) {
+            $feedback->success(__('messages.success.on_create_role'));
+        } else {
+            $feedback->error(__('messages.error.on_create_role'));
+        }
+
+        $feedback->toLivewire($this);
+        $this->dispatch('evt__dialog_close', id: 'dialog_role_create');
     }
 
     /**
