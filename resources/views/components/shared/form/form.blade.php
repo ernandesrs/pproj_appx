@@ -1,8 +1,6 @@
 <form
     x-on:submit="submit"
     x-data="{
-        oa: null,
-
         submit(event) {
             event.preventDefault();
         },

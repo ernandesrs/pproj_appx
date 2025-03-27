@@ -12,7 +12,7 @@ class Field extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public string $name,
+        public ?string $name = null,
         public ?string $label = null,
         public string $type = 'text',
         public ?string $error = null,
@@ -23,6 +23,7 @@ class Field extends Component
         public bool $small = false,
         public bool $square = false,
     ) {
+        $this->name = is_null($this->name) ? uniqid('form_field_') : $this->name;
     }
 
     public function getType(): string

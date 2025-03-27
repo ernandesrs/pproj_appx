@@ -12,7 +12,7 @@ class Form extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public string $action,
+        public string $action = '#',
         public string $method = 'get',
         public string $submitText = 'Enviar',
         public string $clearText = 'Limpar formulário',
