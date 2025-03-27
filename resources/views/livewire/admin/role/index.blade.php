@@ -1,4 +1,7 @@
 @push('livewire_dialogs')
+    <x-shared.dialog-confirmation
+        id="dialog_role_delete_confirmation" />
+
     <x-shared.dialog
         id="dialog_role_create"
         title="{{ trans_choice('words.r.register', 1) }} {{ \Str::lower(trans_choice('words.r.role', 1)) }}">

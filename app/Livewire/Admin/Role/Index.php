@@ -4,8 +4,11 @@ namespace App\Livewire\Admin\Role;
 
 use App\Livewire\Forms\Admin\RoleForm;
 use App\Models\Role;
+use App\Services\RoleService;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Livewire\Attributes\Locked;
+use Livewire\Attributes\On;
 
 class Index extends \App\Livewire\Admin\AdminBaseComponent
 {
@@ -22,6 +25,13 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
      * @var RoleForm
      */
     public RoleForm $roleCreate;
+
+    /**
+     * Role Delete
+     * @var Role
+     */
+    #[Locked]
+    public Role $roleDelete;
 
     /**
      * Mount
@@ -46,6 +56,40 @@ class Index extends \App\Livewire\Admin\AdminBaseComponent
             $this->roleCreate->setRole();
 
         $this->dispatch('evt__dialog_show', id: $dialogId);
+    }
+
+    /**
+     * Delete Role Confirmation
+     * @param \App\Models\Role $role
+     * @return void
+     */
+    public function deleteRoleConfirmation(Role $role)
+    {
+        $this->authorize('delete', $role);
+
+        $this->roleDelete = $role;
+
+        $this->dispatch('evt__dialog_show', id: 'dialog_role_delete_confirmation');
+    }
+
+    /**
+     * Delete Confirmed
+     * Called when deletion is confirmed
+     * @return void
+     */
+    #[On('evt__confirmation_confirmed_dialog_role_delete_confirmation')]
+    public function deletionConfirmed()
+    {
+        $this->authorize('delete', $this->roleDelete);
+
+        $feedback = $this->feedbackGlobal();
+
+        RoleService::delete($this->roleDelete) ?
+            $feedback->success(__('messages.success.on_delete_role')) :
+            $feedback->error(__('messages.error.on_delete_role'));
+
+        $feedback->toLivewire($this);
+        $this->dispatch('evt__dialog_close', id: 'dialog_role_delete_confirmation');
     }
 
     /**

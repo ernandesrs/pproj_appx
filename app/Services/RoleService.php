@@ -27,4 +27,17 @@ class RoleService
     {
         return $role->update($validated);
     }
+
+    /**
+     * Delete role
+     * @param \App\Models\Role $role
+     * @return bool
+     */
+    public static function delete(Role $role): bool
+    {
+        if ($role->users()->count())
+            return false;
+
+        return $role->delete();
+    }
 }
